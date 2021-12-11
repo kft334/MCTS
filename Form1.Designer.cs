@@ -778,9 +778,9 @@ namespace Trade_Simulator
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(12, 257);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(78, 13);
+            this.label28.Size = new System.Drawing.Size(73, 13);
             this.label28.TabIndex = 24;
-            this.label28.Text = "Entries / Hours";
+            this.label28.Text = "Entries / Hour";
             // 
             // tbHoursPerDay
             // 

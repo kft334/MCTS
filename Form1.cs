@@ -504,6 +504,8 @@ namespace Trade_Simulator
                 List<Tuple<int, double>> p90 = new List<Tuple<int, double>>();
                 List<Tuple<int, double>> p95 = new List<Tuple<int, double>>();
 
+                double[] pq95 = new double[pts.Count / (numOfTrades + 1)];
+
                 for (int i = 0; i < numOfTrades + 1; i++)
                 {
                     IEnumerable<double> yVals = pts.Where(x => x.Item1 == i).Select(pt => (double)pt.Item2);
