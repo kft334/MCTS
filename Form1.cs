@@ -484,28 +484,23 @@ namespace Trade_Simulator
                 int numOfTrades = pts.Last().Item1;
                 int numberOfSimulations = pts.Count / (numOfTrades + 1);
 
-                List<Tuple<double, double>> ql = new List<Tuple<double, double>>();
-                List<Tuple<double, double>> qu = new List<Tuple<double, double>>();
-
-                // Need double arrays for each X (Trade Values)
-
                 List<Tuple<int, double>> p5 = new List<Tuple<int, double>>();
                 List<Tuple<int, double>> p10 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p15 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p20 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p25 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p30 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p35 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p40 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p45 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p15 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p20 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p25 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p30 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p35 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p40 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p45 = new List<Tuple<int, double>>();
                 List<Tuple<int, double>> p50 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p55 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p60 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p65 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p70 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p75 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p80 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p85 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p55 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p60 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p65 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p70 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p75 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p80 = new List<Tuple<int, double>>();
+                //List<Tuple<int, double>> p85 = new List<Tuple<int, double>>();
                 List<Tuple<int, double>> p90 = new List<Tuple<int, double>>();
                 List<Tuple<int, double>> p95 = new List<Tuple<int, double>>();
 
@@ -515,46 +510,46 @@ namespace Trade_Simulator
 
                     p5.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.05)));
                     p10.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.1)));
-                    p15.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.15)));
-                    p20.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.20)));
-                    p25.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.25)));
-                    p30.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.30)));
-                    p35.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.35)));
-                    p40.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.40)));
-                    p45.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.45)));
+                    //p15.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.15)));
+                    //p20.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.20)));
+                    //p25.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.25)));
+                    //p30.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.30)));
+                    //p35.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.35)));
+                    //p40.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.40)));
+                    //p45.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.45)));
                     p50.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.50)));
-                    p55.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.55)));
-                    p60.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.60)));
-                    p65.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.65)));
-                    p70.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.70)));
-                    p75.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.75)));
-                    p80.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.80)));
-                    p85.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.85)));
+                    //p55.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.55)));
+                    //p60.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.60)));
+                    //p65.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.65)));
+                    //p70.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.70)));
+                    //p75.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.75)));
+                    //p80.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.80)));
+                    //p85.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.85)));
                     p90.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.90))); 
                     p95.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.95)));
                 }
-
+                
                 for (int i = 0; i < p10.Count - 1; i++)
                 {
-                    plot.AddLine(p5[i].Item1, p5[i].Item2, p5[i + 1].Item1, p5[i + 1].Item2);
-                    plot.AddLine(p10[i].Item1, p10[i].Item2, p10[i + 1].Item1, p10[i + 1].Item2);
-                    plot.AddLine(p15[i].Item1, p15[i].Item2, p15[i + 1].Item1, p15[i + 1].Item2);
-                    plot.AddLine(p20[i].Item1, p20[i].Item2, p20[i + 1].Item1, p20[i + 1].Item2);
-                    plot.AddLine(p25[i].Item1, p25[i].Item2, p25[i + 1].Item1, p25[i + 1].Item2);
-                    plot.AddLine(p30[i].Item1, p30[i].Item2, p30[i + 1].Item1, p30[i + 1].Item2);
-                    plot.AddLine(p35[i].Item1, p35[i].Item2, p35[i + 1].Item1, p35[i + 1].Item2);
-                    plot.AddLine(p40[i].Item1, p40[i].Item2, p40[i + 1].Item1, p40[i + 1].Item2);
-                    plot.AddLine(p45[i].Item1, p45[i].Item2, p45[i + 1].Item1, p45[i + 1].Item2);
+                    plot.AddLine(p5[i].Item1, p5[i].Item2, p5[i + 1].Item1, p5[i + 1].Item2, Color.FromArgb(255, 0, 0));
+                    plot.AddLine(p10[i].Item1, p10[i].Item2, p10[i + 1].Item1, p10[i + 1].Item2, Color.FromArgb(255, 38, 0));
+                    //plot.AddLine(p15[i].Item1, p15[i].Item2, p15[i + 1].Item1, p15[i + 1].Item2, Color.FromArgb(255, 76, 0));
+                    //plot.AddLine(p20[i].Item1, p20[i].Item2, p20[i + 1].Item1, p20[i + 1].Item2, Color.FromArgb(255, 114, 0));
+                    //plot.AddLine(p25[i].Item1, p25[i].Item2, p25[i + 1].Item1, p25[i + 1].Item2, Color.FromArgb(255, 152, 0));
+                    //plot.AddLine(p30[i].Item1, p30[i].Item2, p30[i + 1].Item1, p30[i + 1].Item2, Color.FromArgb(255, 152, 0));
+                    //plot.AddLine(p35[i].Item1, p35[i].Item2, p35[i + 1].Item1, p35[i + 1].Item2, Color.FromArgb(255, 152, 0));
+                    //plot.AddLine(p40[i].Item1, p40[i].Item2, p40[i + 1].Item1, p40[i + 1].Item2, Color.FromArgb(255, 152, 0));
+                    //plot.AddLine(p45[i].Item1, p45[i].Item2, p45[i + 1].Item1, p45[i + 1].Item2, Color.FromArgb(255, 152, 0));
                     plot.AddLine(p50[i].Item1, p50[i].Item2, p50[i + 1].Item1, p50[i + 1].Item2, Color.FromArgb(0, 0, 0));
-                    plot.AddLine(p55[i].Item1, p55[i].Item2, p55[i + 1].Item1, p55[i + 1].Item2);
-                    plot.AddLine(p60[i].Item1, p60[i].Item2, p60[i + 1].Item1, p60[i + 1].Item2);
-                    plot.AddLine(p65[i].Item1, p65[i].Item2, p65[i + 1].Item1, p65[i + 1].Item2);
-                    plot.AddLine(p70[i].Item1, p70[i].Item2, p70[i + 1].Item1, p70[i + 1].Item2);
-                    plot.AddLine(p75[i].Item1, p75[i].Item2, p75[i + 1].Item1, p75[i + 1].Item2);
-                    plot.AddLine(p80[i].Item1, p80[i].Item2, p80[i + 1].Item1, p80[i + 1].Item2);
-                    plot.AddLine(p85[i].Item1, p85[i].Item2, p85[i + 1].Item1, p85[i + 1].Item2);
-                    plot.AddLine(p90[i].Item1, p90[i].Item2, p90[i + 1].Item1, p90[i + 1].Item2);
-                    plot.AddLine(p95[i].Item1, p95[i].Item2, p95[i + 1].Item1, p95[i + 1].Item2);
+                    //plot.AddLine(p55[i].Item1, p55[i].Item2, p55[i + 1].Item1, p55[i + 1].Item2);
+                    //plot.AddLine(p60[i].Item1, p60[i].Item2, p60[i + 1].Item1, p60[i + 1].Item2);
+                    //plot.AddLine(p65[i].Item1, p65[i].Item2, p65[i + 1].Item1, p65[i + 1].Item2);
+                    //plot.AddLine(p70[i].Item1, p70[i].Item2, p70[i + 1].Item1, p70[i + 1].Item2);
+                    //plot.AddLine(p75[i].Item1, p75[i].Item2, p75[i + 1].Item1, p75[i + 1].Item2);
+                    //plot.AddLine(p80[i].Item1, p80[i].Item2, p80[i + 1].Item1, p80[i + 1].Item2);
+                    //plot.AddLine(p85[i].Item1, p85[i].Item2, p85[i + 1].Item1, p85[i + 1].Item2, Color.FromArgb(38, 255, 0));
+                    plot.AddLine(p90[i].Item1, p90[i].Item2, p90[i + 1].Item1, p90[i + 1].Item2, Color.FromArgb(38, 255, 0));
+                    plot.AddLine(p95[i].Item1, p95[i].Item2, p95[i + 1].Item1, p95[i + 1].Item2, Color.FromArgb(0, 255, 0));
                 }   
 
                 // End Heatmap

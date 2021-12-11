@@ -100,6 +100,7 @@ namespace Trade_Simulator
             this.label29 = new System.Windows.Forms.Label();
             this.tbDaysToComplete = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numSimCount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -605,7 +606,7 @@ namespace Trade_Simulator
             this.numSimCount.TabIndex = 14;
             this.numSimCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numSimCount.Value = new decimal(new int[] {
-            500,
+            100,
             0,
             0,
             0});
@@ -820,12 +821,23 @@ namespace Trade_Simulator
             this.label30.TabIndex = 2;
             this.label30.Text = "Average # Days";
             // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(252, 656);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(639, 13);
+            this.label31.TabIndex = 26;
+            this.label31.Text = "Top/Bottom Lines: Extremes. Green Lines: 95th and 90th Percentiles. Red Lines: 5t" +
+    "h and 10th Percentiles. Black Line: 50th Percentile";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(959, 659);
+            this.ClientSize = new System.Drawing.Size(959, 678);
+            this.Controls.Add(this.label31);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.tbHoursPerDay);
@@ -981,6 +993,7 @@ namespace Trade_Simulator
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox tbDaysToComplete;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
     }
 }
 
