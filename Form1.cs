@@ -636,11 +636,11 @@ namespace Trade_Simulator
 
                 decimal diffPercent = (1 - ((assetBasePrice - stoploss) / assetBasePrice));
 
-                int leverage = int.Parse(tbLeverage.Text);
+                int leverage = int.Parse(tbLevPL.Text);
 
                 decimal leveragedAmount = tradeAmount * leverage;
 
-                decimal feePerTrade = decimal.Parse(tbFeesPerOrder.Text) / 100;
+                decimal feePerTrade = decimal.Parse(tbFeePL.Text) / 100;
                 
                 decimal entryFee = leveragedAmount * feePerTrade;
 

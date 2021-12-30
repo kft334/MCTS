@@ -109,13 +109,17 @@ namespace Trade_Simulator
             this.rtbProfitLossResults = new System.Windows.Forms.RichTextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.tbPLBalance = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.fdsf = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.tbPricePL = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.tbRiskPL = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
             this.tbRRPL = new System.Windows.Forms.TextBox();
-            this.fdsf = new System.Windows.Forms.Label();
+            this.tbRiskPL = new System.Windows.Forms.TextBox();
+            this.tbLevPL = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.tbFeePL = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numSimCount)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -867,10 +871,10 @@ namespace Trade_Simulator
             // 
             // tbSLDiff
             // 
-            this.tbSLDiff.Location = new System.Drawing.Point(58, 139);
+            this.tbSLDiff.Location = new System.Drawing.Point(58, 193);
             this.tbSLDiff.Name = "tbSLDiff";
             this.tbSLDiff.Size = new System.Drawing.Size(141, 20);
-            this.tbSLDiff.TabIndex = 25;
+            this.tbSLDiff.TabIndex = 27;
             this.tbSLDiff.Text = "0.008";
             this.tbSLDiff.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -885,10 +889,14 @@ namespace Trade_Simulator
             this.panel3.Controls.Add(this.label35);
             this.panel3.Controls.Add(this.fdsf);
             this.panel3.Controls.Add(this.label36);
+            this.panel3.Controls.Add(this.label38);
+            this.panel3.Controls.Add(this.label37);
             this.panel3.Controls.Add(this.label33);
             this.panel3.Controls.Add(this.tbPricePL);
             this.panel3.Controls.Add(this.tbRRPL);
             this.panel3.Controls.Add(this.tbRiskPL);
+            this.panel3.Controls.Add(this.tbFeePL);
+            this.panel3.Controls.Add(this.tbLevPL);
             this.panel3.Controls.Add(this.tbSLDiff);
             this.panel3.Controls.Add(this.label32);
             this.panel3.Location = new System.Drawing.Point(969, 6);
@@ -900,10 +908,10 @@ namespace Trade_Simulator
             // 
             this.btnProfitLossProcess.BackColor = System.Drawing.Color.Black;
             this.btnProfitLossProcess.ForeColor = System.Drawing.Color.White;
-            this.btnProfitLossProcess.Location = new System.Drawing.Point(58, 167);
+            this.btnProfitLossProcess.Location = new System.Drawing.Point(58, 218);
             this.btnProfitLossProcess.Name = "btnProfitLossProcess";
             this.btnProfitLossProcess.Size = new System.Drawing.Size(141, 23);
-            this.btnProfitLossProcess.TabIndex = 26;
+            this.btnProfitLossProcess.TabIndex = 28;
             this.btnProfitLossProcess.Text = "Process";
             this.btnProfitLossProcess.UseVisualStyleBackColor = false;
             this.btnProfitLossProcess.Click += new System.EventHandler(this.btnProfitLossProcess_Click);
@@ -912,7 +920,7 @@ namespace Trade_Simulator
             // 
             this.rtbProfitLossResults.BackColor = System.Drawing.Color.Black;
             this.rtbProfitLossResults.ForeColor = System.Drawing.Color.White;
-            this.rtbProfitLossResults.Location = new System.Drawing.Point(58, 196);
+            this.rtbProfitLossResults.Location = new System.Drawing.Point(58, 247);
             this.rtbProfitLossResults.Name = "rtbProfitLossResults";
             this.rtbProfitLossResults.ReadOnly = true;
             this.rtbProfitLossResults.Size = new System.Drawing.Size(141, 123);
@@ -938,10 +946,37 @@ namespace Trade_Simulator
             this.tbPLBalance.Text = "100";
             this.tbPLBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(11, 65);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(31, 13);
+            this.label35.TabIndex = 21;
+            this.label35.Text = "Price";
+            // 
+            // fdsf
+            // 
+            this.fdsf.AutoSize = true;
+            this.fdsf.Location = new System.Drawing.Point(11, 117);
+            this.fdsf.Name = "fdsf";
+            this.fdsf.Size = new System.Drawing.Size(23, 13);
+            this.fdsf.TabIndex = 21;
+            this.fdsf.Text = "RR";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(11, 91);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(28, 13);
+            this.label36.TabIndex = 21;
+            this.label36.Text = "Risk";
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(11, 142);
+            this.label33.Location = new System.Drawing.Point(11, 196);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(29, 13);
             this.label33.TabIndex = 21;
@@ -956,14 +991,14 @@ namespace Trade_Simulator
             this.tbPricePL.Text = "5";
             this.tbPricePL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label35
+            // tbRRPL
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(11, 65);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(31, 13);
-            this.label35.TabIndex = 21;
-            this.label35.Text = "Price";
+            this.tbRRPL.Location = new System.Drawing.Point(58, 114);
+            this.tbRRPL.Name = "tbRRPL";
+            this.tbRRPL.Size = new System.Drawing.Size(141, 20);
+            this.tbRRPL.TabIndex = 24;
+            this.tbRRPL.Text = "2";
+            this.tbRRPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbRiskPL
             // 
@@ -974,32 +1009,41 @@ namespace Trade_Simulator
             this.tbRiskPL.Text = "2";
             this.tbRiskPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label36
+            // tbLevPL
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(11, 91);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(28, 13);
-            this.label36.TabIndex = 21;
-            this.label36.Text = "Risk";
+            this.tbLevPL.Location = new System.Drawing.Point(58, 140);
+            this.tbLevPL.Name = "tbLevPL";
+            this.tbLevPL.Size = new System.Drawing.Size(141, 20);
+            this.tbLevPL.TabIndex = 25;
+            this.tbLevPL.Text = "75";
+            this.tbLevPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbRRPL
+            // label37
             // 
-            this.tbRRPL.Location = new System.Drawing.Point(58, 114);
-            this.tbRRPL.Name = "tbRRPL";
-            this.tbRRPL.Size = new System.Drawing.Size(141, 20);
-            this.tbRRPL.TabIndex = 24;
-            this.tbRRPL.Text = "2";
-            this.tbRRPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(11, 143);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(28, 13);
+            this.label37.TabIndex = 21;
+            this.label37.Text = "Lev.";
             // 
-            // fdsf
+            // tbFeePL
             // 
-            this.fdsf.AutoSize = true;
-            this.fdsf.Location = new System.Drawing.Point(11, 117);
-            this.fdsf.Name = "fdsf";
-            this.fdsf.Size = new System.Drawing.Size(23, 13);
-            this.fdsf.TabIndex = 21;
-            this.fdsf.Text = "RR";
+            this.tbFeePL.Location = new System.Drawing.Point(58, 166);
+            this.tbFeePL.Name = "tbFeePL";
+            this.tbFeePL.Size = new System.Drawing.Size(141, 20);
+            this.tbFeePL.TabIndex = 26;
+            this.tbFeePL.Text = "0.04";
+            this.tbFeePL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(11, 169);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(36, 13);
+            this.label38.TabIndex = 21;
+            this.label38.Text = "Fee %";
             // 
             // Form1
             // 
@@ -1183,6 +1227,10 @@ namespace Trade_Simulator
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TextBox tbRRPL;
         private System.Windows.Forms.TextBox tbRiskPL;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox tbFeePL;
+        private System.Windows.Forms.TextBox tbLevPL;
     }
 }
 
