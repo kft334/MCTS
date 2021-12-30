@@ -624,5 +624,45 @@ namespace Trade_Simulator
                 MessageBox.Show(ex.Message.ToString() + " " + ex.StackTrace.ToString());
             }
         }
+
+        private void btnProfitLossProcess_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal stoploss = decimal.Parse(tbSLDiff.Text);
+                decimal balance = decimal.Parse(tbPLBalance.Text);
+                decimal riskPercentPerTrade = decimal.Parse(tbRiskPL.Text) / 100;
+                decimal tradeAmount = balance * riskPercentPerTrade;
+
+                decimal assetBasePrice = decimal.Parse(tbPricePL.Text);
+
+                decimal diffPercent = (1 - ((assetBasePrice - stoploss) / assetBasePrice));
+
+                int leverage = int.Parse(tbLeverage.Text);
+
+                decimal leveragedAmount = tradeAmount * leverage;
+
+                decimal feePerTrade = decimal.Parse(tbFeesPerOrder.Text) / 100;
+
+                decimal entryFee = leveragedAmount * feePerTrade;
+
+                decimal rR = decimal.Parse(tbRRPL.Text);
+
+                decimal exitFeeSL = (leveragedAmount + (leveragedAmount * diffPercent)) * feePerTrade;
+                decimal exitFeeTP = (leveragedAmount - (leveragedAmount * diffPercent * rR)) * feePerTrade;
+
+                decimal lossFees = entryFee + exitFeeSL;
+                decimal winFees = entryFee + exitFeeTP;
+
+                decimal lost = leveragedAmount * diffPercent + lossFees;
+                decimal won = leveragedAmount * diffPercent * rR - winFees;
+
+                rtbProfitLossResults.Text = "Won: $" + decimal.Round(won, 2) + "\nLost: $" + decimal.Round(lost, 2);
+            }
+            catch (Exception exPL)
+            {
+                MessageBox.Show("Please check the inputs.");
+            }
+        }
     }
 }
