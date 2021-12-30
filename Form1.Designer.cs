@@ -923,7 +923,7 @@ namespace Trade_Simulator
             this.rtbProfitLossResults.Location = new System.Drawing.Point(58, 247);
             this.rtbProfitLossResults.Name = "rtbProfitLossResults";
             this.rtbProfitLossResults.ReadOnly = true;
-            this.rtbProfitLossResults.Size = new System.Drawing.Size(141, 123);
+            this.rtbProfitLossResults.Size = new System.Drawing.Size(141, 72);
             this.rtbProfitLossResults.TabIndex = 22;
             this.rtbProfitLossResults.TabStop = false;
             this.rtbProfitLossResults.Text = "";

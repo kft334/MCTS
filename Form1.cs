@@ -656,8 +656,8 @@ namespace Trade_Simulator
                 decimal won = leveragedAmount * diffPercent * rR - winFees;
 
                 decimal beWinPercent = lost / (lost + won) * 100;
-
-                rtbProfitLossResults.Text = "Won: $" + decimal.Round(won, 2) + "\nLost: $" + decimal.Round(lost, 2) + "\nBE: " + decimal.Round(beWinPercent, 1) + "%";
+                rtbProfitLossResults.SelectionAlignment = HorizontalAlignment.Center;
+                rtbProfitLossResults.Text = "\nWon: $" + decimal.Round(won, 2) + "\nLost: $" + decimal.Round(lost, 2) + "\nBE: " + decimal.Round(beWinPercent, 1) + "%";
 
                 // Stp: 0.008, W: $x.xx, L: $x.xx, BE: xx%
             }
