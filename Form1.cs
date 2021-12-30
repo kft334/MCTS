@@ -566,8 +566,6 @@ namespace Trade_Simulator
                     plot.AddLine(superSim.X_YMin_YAv_YMax[i].Item1, (double)superSim.X_YMin_YAv_YMax[i].Item4, superSim.X_YMin_YAv_YMax[i + 1].Item1, (double)superSim.X_YMin_YAv_YMax[i + 1].Item4);
                 }
 
-
-
                 plot.Title($"Equity Curve");
                 plot.YAxis.TickDensity(3);
                 plot.XAxis.TickDensity(2);
@@ -643,7 +641,7 @@ namespace Trade_Simulator
                 decimal leveragedAmount = tradeAmount * leverage;
 
                 decimal feePerTrade = decimal.Parse(tbFeesPerOrder.Text) / 100;
-
+                
                 decimal entryFee = leveragedAmount * feePerTrade;
 
                 decimal rR = decimal.Parse(tbRRPL.Text);
@@ -657,7 +655,11 @@ namespace Trade_Simulator
                 decimal lost = leveragedAmount * diffPercent + lossFees;
                 decimal won = leveragedAmount * diffPercent * rR - winFees;
 
-                rtbProfitLossResults.Text = "Won: $" + decimal.Round(won, 2) + "\nLost: $" + decimal.Round(lost, 2);
+                decimal beWinPercent = lost / (lost + won) * 100;
+
+                rtbProfitLossResults.Text = "Won: $" + decimal.Round(won, 2) + "\nLost: $" + decimal.Round(lost, 2) + "\nBE: " + decimal.Round(beWinPercent, 1) + "%";
+
+                // Stp: 0.008, W: $x.xx, L: $x.xx, BE: xx%
             }
             catch (Exception exPL)
             {

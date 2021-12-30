@@ -870,8 +870,8 @@ namespace Trade_Simulator
             this.tbSLDiff.Location = new System.Drawing.Point(58, 139);
             this.tbSLDiff.Name = "tbSLDiff";
             this.tbSLDiff.Size = new System.Drawing.Size(141, 20);
-            this.tbSLDiff.TabIndex = 20;
-            this.tbSLDiff.Text = "0.004";
+            this.tbSLDiff.TabIndex = 25;
+            this.tbSLDiff.Text = "0.008";
             this.tbSLDiff.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel3
@@ -903,7 +903,7 @@ namespace Trade_Simulator
             this.btnProfitLossProcess.Location = new System.Drawing.Point(58, 167);
             this.btnProfitLossProcess.Name = "btnProfitLossProcess";
             this.btnProfitLossProcess.Size = new System.Drawing.Size(141, 23);
-            this.btnProfitLossProcess.TabIndex = 22;
+            this.btnProfitLossProcess.TabIndex = 26;
             this.btnProfitLossProcess.Text = "Process";
             this.btnProfitLossProcess.UseVisualStyleBackColor = false;
             this.btnProfitLossProcess.Click += new System.EventHandler(this.btnProfitLossProcess_Click);
@@ -952,7 +952,7 @@ namespace Trade_Simulator
             this.tbPricePL.Location = new System.Drawing.Point(58, 62);
             this.tbPricePL.Name = "tbPricePL";
             this.tbPricePL.Size = new System.Drawing.Size(141, 20);
-            this.tbPricePL.TabIndex = 20;
+            this.tbPricePL.TabIndex = 22;
             this.tbPricePL.Text = "5";
             this.tbPricePL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -970,7 +970,7 @@ namespace Trade_Simulator
             this.tbRiskPL.Location = new System.Drawing.Point(58, 88);
             this.tbRiskPL.Name = "tbRiskPL";
             this.tbRiskPL.Size = new System.Drawing.Size(141, 20);
-            this.tbRiskPL.TabIndex = 20;
+            this.tbRiskPL.TabIndex = 23;
             this.tbRiskPL.Text = "2";
             this.tbRiskPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -988,7 +988,7 @@ namespace Trade_Simulator
             this.tbRRPL.Location = new System.Drawing.Point(58, 114);
             this.tbRRPL.Name = "tbRRPL";
             this.tbRRPL.Size = new System.Drawing.Size(141, 20);
-            this.tbRRPL.TabIndex = 20;
+            this.tbRRPL.TabIndex = 24;
             this.tbRRPL.Text = "2";
             this.tbRRPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
