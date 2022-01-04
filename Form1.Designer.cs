@@ -1233,7 +1233,7 @@ namespace Trade_Simulator
             this.tbTSBuyingPower.Name = "tbTSBuyingPower";
             this.tbTSBuyingPower.Size = new System.Drawing.Size(141, 20);
             this.tbTSBuyingPower.TabIndex = 33;
-            this.tbTSBuyingPower.Text = "75000";
+            this.tbTSBuyingPower.Text = "7500";
             // 
             // tbTSPercent
             // 
