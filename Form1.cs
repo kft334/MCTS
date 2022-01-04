@@ -744,7 +744,7 @@ namespace Trade_Simulator
                 decimal buyingPower = decimal.Parse(tbTSBalance.Text) * decimal.Parse(tbTSLev.Text);
                 decimal percent = decimal.Parse(tbTSPercent.Text) / 100;
 
-                tbPositionSize.Text = (buyingPower / price * percent) + " Units";
+                tbPositionSize.Text = (buyingPower / price * percent) + " Lots";
             }
             catch (Exception ex)
             {
