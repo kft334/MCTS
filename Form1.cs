@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -657,11 +658,95 @@ namespace Trade_Simulator
 
                 decimal beWinPercent = lost / (lost + won) * 100;
                 rtbProfitLossResults.SelectionAlignment = HorizontalAlignment.Center;
-                rtbProfitLossResults.Text = "\nWon: $" + decimal.Round(won, 2) + "\nLost: $" + decimal.Round(lost, 2) + "\nBE: " + decimal.Round(beWinPercent, 1) + "%";
+
+                // wp - % = w / p
+                // lp - % = l / p
+
+                string pGain = decimal.Round(won / balance * 100, 2) + "%";
+                string pLoss = decimal.Round(lost / balance * 100, 2) + "%";
+
+                rtbProfitLossResults.Text = "\nWon: $" + decimal.Round(won, 2) + " (" + pGain + ")" + "\nLost: $" + decimal.Round(lost, 2) + " (" + pLoss + ")" + "\nBE: " + decimal.Round(beWinPercent, 1) + "%";
 
                 // Stp: 0.008, W: $x.xx, L: $x.xx, BE: xx%
             }
             catch (Exception exPL)
+            {
+                MessageBox.Show("Please check the inputs.");
+            }
+        }
+
+        private void btnCompound_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal principal = decimal.Parse(tbPrincipal.Text);
+                decimal rate = decimal.Parse(tbRate.Text) / 100;
+                decimal t = decimal.Parse(tbT.Text);
+
+                tbCompOut.Text = ((double)principal * Math.Pow((double)(1 + rate), (double)t)).ToString();
+
+                // P (1 + r / n) ^ (nt)
+
+                // r = rate, n = number of times compounded per period, t = number of periods, P = principal
+            }
+            catch (Exception exComp) 
+            {
+                MessageBox.Show("Please check the inputs.");
+            }
+        }
+
+        private void btnPlotEquity_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                panelGraph.BackgroundImage = null;
+
+                plot = new ScottPlot.Plot();
+
+                // Logic here
+
+                List<decimal> bPt = new List<decimal>();
+
+                using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + @"\Data\Equity.dat"))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        bPt.Add(decimal.Parse(sr.ReadLine()));
+                    }
+                }
+
+                for (int i = 0; i < bPt.Count - 1; i++)
+                {
+                    plot.AddLine(i, (double)bPt[i], i + 1, (double)bPt[i + 1]);
+                }
+
+                plot.Title($"Equity Curve");
+                plot.YAxis.TickDensity(3);
+                plot.XAxis.TickDensity(2);
+                plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
+                plot.XLabel("Trade #");
+                plot.YLabel("Equity ($)");
+                plot.AxisAuto();
+
+                panelGraph.BackgroundImage = new Bitmap(plot.Render(panelGraph.Width, panelGraph.Height));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(@"Please ensure that the data in bin\Data\Equity.dat is properly formatted.");
+            }
+        }
+
+        private void btnGetPositionSize_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal price = decimal.Parse(tbPSPrice.Text);
+                decimal buyingPower = decimal.Parse(tbTSBuyingPower.Text);
+                decimal percent = decimal.Parse(tbTSPercent.Text) / 100;
+
+                tbPositionSize.Text = (buyingPower / price * percent) + " Units";
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Please check the inputs.");
             }
