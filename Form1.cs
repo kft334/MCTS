@@ -683,11 +683,11 @@ namespace Trade_Simulator
                 decimal rate = decimal.Parse(tbRate.Text) / 100;
                 decimal t = decimal.Parse(tbT.Text);
 
-                tbCompOut.Text = ((double)principal * Math.Pow((double)(1 + rate), (double)t)).ToString();
+                tbCompOut.Text = (decimal.Round((decimal)((double)principal * Math.Pow((double)(1 + rate), (double)t)), 2)).ToString();
 
                 // P (1 + r / n) ^ (nt)
 
-                // r = rate, n = number of times compounded per period, t = number of periods, P = principal
+                // TODO: Calculate RoC for compounding, variable period
             }
             catch (Exception exComp) 
             {
@@ -741,7 +741,7 @@ namespace Trade_Simulator
             try
             {
                 decimal price = decimal.Parse(tbPSPrice.Text);
-                decimal buyingPower = decimal.Parse(tbTSBuyingPower.Text);
+                decimal buyingPower = decimal.Parse(tbTSBalance.Text) * decimal.Parse(tbTSLev.Text);
                 decimal percent = decimal.Parse(tbTSPercent.Text) / 100;
 
                 tbPositionSize.Text = (buyingPower / price * percent) + " Units";
