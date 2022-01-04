@@ -949,9 +949,9 @@ namespace Trade_Simulator
             // 
             this.btnCompound.BackColor = System.Drawing.Color.Black;
             this.btnCompound.ForeColor = System.Drawing.Color.White;
-            this.btnCompound.Location = new System.Drawing.Point(31, 417);
+            this.btnCompound.Location = new System.Drawing.Point(88, 417);
             this.btnCompound.Name = "btnCompound";
-            this.btnCompound.Size = new System.Drawing.Size(168, 23);
+            this.btnCompound.Size = new System.Drawing.Size(111, 23);
             this.btnCompound.TabIndex = 31;
             this.btnCompound.Text = "Process";
             this.btnCompound.UseVisualStyleBackColor = false;
@@ -961,10 +961,10 @@ namespace Trade_Simulator
             // 
             this.tbCompOut.BackColor = System.Drawing.Color.Black;
             this.tbCompOut.ForeColor = System.Drawing.Color.White;
-            this.tbCompOut.Location = new System.Drawing.Point(31, 446);
+            this.tbCompOut.Location = new System.Drawing.Point(88, 446);
             this.tbCompOut.Name = "tbCompOut";
             this.tbCompOut.ReadOnly = true;
-            this.tbCompOut.Size = new System.Drawing.Size(168, 20);
+            this.tbCompOut.Size = new System.Drawing.Size(111, 20);
             this.tbCompOut.TabIndex = 30;
             this.tbCompOut.TabStop = false;
             this.tbCompOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
