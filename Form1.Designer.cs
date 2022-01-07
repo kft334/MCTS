@@ -41,7 +41,7 @@ namespace Trade_Simulator
             this.tbNumberOfTrades = new System.Windows.Forms.TextBox();
             this.tbLeverage = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tbFeesPerOrder = new System.Windows.Forms.TextBox();
+            this.tbFeesPerOrderEnt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tbWon = new System.Windows.Forms.TextBox();
@@ -101,10 +101,19 @@ namespace Trade_Simulator
             this.tbDaysToComplete = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label32 = new System.Windows.Forms.Label();
             this.tbSLDiff = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnGetPositionSize = new System.Windows.Forms.Button();
+            this.tbPositionSize = new System.Windows.Forms.TextBox();
+            this.tbTSPercent = new System.Windows.Forms.TextBox();
+            this.tbTSLev = new System.Windows.Forms.TextBox();
+            this.tbTSBalance = new System.Windows.Forms.TextBox();
+            this.tbPSPrice = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.btnCompound = new System.Windows.Forms.Button();
             this.tbCompOut = new System.Windows.Forms.TextBox();
             this.tbT = new System.Windows.Forms.TextBox();
@@ -126,23 +135,21 @@ namespace Trade_Simulator
             this.tbPricePL = new System.Windows.Forms.TextBox();
             this.tbRRPL = new System.Windows.Forms.TextBox();
             this.tbRiskPL = new System.Windows.Forms.TextBox();
-            this.tbFeePL = new System.Windows.Forms.TextBox();
+            this.tbFeePLEnt = new System.Windows.Forms.TextBox();
             this.tbLevPL = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.btnPlotEquity = new System.Windows.Forms.Button();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.tbPSPrice = new System.Windows.Forms.TextBox();
-            this.tbTSBalance = new System.Windows.Forms.TextBox();
-            this.tbTSPercent = new System.Windows.Forms.TextBox();
-            this.tbPositionSize = new System.Windows.Forms.TextBox();
-            this.btnGetPositionSize = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
-            this.tbTSLev = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label48 = new System.Windows.Forms.Label();
+            this.btnEntry = new System.Windows.Forms.Button();
+            this.tbNewBalance = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.tbFeesPerOrderExit = new System.Windows.Forms.TextBox();
+            this.tbFeePLExit = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numSimCount)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbStartingBalance
@@ -181,7 +188,7 @@ namespace Trade_Simulator
             this.tbRiskPerTrade.Name = "tbRiskPerTrade";
             this.tbRiskPerTrade.Size = new System.Drawing.Size(100, 20);
             this.tbRiskPerTrade.TabIndex = 2;
-            this.tbRiskPerTrade.Text = "10";
+            this.tbRiskPerTrade.Text = "1";
             this.tbRiskPerTrade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -244,7 +251,7 @@ namespace Trade_Simulator
             this.tbLeverage.Name = "tbLeverage";
             this.tbLeverage.Size = new System.Drawing.Size(100, 20);
             this.tbLeverage.TabIndex = 8;
-            this.tbLeverage.Text = "75";
+            this.tbLeverage.Text = "1";
             this.tbLeverage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
@@ -256,14 +263,14 @@ namespace Trade_Simulator
             this.label7.TabIndex = 2;
             this.label7.Text = "# Trades";
             // 
-            // tbFeesPerOrder
+            // tbFeesPerOrderEnt
             // 
-            this.tbFeesPerOrder.Location = new System.Drawing.Point(140, 203);
-            this.tbFeesPerOrder.Name = "tbFeesPerOrder";
-            this.tbFeesPerOrder.Size = new System.Drawing.Size(100, 20);
-            this.tbFeesPerOrder.TabIndex = 9;
-            this.tbFeesPerOrder.Text = "0.04";
-            this.tbFeesPerOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbFeesPerOrderEnt.Location = new System.Drawing.Point(140, 203);
+            this.tbFeesPerOrderEnt.Name = "tbFeesPerOrderEnt";
+            this.tbFeesPerOrderEnt.Size = new System.Drawing.Size(47, 20);
+            this.tbFeesPerOrderEnt.TabIndex = 9;
+            this.tbFeesPerOrderEnt.Text = "0.075";
+            this.tbFeesPerOrderEnt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
@@ -872,19 +879,11 @@ namespace Trade_Simulator
             this.label31.Text = "Top/Bottom Lines: Extremes. Green Lines: 95th and 90th Percentiles. Red Lines: 5t" +
     "h and 10th Percentiles. Black Line: 50th Percentile";
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel2.Location = new System.Drawing.Point(953, 6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 642);
-            this.panel2.TabIndex = 27;
-            // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(51, 5);
+            this.label32.Location = new System.Drawing.Point(0, 5);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(105, 20);
             this.label32.TabIndex = 19;
@@ -892,11 +891,11 @@ namespace Trade_Simulator
             // 
             // tbSLDiff
             // 
-            this.tbSLDiff.Location = new System.Drawing.Point(58, 187);
+            this.tbSLDiff.Location = new System.Drawing.Point(48, 187);
             this.tbSLDiff.Name = "tbSLDiff";
-            this.tbSLDiff.Size = new System.Drawing.Size(141, 20);
+            this.tbSLDiff.Size = new System.Drawing.Size(127, 20);
             this.tbSLDiff.TabIndex = 27;
-            this.tbSLDiff.Text = "0.008";
+            this.tbSLDiff.Text = "0.0087";
             this.tbSLDiff.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel3
@@ -934,24 +933,116 @@ namespace Trade_Simulator
             this.panel3.Controls.Add(this.tbPricePL);
             this.panel3.Controls.Add(this.tbRRPL);
             this.panel3.Controls.Add(this.tbRiskPL);
-            this.panel3.Controls.Add(this.tbFeePL);
+            this.panel3.Controls.Add(this.tbFeePLExit);
+            this.panel3.Controls.Add(this.tbFeePLEnt);
             this.panel3.Controls.Add(this.tbLevPL);
             this.panel3.Controls.Add(this.tbSLDiff);
             this.panel3.Controls.Add(this.label45);
             this.panel3.Controls.Add(this.label39);
             this.panel3.Controls.Add(this.label32);
-            this.panel3.Location = new System.Drawing.Point(969, 6);
+            this.panel3.Location = new System.Drawing.Point(955, 6);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(217, 616);
+            this.panel3.Size = new System.Drawing.Size(188, 616);
             this.panel3.TabIndex = 28;
+            // 
+            // btnGetPositionSize
+            // 
+            this.btnGetPositionSize.BackColor = System.Drawing.Color.Black;
+            this.btnGetPositionSize.ForeColor = System.Drawing.Color.White;
+            this.btnGetPositionSize.Location = new System.Drawing.Point(4, 584);
+            this.btnGetPositionSize.Name = "btnGetPositionSize";
+            this.btnGetPositionSize.Size = new System.Drawing.Size(38, 23);
+            this.btnGetPositionSize.TabIndex = 36;
+            this.btnGetPositionSize.Text = "Get";
+            this.btnGetPositionSize.UseVisualStyleBackColor = false;
+            this.btnGetPositionSize.Click += new System.EventHandler(this.btnGetPositionSize_Click);
+            // 
+            // tbPositionSize
+            // 
+            this.tbPositionSize.BackColor = System.Drawing.Color.Black;
+            this.tbPositionSize.ForeColor = System.Drawing.Color.White;
+            this.tbPositionSize.Location = new System.Drawing.Point(48, 586);
+            this.tbPositionSize.Name = "tbPositionSize";
+            this.tbPositionSize.ReadOnly = true;
+            this.tbPositionSize.Size = new System.Drawing.Size(127, 20);
+            this.tbPositionSize.TabIndex = 33;
+            this.tbPositionSize.TabStop = false;
+            // 
+            // tbTSPercent
+            // 
+            this.tbTSPercent.Location = new System.Drawing.Point(48, 562);
+            this.tbTSPercent.Name = "tbTSPercent";
+            this.tbTSPercent.Size = new System.Drawing.Size(127, 20);
+            this.tbTSPercent.TabIndex = 35;
+            this.tbTSPercent.Text = "0.15";
+            // 
+            // tbTSLev
+            // 
+            this.tbTSLev.Location = new System.Drawing.Point(48, 538);
+            this.tbTSLev.Name = "tbTSLev";
+            this.tbTSLev.Size = new System.Drawing.Size(127, 20);
+            this.tbTSLev.TabIndex = 34;
+            this.tbTSLev.Text = "1";
+            // 
+            // tbTSBalance
+            // 
+            this.tbTSBalance.Location = new System.Drawing.Point(48, 514);
+            this.tbTSBalance.Name = "tbTSBalance";
+            this.tbTSBalance.Size = new System.Drawing.Size(127, 20);
+            this.tbTSBalance.TabIndex = 33;
+            this.tbTSBalance.Text = "100";
+            // 
+            // tbPSPrice
+            // 
+            this.tbPSPrice.Location = new System.Drawing.Point(48, 490);
+            this.tbPSPrice.Name = "tbPSPrice";
+            this.tbPSPrice.Size = new System.Drawing.Size(127, 20);
+            this.tbPSPrice.TabIndex = 32;
+            this.tbPSPrice.Text = "5";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(1, 541);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(28, 13);
+            this.label42.TabIndex = 32;
+            this.label42.Text = "Lev.";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(1, 565);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(15, 13);
+            this.label47.TabIndex = 32;
+            this.label47.Text = "%";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(1, 517);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(46, 13);
+            this.label46.TabIndex = 32;
+            this.label46.Text = "Balance";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(1, 493);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(31, 13);
+            this.label44.TabIndex = 32;
+            this.label44.Text = "Price";
             // 
             // btnCompound
             // 
             this.btnCompound.BackColor = System.Drawing.Color.Black;
             this.btnCompound.ForeColor = System.Drawing.Color.White;
-            this.btnCompound.Location = new System.Drawing.Point(88, 417);
+            this.btnCompound.Location = new System.Drawing.Point(78, 417);
             this.btnCompound.Name = "btnCompound";
-            this.btnCompound.Size = new System.Drawing.Size(111, 23);
+            this.btnCompound.Size = new System.Drawing.Size(97, 23);
             this.btnCompound.TabIndex = 31;
             this.btnCompound.Text = "Process";
             this.btnCompound.UseVisualStyleBackColor = false;
@@ -961,28 +1052,28 @@ namespace Trade_Simulator
             // 
             this.tbCompOut.BackColor = System.Drawing.Color.Black;
             this.tbCompOut.ForeColor = System.Drawing.Color.White;
-            this.tbCompOut.Location = new System.Drawing.Point(88, 446);
+            this.tbCompOut.Location = new System.Drawing.Point(78, 446);
             this.tbCompOut.Name = "tbCompOut";
             this.tbCompOut.ReadOnly = true;
-            this.tbCompOut.Size = new System.Drawing.Size(111, 20);
+            this.tbCompOut.Size = new System.Drawing.Size(97, 20);
             this.tbCompOut.TabIndex = 30;
             this.tbCompOut.TabStop = false;
             this.tbCompOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbT
             // 
-            this.tbT.Location = new System.Drawing.Point(88, 388);
+            this.tbT.Location = new System.Drawing.Point(78, 388);
             this.tbT.Name = "tbT";
-            this.tbT.Size = new System.Drawing.Size(111, 20);
+            this.tbT.Size = new System.Drawing.Size(97, 20);
             this.tbT.TabIndex = 30;
             this.tbT.Text = "100";
             this.tbT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbRate
             // 
-            this.tbRate.Location = new System.Drawing.Point(88, 360);
+            this.tbRate.Location = new System.Drawing.Point(78, 360);
             this.tbRate.Name = "tbRate";
-            this.tbRate.Size = new System.Drawing.Size(111, 20);
+            this.tbRate.Size = new System.Drawing.Size(97, 20);
             this.tbRate.TabIndex = 30;
             this.tbRate.Text = "0.36";
             this.tbRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -990,7 +1081,7 @@ namespace Trade_Simulator
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(11, 391);
+            this.label43.Location = new System.Drawing.Point(1, 391);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(73, 13);
             this.label43.TabIndex = 29;
@@ -998,9 +1089,9 @@ namespace Trade_Simulator
             // 
             // tbPrincipal
             // 
-            this.tbPrincipal.Location = new System.Drawing.Point(88, 333);
+            this.tbPrincipal.Location = new System.Drawing.Point(78, 333);
             this.tbPrincipal.Name = "tbPrincipal";
-            this.tbPrincipal.Size = new System.Drawing.Size(111, 20);
+            this.tbPrincipal.Size = new System.Drawing.Size(97, 20);
             this.tbPrincipal.TabIndex = 30;
             this.tbPrincipal.Text = "100";
             this.tbPrincipal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1008,16 +1099,16 @@ namespace Trade_Simulator
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(11, 363);
+            this.label41.Location = new System.Drawing.Point(1, 363);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(28, 13);
+            this.label41.Size = new System.Drawing.Size(40, 13);
             this.label41.TabIndex = 29;
-            this.label41.Text = "RoC";
+            this.label41.Text = "% RoR";
             // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(11, 336);
+            this.label40.Location = new System.Drawing.Point(1, 336);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(47, 13);
             this.label40.TabIndex = 29;
@@ -1027,9 +1118,9 @@ namespace Trade_Simulator
             // 
             this.btnProfitLossProcess.BackColor = System.Drawing.Color.Black;
             this.btnProfitLossProcess.ForeColor = System.Drawing.Color.White;
-            this.btnProfitLossProcess.Location = new System.Drawing.Point(58, 208);
+            this.btnProfitLossProcess.Location = new System.Drawing.Point(48, 208);
             this.btnProfitLossProcess.Name = "btnProfitLossProcess";
-            this.btnProfitLossProcess.Size = new System.Drawing.Size(141, 23);
+            this.btnProfitLossProcess.Size = new System.Drawing.Size(127, 23);
             this.btnProfitLossProcess.TabIndex = 28;
             this.btnProfitLossProcess.Text = "Process";
             this.btnProfitLossProcess.UseVisualStyleBackColor = false;
@@ -1039,10 +1130,10 @@ namespace Trade_Simulator
             // 
             this.rtbProfitLossResults.BackColor = System.Drawing.Color.Black;
             this.rtbProfitLossResults.ForeColor = System.Drawing.Color.White;
-            this.rtbProfitLossResults.Location = new System.Drawing.Point(58, 233);
+            this.rtbProfitLossResults.Location = new System.Drawing.Point(48, 233);
             this.rtbProfitLossResults.Name = "rtbProfitLossResults";
             this.rtbProfitLossResults.ReadOnly = true;
-            this.rtbProfitLossResults.Size = new System.Drawing.Size(141, 72);
+            this.rtbProfitLossResults.Size = new System.Drawing.Size(127, 72);
             this.rtbProfitLossResults.TabIndex = 22;
             this.rtbProfitLossResults.TabStop = false;
             this.rtbProfitLossResults.Text = "";
@@ -1050,7 +1141,7 @@ namespace Trade_Simulator
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(11, 33);
+            this.label34.Location = new System.Drawing.Point(1, 33);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(46, 13);
             this.label34.TabIndex = 21;
@@ -1058,9 +1149,9 @@ namespace Trade_Simulator
             // 
             // tbPLBalance
             // 
-            this.tbPLBalance.Location = new System.Drawing.Point(58, 30);
+            this.tbPLBalance.Location = new System.Drawing.Point(48, 30);
             this.tbPLBalance.Name = "tbPLBalance";
-            this.tbPLBalance.Size = new System.Drawing.Size(141, 20);
+            this.tbPLBalance.Size = new System.Drawing.Size(127, 20);
             this.tbPLBalance.TabIndex = 21;
             this.tbPLBalance.Text = "100";
             this.tbPLBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1068,7 +1159,7 @@ namespace Trade_Simulator
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(11, 59);
+            this.label35.Location = new System.Drawing.Point(1, 59);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(31, 13);
             this.label35.TabIndex = 21;
@@ -1077,7 +1168,7 @@ namespace Trade_Simulator
             // fdsf
             // 
             this.fdsf.AutoSize = true;
-            this.fdsf.Location = new System.Drawing.Point(11, 111);
+            this.fdsf.Location = new System.Drawing.Point(1, 111);
             this.fdsf.Name = "fdsf";
             this.fdsf.Size = new System.Drawing.Size(23, 13);
             this.fdsf.TabIndex = 21;
@@ -1086,7 +1177,7 @@ namespace Trade_Simulator
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(11, 85);
+            this.label36.Location = new System.Drawing.Point(1, 85);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(28, 13);
             this.label36.TabIndex = 21;
@@ -1095,7 +1186,7 @@ namespace Trade_Simulator
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(11, 163);
+            this.label38.Location = new System.Drawing.Point(1, 163);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(36, 13);
             this.label38.TabIndex = 21;
@@ -1104,7 +1195,7 @@ namespace Trade_Simulator
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(11, 137);
+            this.label37.Location = new System.Drawing.Point(1, 137);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(28, 13);
             this.label37.TabIndex = 21;
@@ -1113,7 +1204,7 @@ namespace Trade_Simulator
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(11, 190);
+            this.label33.Location = new System.Drawing.Point(1, 190);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(29, 13);
             this.label33.TabIndex = 21;
@@ -1121,54 +1212,64 @@ namespace Trade_Simulator
             // 
             // tbPricePL
             // 
-            this.tbPricePL.Location = new System.Drawing.Point(58, 56);
+            this.tbPricePL.Location = new System.Drawing.Point(48, 56);
             this.tbPricePL.Name = "tbPricePL";
-            this.tbPricePL.Size = new System.Drawing.Size(141, 20);
+            this.tbPricePL.Size = new System.Drawing.Size(127, 20);
             this.tbPricePL.TabIndex = 22;
             this.tbPricePL.Text = "5";
             this.tbPricePL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbRRPL
             // 
-            this.tbRRPL.Location = new System.Drawing.Point(58, 108);
+            this.tbRRPL.Location = new System.Drawing.Point(48, 108);
             this.tbRRPL.Name = "tbRRPL";
-            this.tbRRPL.Size = new System.Drawing.Size(141, 20);
+            this.tbRRPL.Size = new System.Drawing.Size(127, 20);
             this.tbRRPL.TabIndex = 24;
             this.tbRRPL.Text = "2";
             this.tbRRPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbRiskPL
             // 
-            this.tbRiskPL.Location = new System.Drawing.Point(58, 82);
+            this.tbRiskPL.Location = new System.Drawing.Point(48, 82);
             this.tbRiskPL.Name = "tbRiskPL";
-            this.tbRiskPL.Size = new System.Drawing.Size(141, 20);
+            this.tbRiskPL.Size = new System.Drawing.Size(127, 20);
             this.tbRiskPL.TabIndex = 23;
             this.tbRiskPL.Text = "2";
             this.tbRiskPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbFeePL
+            // tbFeePLEnt
             // 
-            this.tbFeePL.Location = new System.Drawing.Point(58, 160);
-            this.tbFeePL.Name = "tbFeePL";
-            this.tbFeePL.Size = new System.Drawing.Size(141, 20);
-            this.tbFeePL.TabIndex = 26;
-            this.tbFeePL.Text = "0.04";
-            this.tbFeePL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbFeePLEnt.Location = new System.Drawing.Point(48, 160);
+            this.tbFeePLEnt.Name = "tbFeePLEnt";
+            this.tbFeePLEnt.Size = new System.Drawing.Size(57, 20);
+            this.tbFeePLEnt.TabIndex = 26;
+            this.tbFeePLEnt.Text = "0.075";
+            this.tbFeePLEnt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbLevPL
             // 
-            this.tbLevPL.Location = new System.Drawing.Point(58, 134);
+            this.tbLevPL.Location = new System.Drawing.Point(48, 134);
             this.tbLevPL.Name = "tbLevPL";
-            this.tbLevPL.Size = new System.Drawing.Size(141, 20);
+            this.tbLevPL.Size = new System.Drawing.Size(127, 20);
             this.tbLevPL.TabIndex = 25;
-            this.tbLevPL.Text = "75";
+            this.tbLevPL.Text = "1";
             this.tbLevPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(0, 467);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(127, 20);
+            this.label45.TabIndex = 19;
+            this.label45.Text = "Position Sizing";
             // 
             // label39
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(63, 306);
+            this.label39.Location = new System.Drawing.Point(0, 306);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(95, 20);
             this.label39.TabIndex = 19;
@@ -1179,124 +1280,94 @@ namespace Trade_Simulator
             this.btnPlotEquity.BackColor = System.Drawing.Color.Black;
             this.btnPlotEquity.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlotEquity.ForeColor = System.Drawing.Color.White;
-            this.btnPlotEquity.Location = new System.Drawing.Point(969, 629);
+            this.btnPlotEquity.Location = new System.Drawing.Point(953, 627);
             this.btnPlotEquity.Name = "btnPlotEquity";
-            this.btnPlotEquity.Size = new System.Drawing.Size(217, 43);
+            this.btnPlotEquity.Size = new System.Drawing.Size(385, 43);
             this.btnPlotEquity.TabIndex = 37;
             this.btnPlotEquity.Text = "Plot Equity";
             this.btnPlotEquity.UseVisualStyleBackColor = false;
             this.btnPlotEquity.Click += new System.EventHandler(this.btnPlotEquity_Click);
             // 
-            // label44
+            // panel4
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(11, 493);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(31, 13);
-            this.label44.TabIndex = 32;
-            this.label44.Text = "Price";
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.label48);
+            this.panel4.Controls.Add(this.btnEntry);
+            this.panel4.Controls.Add(this.tbNewBalance);
+            this.panel4.Controls.Add(this.label49);
+            this.panel4.Location = new System.Drawing.Point(1150, 6);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(188, 616);
+            this.panel4.TabIndex = 38;
             // 
-            // label45
+            // label48
             // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(45, 469);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(127, 20);
-            this.label45.TabIndex = 19;
-            this.label45.Text = "Position Sizing";
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(5, 5);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(121, 20);
+            this.label48.TabIndex = 19;
+            this.label48.Text = "Balance Entry";
             // 
-            // label46
+            // btnEntry
             // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(11, 517);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(46, 13);
-            this.label46.TabIndex = 32;
-            this.label46.Text = "Balance";
+            this.btnEntry.BackColor = System.Drawing.Color.Black;
+            this.btnEntry.ForeColor = System.Drawing.Color.White;
+            this.btnEntry.Location = new System.Drawing.Point(83, 55);
+            this.btnEntry.Name = "btnEntry";
+            this.btnEntry.Size = new System.Drawing.Size(87, 23);
+            this.btnEntry.TabIndex = 31;
+            this.btnEntry.Text = "Process";
+            this.btnEntry.UseVisualStyleBackColor = false;
+            this.btnEntry.Click += new System.EventHandler(this.btnEntry_Click);
             // 
-            // label47
+            // tbNewBalance
             // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(11, 565);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(15, 13);
-            this.label47.TabIndex = 32;
-            this.label47.Text = "%";
+            this.tbNewBalance.Location = new System.Drawing.Point(83, 29);
+            this.tbNewBalance.Name = "tbNewBalance";
+            this.tbNewBalance.Size = new System.Drawing.Size(87, 20);
+            this.tbNewBalance.TabIndex = 30;
+            this.tbNewBalance.Text = "0";
+            this.tbNewBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbPSPrice
+            // label49
             // 
-            this.tbPSPrice.Location = new System.Drawing.Point(58, 490);
-            this.tbPSPrice.Name = "tbPSPrice";
-            this.tbPSPrice.Size = new System.Drawing.Size(141, 20);
-            this.tbPSPrice.TabIndex = 32;
-            this.tbPSPrice.Text = "5";
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(6, 34);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(71, 13);
+            this.label49.TabIndex = 29;
+            this.label49.Text = "New Balance";
             // 
-            // tbTSBalance
+            // tbFeesPerOrderExit
             // 
-            this.tbTSBalance.Location = new System.Drawing.Point(58, 514);
-            this.tbTSBalance.Name = "tbTSBalance";
-            this.tbTSBalance.Size = new System.Drawing.Size(141, 20);
-            this.tbTSBalance.TabIndex = 33;
-            this.tbTSBalance.Text = "100";
+            this.tbFeesPerOrderExit.Location = new System.Drawing.Point(193, 203);
+            this.tbFeesPerOrderExit.Name = "tbFeesPerOrderExit";
+            this.tbFeesPerOrderExit.Size = new System.Drawing.Size(47, 20);
+            this.tbFeesPerOrderExit.TabIndex = 9;
+            this.tbFeesPerOrderExit.Text = "-0.25";
+            this.tbFeesPerOrderExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbTSPercent
+            // tbFeePLExit
             // 
-            this.tbTSPercent.Location = new System.Drawing.Point(58, 562);
-            this.tbTSPercent.Name = "tbTSPercent";
-            this.tbTSPercent.Size = new System.Drawing.Size(141, 20);
-            this.tbTSPercent.TabIndex = 35;
-            this.tbTSPercent.Text = "0.15";
-            // 
-            // tbPositionSize
-            // 
-            this.tbPositionSize.BackColor = System.Drawing.Color.Black;
-            this.tbPositionSize.ForeColor = System.Drawing.Color.White;
-            this.tbPositionSize.Location = new System.Drawing.Point(58, 586);
-            this.tbPositionSize.Name = "tbPositionSize";
-            this.tbPositionSize.ReadOnly = true;
-            this.tbPositionSize.Size = new System.Drawing.Size(141, 20);
-            this.tbPositionSize.TabIndex = 33;
-            this.tbPositionSize.TabStop = false;
-            // 
-            // btnGetPositionSize
-            // 
-            this.btnGetPositionSize.BackColor = System.Drawing.Color.Black;
-            this.btnGetPositionSize.ForeColor = System.Drawing.Color.White;
-            this.btnGetPositionSize.Location = new System.Drawing.Point(14, 584);
-            this.btnGetPositionSize.Name = "btnGetPositionSize";
-            this.btnGetPositionSize.Size = new System.Drawing.Size(38, 23);
-            this.btnGetPositionSize.TabIndex = 36;
-            this.btnGetPositionSize.Text = "Get";
-            this.btnGetPositionSize.UseVisualStyleBackColor = false;
-            this.btnGetPositionSize.Click += new System.EventHandler(this.btnGetPositionSize_Click);
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(11, 541);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(28, 13);
-            this.label42.TabIndex = 32;
-            this.label42.Text = "Lev.";
-            // 
-            // tbTSLev
-            // 
-            this.tbTSLev.Location = new System.Drawing.Point(58, 538);
-            this.tbTSLev.Name = "tbTSLev";
-            this.tbTSLev.Size = new System.Drawing.Size(141, 20);
-            this.tbTSLev.TabIndex = 34;
-            this.tbTSLev.Text = "75";
+            this.tbFeePLExit.Location = new System.Drawing.Point(118, 160);
+            this.tbFeePLExit.Name = "tbFeePLExit";
+            this.tbFeePLExit.Size = new System.Drawing.Size(57, 20);
+            this.tbFeePLExit.TabIndex = 26;
+            this.tbFeePLExit.Text = "-0.025";
+            this.tbFeePLExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1198, 678);
+            this.ClientSize = new System.Drawing.Size(1344, 678);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.btnPlotEquity);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label29);
@@ -1342,7 +1413,8 @@ namespace Trade_Simulator
             this.Controls.Add(this.tbBalance);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbFeesPaid);
-            this.Controls.Add(this.tbFeesPerOrder);
+            this.Controls.Add(this.tbFeesPerOrderExit);
+            this.Controls.Add(this.tbFeesPerOrderEnt);
             this.Controls.Add(this.tbWinRate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbConsLosses);
@@ -1377,6 +1449,8 @@ namespace Trade_Simulator
             ((System.ComponentModel.ISupportInitialize)(this.numSimCount)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1396,7 +1470,7 @@ namespace Trade_Simulator
         private System.Windows.Forms.TextBox tbNumberOfTrades;
         private System.Windows.Forms.TextBox tbLeverage;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbFeesPerOrder;
+        private System.Windows.Forms.TextBox tbFeesPerOrderEnt;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbWon;
@@ -1456,7 +1530,6 @@ namespace Trade_Simulator
         private System.Windows.Forms.TextBox tbDaysToComplete;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox tbSLDiff;
         private System.Windows.Forms.Panel panel3;
@@ -1473,7 +1546,7 @@ namespace Trade_Simulator
         private System.Windows.Forms.TextBox tbRiskPL;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox tbFeePL;
+        private System.Windows.Forms.TextBox tbFeePLEnt;
         private System.Windows.Forms.TextBox tbLevPL;
         private System.Windows.Forms.TextBox tbCompOut;
         private System.Windows.Forms.TextBox tbT;
@@ -1496,6 +1569,13 @@ namespace Trade_Simulator
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TextBox tbTSLev;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Button btnEntry;
+        private System.Windows.Forms.TextBox tbNewBalance;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox tbFeesPerOrderExit;
+        private System.Windows.Forms.TextBox tbFeePLExit;
     }
 }
 

@@ -21,6 +21,23 @@ namespace Trade_Simulator
         public Form1()
         {
             InitializeComponent();
+
+            List<decimal> bPt = new List<decimal>();
+
+            using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + @"\Data\Equity.dat"))
+            {
+                while (!sr.EndOfStream)
+                {
+                    bPt.Add(decimal.Parse(sr.ReadLine()));
+                }
+            }
+
+            decimal currentBalance = bPt[bPt.Count - 1];
+
+            tbStartingBalance.Text = currentBalance.ToString();
+            tbPLBalance.Text = currentBalance.ToString();
+            tbPrincipal.Text = currentBalance.ToString();
+            tbTSBalance.Text = currentBalance.ToString();
         }
 
         private void btnProcess_Click(object sender, EventArgs e)
@@ -46,7 +63,8 @@ namespace Trade_Simulator
 
                 int numberOfTrades = int.Parse(tbNumberOfTrades.Text);
                 int leverage = int.Parse(tbLeverage.Text);
-                decimal feePerTrade = decimal.Parse(tbFeesPerOrder.Text) / 100;
+                decimal feePerTradeEntry = decimal.Parse(tbFeesPerOrderEnt.Text) / 100;
+                decimal feePerTradeExit = decimal.Parse(tbFeesPerOrderExit.Text) / 100;
 
                 decimal entriesPerHour = decimal.Parse(tbEntriesPerHour.Text);
                 decimal hoursPerDay = decimal.Parse(tbHoursPerDay.Text);
@@ -99,7 +117,7 @@ namespace Trade_Simulator
 
                     decimal leveragedAmount = tradeAmount * leverage;
 
-                    decimal entryFee = leveragedAmount * feePerTrade;
+                    decimal entryFee = leveragedAmount * feePerTradeEntry;
                     totalFees += entryFee;
                     currentBalance -= entryFee;
 
@@ -118,7 +136,7 @@ namespace Trade_Simulator
                         if (consWins > maxConsWins)
                             maxConsWins = consWins;
 
-                        decimal exitFee = (leveragedAmount + leveragedAmount * tpRandomized) * feePerTrade;
+                        decimal exitFee = (leveragedAmount + leveragedAmount * tpRandomized) * feePerTradeExit;
                         totalFees += exitFee;
                         currentBalance -= exitFee;
 
@@ -137,7 +155,7 @@ namespace Trade_Simulator
                         if (consLosses > maxConsLosses)
                             maxConsLosses = consLosses;
 
-                        decimal exitFee = (leveragedAmount - leveragedAmount * slRandomized) * feePerTrade;
+                        decimal exitFee = (leveragedAmount - leveragedAmount * slRandomized) * feePerTradeExit;
                         totalFees += exitFee;
                         currentBalance -= exitFee;
 
@@ -208,13 +226,17 @@ namespace Trade_Simulator
             try
             {
                 decimal assetBasePrice = decimal.Parse(tbAssetBasePrice.Text);
-                decimal feePerTrade = decimal.Parse(tbFeesPerOrder.Text) / 100;
+                decimal feePerTradeEntry = decimal.Parse(tbFeesPerOrderEnt.Text) / 100;
+                decimal feePerTradeExit = decimal.Parse(tbFeesPerOrderExit.Text) / 100;
 
-                // x - xy = z + zy
-                // x = -((x + 1) * z) / (x - 1)
-                decimal exitPrice = -((feePerTrade + 1) * assetBasePrice) / (feePerTrade - 1);
+                // ExitPrice - ExitPrice * ExitFee = Price + Price * EntryFee
+                // x - xy = z + ze
+                // exitprice = -()
+                // x = -((y + e) * z) / (y - 1)
+                
+                decimal exitPrice = -((1 + feePerTradeEntry) * assetBasePrice) / (feePerTradeExit - 1);
 
-                decimal diff = Math.Abs(exitPrice - assetBasePrice);
+                decimal diff = exitPrice - assetBasePrice;
 
                 tbBreakEvenWinPips.Text = decimal.Round(diff, 4).ToString();
 
@@ -316,7 +338,8 @@ namespace Trade_Simulator
 
                     int numberOfTrades = int.Parse(tbNumberOfTrades.Text);
                     int leverage = int.Parse(tbLeverage.Text);
-                    decimal feePerTrade = decimal.Parse(tbFeesPerOrder.Text) / 100;
+                    decimal feePerTradeEnt = decimal.Parse(tbFeesPerOrderEnt.Text) / 100;
+                    decimal feePerTradeExit = decimal.Parse(tbFeesPerOrderExit.Text) / 100;
 
                     decimal currentBalance = startingBalance;
                     decimal totalFees = 0;
@@ -362,7 +385,7 @@ namespace Trade_Simulator
 
                         decimal leveragedAmount = tradeAmount * leverage;
 
-                        decimal entryFee = leveragedAmount * feePerTrade;
+                        decimal entryFee = leveragedAmount * feePerTradeEnt;
                         totalFees += entryFee;
                         currentBalance -= entryFee;
 
@@ -381,7 +404,7 @@ namespace Trade_Simulator
                             if (consWins > maxConsWins)
                                 maxConsWins = consWins;
 
-                            decimal exitFee = (leveragedAmount + leveragedAmount * tpRandomized) * feePerTrade;
+                            decimal exitFee = (leveragedAmount + leveragedAmount * tpRandomized) * feePerTradeExit;
                             totalFees += exitFee;
                             currentBalance -= exitFee;
 
@@ -400,7 +423,7 @@ namespace Trade_Simulator
                             if (consLosses > maxConsLosses)
                                 maxConsLosses = consLosses;
 
-                            decimal exitFee = (leveragedAmount - leveragedAmount * slRandomized) * feePerTrade;
+                            decimal exitFee = (leveragedAmount - leveragedAmount * slRandomized) * feePerTradeExit;
                             totalFees += exitFee;
                             currentBalance -= exitFee;
 
@@ -641,14 +664,15 @@ namespace Trade_Simulator
 
                 decimal leveragedAmount = tradeAmount * leverage;
 
-                decimal feePerTrade = decimal.Parse(tbFeePL.Text) / 100;
-                
-                decimal entryFee = leveragedAmount * feePerTrade;
+                decimal feePerTradeEnt = decimal.Parse(tbFeePLEnt.Text) / 100;
+                decimal feePerTradeExit = decimal.Parse(tbFeePLExit.Text) / 100;
+
+                decimal entryFee = leveragedAmount * feePerTradeEnt;
 
                 decimal rR = decimal.Parse(tbRRPL.Text);
 
-                decimal exitFeeSL = (leveragedAmount + (leveragedAmount * diffPercent)) * feePerTrade;
-                decimal exitFeeTP = (leveragedAmount - (leveragedAmount * diffPercent * rR)) * feePerTrade;
+                decimal exitFeeSL = (leveragedAmount + (leveragedAmount * diffPercent)) * feePerTradeExit;
+                decimal exitFeeTP = (leveragedAmount - (leveragedAmount * diffPercent * rR)) * feePerTradeExit;
 
                 decimal lossFees = entryFee + exitFeeSL;
                 decimal winFees = entryFee + exitFeeTP;
@@ -659,15 +683,10 @@ namespace Trade_Simulator
                 decimal beWinPercent = lost / (lost + won) * 100;
                 rtbProfitLossResults.SelectionAlignment = HorizontalAlignment.Center;
 
-                // wp - % = w / p
-                // lp - % = l / p
-
                 string pGain = decimal.Round(won / balance * 100, 2) + "%";
                 string pLoss = decimal.Round(lost / balance * 100, 2) + "%";
-
+                
                 rtbProfitLossResults.Text = "\nWon: $" + decimal.Round(won, 2) + " (" + pGain + ")" + "\nLost: $" + decimal.Round(lost, 2) + " (" + pLoss + ")" + "\nBE: " + decimal.Round(beWinPercent, 1) + "%";
-
-                // Stp: 0.008, W: $x.xx, L: $x.xx, BE: xx%
             }
             catch (Exception exPL)
             {
@@ -749,6 +768,33 @@ namespace Trade_Simulator
             catch (Exception ex)
             {
                 MessageBox.Show("Please check the inputs.");
+                
+            }
+        }
+
+        private void btnEntry_Click(object sender, EventArgs e)
+        {
+            // logic here
+
+            try
+            {
+                decimal newBalance = decimal.Parse(tbNewBalance.Text);
+
+                using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + @"\Data\Equity.dat", true))
+                {
+                    sw.Write("\n" + newBalance);
+                }
+
+                tbStartingBalance.Text = newBalance.ToString();
+                tbPLBalance.Text = newBalance.ToString();
+                tbPrincipal.Text = newBalance.ToString();
+                tbTSBalance.Text = newBalance.ToString();
+
+                MessageBox.Show("Entry Added.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please check the input.");
             }
         }
     }
