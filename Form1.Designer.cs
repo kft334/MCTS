@@ -135,21 +135,44 @@ namespace Trade_Simulator
             this.tbPricePL = new System.Windows.Forms.TextBox();
             this.tbRRPL = new System.Windows.Forms.TextBox();
             this.tbRiskPL = new System.Windows.Forms.TextBox();
+            this.tbFeePLExit = new System.Windows.Forms.TextBox();
             this.tbFeePLEnt = new System.Windows.Forms.TextBox();
             this.tbLevPL = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.btnPlotEquity = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label48 = new System.Windows.Forms.Label();
-            this.btnEntry = new System.Windows.Forms.Button();
-            this.tbNewBalance = new System.Windows.Forms.TextBox();
-            this.label49 = new System.Windows.Forms.Label();
             this.tbFeesPerOrderExit = new System.Windows.Forms.TextBox();
-            this.tbFeePLExit = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.tbNewBalance = new System.Windows.Forms.TextBox();
+            this.btnEntry = new System.Windows.Forms.Button();
+            this.btnResetBalance = new System.Windows.Forms.Button();
+            this.label48 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.nudPSTableRows = new System.Windows.Forms.NumericUpDown();
+            this.nudPSTableSigX = new System.Windows.Forms.NumericUpDown();
+            this.nudPSTableStepSize = new System.Windows.Forms.NumericUpDown();
+            this.btnGenerateSizingTable = new System.Windows.Forms.Button();
+            this.tbPSTableFeeExit = new System.Windows.Forms.TextBox();
+            this.tbPSTableFeeEntry = new System.Windows.Forms.TextBox();
+            this.tbPSTableLoss = new System.Windows.Forms.TextBox();
+            this.tbPSTableULev = new System.Windows.Forms.TextBox();
+            this.tbPSTableBalance = new System.Windows.Forms.TextBox();
+            this.tbPSTablePrice = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numSimCount)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPSTableRows)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPSTableSigX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPSTableStepSize)).BeginInit();
             this.SuspendLayout();
             // 
             // tbStartingBalance
@@ -206,7 +229,7 @@ namespace Trade_Simulator
             this.tbWinRate.Name = "tbWinRate";
             this.tbWinRate.Size = new System.Drawing.Size(100, 20);
             this.tbWinRate.TabIndex = 3;
-            this.tbWinRate.Text = "55";
+            this.tbWinRate.Text = "50";
             this.tbWinRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
@@ -224,7 +247,7 @@ namespace Trade_Simulator
             this.tbStopLoss.Name = "tbStopLoss";
             this.tbStopLoss.Size = new System.Drawing.Size(47, 20);
             this.tbStopLoss.TabIndex = 4;
-            this.tbStopLoss.Text = "0.3";
+            this.tbStopLoss.Text = "0.5";
             this.tbStopLoss.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
@@ -443,7 +466,7 @@ namespace Trade_Simulator
             this.tbAssetBasePrice.Name = "tbAssetBasePrice";
             this.tbAssetBasePrice.Size = new System.Drawing.Size(100, 20);
             this.tbAssetBasePrice.TabIndex = 0;
-            this.tbAssetBasePrice.Text = "5";
+            this.tbAssetBasePrice.Text = "1";
             this.tbAssetBasePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label17
@@ -665,7 +688,7 @@ namespace Trade_Simulator
             this.tbStopLoss2.Name = "tbStopLoss2";
             this.tbStopLoss2.Size = new System.Drawing.Size(47, 20);
             this.tbStopLoss2.TabIndex = 5;
-            this.tbStopLoss2.Text = "0.3";
+            this.tbStopLoss2.Text = "1";
             this.tbStopLoss2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label19
@@ -895,7 +918,7 @@ namespace Trade_Simulator
             this.tbSLDiff.Name = "tbSLDiff";
             this.tbSLDiff.Size = new System.Drawing.Size(127, 20);
             this.tbSLDiff.TabIndex = 27;
-            this.tbSLDiff.Text = "0.0087";
+            this.tbSLDiff.Text = "0.0015";
             this.tbSLDiff.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel3
@@ -975,6 +998,7 @@ namespace Trade_Simulator
             this.tbTSPercent.Size = new System.Drawing.Size(127, 20);
             this.tbTSPercent.TabIndex = 35;
             this.tbTSPercent.Text = "0.15";
+            this.tbTSPercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbTSLev
             // 
@@ -983,6 +1007,7 @@ namespace Trade_Simulator
             this.tbTSLev.Size = new System.Drawing.Size(127, 20);
             this.tbTSLev.TabIndex = 34;
             this.tbTSLev.Text = "1";
+            this.tbTSLev.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbTSBalance
             // 
@@ -991,6 +1016,7 @@ namespace Trade_Simulator
             this.tbTSBalance.Size = new System.Drawing.Size(127, 20);
             this.tbTSBalance.TabIndex = 33;
             this.tbTSBalance.Text = "100";
+            this.tbTSBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbPSPrice
             // 
@@ -999,6 +1025,7 @@ namespace Trade_Simulator
             this.tbPSPrice.Size = new System.Drawing.Size(127, 20);
             this.tbPSPrice.TabIndex = 32;
             this.tbPSPrice.Text = "5";
+            this.tbPSPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label42
             // 
@@ -1014,9 +1041,9 @@ namespace Trade_Simulator
             this.label47.AutoSize = true;
             this.label47.Location = new System.Drawing.Point(1, 565);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(15, 13);
+            this.label47.Size = new System.Drawing.Size(37, 13);
             this.label47.TabIndex = 32;
-            this.label47.Text = "%";
+            this.label47.Text = "Acc %";
             // 
             // label46
             // 
@@ -1216,7 +1243,7 @@ namespace Trade_Simulator
             this.tbPricePL.Name = "tbPricePL";
             this.tbPricePL.Size = new System.Drawing.Size(127, 20);
             this.tbPricePL.TabIndex = 22;
-            this.tbPricePL.Text = "5";
+            this.tbPricePL.Text = "1";
             this.tbPricePL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbRRPL
@@ -1236,6 +1263,15 @@ namespace Trade_Simulator
             this.tbRiskPL.TabIndex = 23;
             this.tbRiskPL.Text = "2";
             this.tbRiskPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbFeePLExit
+            // 
+            this.tbFeePLExit.Location = new System.Drawing.Point(118, 160);
+            this.tbFeePLExit.Name = "tbFeePLExit";
+            this.tbFeePLExit.Size = new System.Drawing.Size(57, 20);
+            this.tbFeePLExit.TabIndex = 26;
+            this.tbFeePLExit.Text = "-0.025";
+            this.tbFeePLExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbFeePLEnt
             // 
@@ -1288,28 +1324,32 @@ namespace Trade_Simulator
             this.btnPlotEquity.UseVisualStyleBackColor = false;
             this.btnPlotEquity.Click += new System.EventHandler(this.btnPlotEquity_Click);
             // 
-            // panel4
+            // tbFeesPerOrderExit
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.label48);
-            this.panel4.Controls.Add(this.btnEntry);
-            this.panel4.Controls.Add(this.tbNewBalance);
-            this.panel4.Controls.Add(this.label49);
-            this.panel4.Location = new System.Drawing.Point(1150, 6);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(188, 616);
-            this.panel4.TabIndex = 38;
+            this.tbFeesPerOrderExit.Location = new System.Drawing.Point(193, 203);
+            this.tbFeesPerOrderExit.Name = "tbFeesPerOrderExit";
+            this.tbFeesPerOrderExit.Size = new System.Drawing.Size(47, 20);
+            this.tbFeesPerOrderExit.TabIndex = 9;
+            this.tbFeesPerOrderExit.Text = "-0.25";
+            this.tbFeesPerOrderExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label48
+            // label49
             // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(5, 5);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(121, 20);
-            this.label48.TabIndex = 19;
-            this.label48.Text = "Balance Entry";
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(6, 34);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(71, 13);
+            this.label49.TabIndex = 29;
+            this.label49.Text = "New Balance";
+            // 
+            // tbNewBalance
+            // 
+            this.tbNewBalance.Location = new System.Drawing.Point(83, 29);
+            this.tbNewBalance.Name = "tbNewBalance";
+            this.tbNewBalance.Size = new System.Drawing.Size(87, 20);
+            this.tbNewBalance.TabIndex = 30;
+            this.tbNewBalance.Text = "0";
+            this.tbNewBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnEntry
             // 
@@ -1323,41 +1363,270 @@ namespace Trade_Simulator
             this.btnEntry.UseVisualStyleBackColor = false;
             this.btnEntry.Click += new System.EventHandler(this.btnEntry_Click);
             // 
-            // tbNewBalance
+            // btnResetBalance
             // 
-            this.tbNewBalance.Location = new System.Drawing.Point(83, 29);
-            this.tbNewBalance.Name = "tbNewBalance";
-            this.tbNewBalance.Size = new System.Drawing.Size(87, 20);
-            this.tbNewBalance.TabIndex = 30;
-            this.tbNewBalance.Text = "0";
-            this.tbNewBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnResetBalance.BackColor = System.Drawing.Color.Red;
+            this.btnResetBalance.ForeColor = System.Drawing.Color.White;
+            this.btnResetBalance.Location = new System.Drawing.Point(83, 80);
+            this.btnResetBalance.Name = "btnResetBalance";
+            this.btnResetBalance.Size = new System.Drawing.Size(87, 23);
+            this.btnResetBalance.TabIndex = 31;
+            this.btnResetBalance.Text = "Reset";
+            this.btnResetBalance.UseVisualStyleBackColor = false;
+            this.btnResetBalance.Click += new System.EventHandler(this.btnResetBalance_Click);
             // 
-            // label49
+            // label48
             // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(6, 34);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(71, 13);
-            this.label49.TabIndex = 29;
-            this.label49.Text = "New Balance";
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(5, 5);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(121, 20);
+            this.label48.TabIndex = 19;
+            this.label48.Text = "Balance Entry";
             // 
-            // tbFeesPerOrderExit
+            // panel4
             // 
-            this.tbFeesPerOrderExit.Location = new System.Drawing.Point(193, 203);
-            this.tbFeesPerOrderExit.Name = "tbFeesPerOrderExit";
-            this.tbFeesPerOrderExit.Size = new System.Drawing.Size(47, 20);
-            this.tbFeesPerOrderExit.TabIndex = 9;
-            this.tbFeesPerOrderExit.Text = "-0.25";
-            this.tbFeesPerOrderExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.nudPSTableRows);
+            this.panel4.Controls.Add(this.nudPSTableSigX);
+            this.panel4.Controls.Add(this.nudPSTableStepSize);
+            this.panel4.Controls.Add(this.btnGenerateSizingTable);
+            this.panel4.Controls.Add(this.tbPSTableFeeExit);
+            this.panel4.Controls.Add(this.tbPSTableFeeEntry);
+            this.panel4.Controls.Add(this.tbPSTableLoss);
+            this.panel4.Controls.Add(this.tbPSTableULev);
+            this.panel4.Controls.Add(this.tbPSTableBalance);
+            this.panel4.Controls.Add(this.tbPSTablePrice);
+            this.panel4.Controls.Add(this.label55);
+            this.panel4.Controls.Add(this.label57);
+            this.panel4.Controls.Add(this.label50);
+            this.panel4.Controls.Add(this.label56);
+            this.panel4.Controls.Add(this.label51);
+            this.panel4.Controls.Add(this.label59);
+            this.panel4.Controls.Add(this.label52);
+            this.panel4.Controls.Add(this.label53);
+            this.panel4.Controls.Add(this.label54);
+            this.panel4.Controls.Add(this.label48);
+            this.panel4.Controls.Add(this.btnResetBalance);
+            this.panel4.Controls.Add(this.btnEntry);
+            this.panel4.Controls.Add(this.tbNewBalance);
+            this.panel4.Controls.Add(this.label49);
+            this.panel4.Location = new System.Drawing.Point(1150, 6);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(188, 616);
+            this.panel4.TabIndex = 38;
             // 
-            // tbFeePLExit
+            // nudPSTableRows
             // 
-            this.tbFeePLExit.Location = new System.Drawing.Point(118, 160);
-            this.tbFeePLExit.Name = "tbFeePLExit";
-            this.tbFeePLExit.Size = new System.Drawing.Size(57, 20);
-            this.tbFeePLExit.TabIndex = 26;
-            this.tbFeePLExit.Text = "-0.025";
-            this.tbFeePLExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudPSTableRows.Location = new System.Drawing.Point(51, 532);
+            this.nudPSTableRows.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudPSTableRows.Name = "nudPSTableRows";
+            this.nudPSTableRows.ReadOnly = true;
+            this.nudPSTableRows.Size = new System.Drawing.Size(127, 20);
+            this.nudPSTableRows.TabIndex = 49;
+            this.nudPSTableRows.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudPSTableRows.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // nudPSTableSigX
+            // 
+            this.nudPSTableSigX.Location = new System.Drawing.Point(51, 484);
+            this.nudPSTableSigX.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.nudPSTableSigX.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.nudPSTableSigX.Name = "nudPSTableSigX";
+            this.nudPSTableSigX.ReadOnly = true;
+            this.nudPSTableSigX.Size = new System.Drawing.Size(127, 20);
+            this.nudPSTableSigX.TabIndex = 49;
+            this.nudPSTableSigX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudPSTableSigX.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            -2147483648});
+            // 
+            // nudPSTableStepSize
+            // 
+            this.nudPSTableStepSize.Location = new System.Drawing.Point(51, 508);
+            this.nudPSTableStepSize.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudPSTableStepSize.Name = "nudPSTableStepSize";
+            this.nudPSTableStepSize.ReadOnly = true;
+            this.nudPSTableStepSize.Size = new System.Drawing.Size(127, 20);
+            this.nudPSTableStepSize.TabIndex = 49;
+            this.nudPSTableStepSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudPSTableStepSize.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // btnGenerateSizingTable
+            // 
+            this.btnGenerateSizingTable.BackColor = System.Drawing.Color.Black;
+            this.btnGenerateSizingTable.ForeColor = System.Drawing.Color.White;
+            this.btnGenerateSizingTable.Location = new System.Drawing.Point(51, 583);
+            this.btnGenerateSizingTable.Name = "btnGenerateSizingTable";
+            this.btnGenerateSizingTable.Size = new System.Drawing.Size(128, 23);
+            this.btnGenerateSizingTable.TabIndex = 47;
+            this.btnGenerateSizingTable.Text = "Generate";
+            this.btnGenerateSizingTable.UseVisualStyleBackColor = false;
+            this.btnGenerateSizingTable.Click += new System.EventHandler(this.btnGenerateSizingTable_Click);
+            // 
+            // tbPSTableFeeExit
+            // 
+            this.tbPSTableFeeExit.Location = new System.Drawing.Point(116, 559);
+            this.tbPSTableFeeExit.Name = "tbPSTableFeeExit";
+            this.tbPSTableFeeExit.Size = new System.Drawing.Size(63, 20);
+            this.tbPSTableFeeExit.TabIndex = 46;
+            this.tbPSTableFeeExit.Text = "-0.025";
+            this.tbPSTableFeeExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbPSTableFeeEntry
+            // 
+            this.tbPSTableFeeEntry.Location = new System.Drawing.Point(51, 559);
+            this.tbPSTableFeeEntry.Name = "tbPSTableFeeEntry";
+            this.tbPSTableFeeEntry.Size = new System.Drawing.Size(59, 20);
+            this.tbPSTableFeeEntry.TabIndex = 46;
+            this.tbPSTableFeeEntry.Text = "0.075";
+            this.tbPSTableFeeEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbPSTableLoss
+            // 
+            this.tbPSTableLoss.Location = new System.Drawing.Point(51, 460);
+            this.tbPSTableLoss.Name = "tbPSTableLoss";
+            this.tbPSTableLoss.Size = new System.Drawing.Size(127, 20);
+            this.tbPSTableLoss.TabIndex = 46;
+            this.tbPSTableLoss.Text = "1";
+            this.tbPSTableLoss.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbPSTableULev
+            // 
+            this.tbPSTableULev.Location = new System.Drawing.Point(51, 436);
+            this.tbPSTableULev.Name = "tbPSTableULev";
+            this.tbPSTableULev.Size = new System.Drawing.Size(127, 20);
+            this.tbPSTableULev.TabIndex = 44;
+            this.tbPSTableULev.Text = "50";
+            this.tbPSTableULev.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbPSTableBalance
+            // 
+            this.tbPSTableBalance.Location = new System.Drawing.Point(51, 412);
+            this.tbPSTableBalance.Name = "tbPSTableBalance";
+            this.tbPSTableBalance.Size = new System.Drawing.Size(127, 20);
+            this.tbPSTableBalance.TabIndex = 44;
+            this.tbPSTableBalance.Text = "100";
+            this.tbPSTableBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbPSTablePrice
+            // 
+            this.tbPSTablePrice.Location = new System.Drawing.Point(51, 388);
+            this.tbPSTablePrice.Name = "tbPSTablePrice";
+            this.tbPSTablePrice.Size = new System.Drawing.Size(127, 20);
+            this.tbPSTablePrice.TabIndex = 38;
+            this.tbPSTablePrice.Text = "5.250";
+            this.tbPSTablePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(4, 534);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(34, 13);
+            this.label55.TabIndex = 40;
+            this.label55.Text = "Rows";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(4, 486);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(29, 13);
+            this.label57.TabIndex = 40;
+            this.label57.Text = "SigX";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(3, 562);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(36, 13);
+            this.label50.TabIndex = 40;
+            this.label50.Text = "Fee %";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(4, 510);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(29, 13);
+            this.label56.TabIndex = 40;
+            this.label56.Text = "Step";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(4, 463);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(40, 13);
+            this.label51.TabIndex = 40;
+            this.label51.Text = "Loss %";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(4, 439);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(33, 13);
+            this.label59.TabIndex = 41;
+            this.label59.Text = "ULev";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(4, 415);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(46, 13);
+            this.label52.TabIndex = 41;
+            this.label52.Text = "Balance";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(4, 391);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(31, 13);
+            this.label53.TabIndex = 42;
+            this.label53.Text = "Price";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(3, 365);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(176, 20);
+            this.label54.TabIndex = 37;
+            this.label54.Text = "Position Sizing Table";
             // 
             // Form1
             // 
@@ -1451,6 +1720,9 @@ namespace Trade_Simulator
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPSTableRows)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPSTableSigX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPSTableStepSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1569,13 +1841,33 @@ namespace Trade_Simulator
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TextBox tbTSLev;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Button btnEntry;
-        private System.Windows.Forms.TextBox tbNewBalance;
-        private System.Windows.Forms.Label label49;
         private System.Windows.Forms.TextBox tbFeesPerOrderExit;
         private System.Windows.Forms.TextBox tbFeePLExit;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox tbNewBalance;
+        private System.Windows.Forms.Button btnEntry;
+        private System.Windows.Forms.Button btnResetBalance;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnGenerateSizingTable;
+        private System.Windows.Forms.TextBox tbPSTableLoss;
+        private System.Windows.Forms.TextBox tbPSTableBalance;
+        private System.Windows.Forms.TextBox tbPSTablePrice;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.TextBox tbPSTableFeeExit;
+        private System.Windows.Forms.TextBox tbPSTableFeeEntry;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.NumericUpDown nudPSTableStepSize;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.NumericUpDown nudPSTableRows;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.NumericUpDown nudPSTableSigX;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.TextBox tbPSTableULev;
+        private System.Windows.Forms.Label label59;
     }
 }
 

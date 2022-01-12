@@ -38,6 +38,7 @@ namespace Trade_Simulator
             tbPLBalance.Text = currentBalance.ToString();
             tbPrincipal.Text = currentBalance.ToString();
             tbTSBalance.Text = currentBalance.ToString();
+            tbPSTableBalance.Text = currentBalance.ToString();
         }
 
         private void btnProcess_Click(object sender, EventArgs e)
@@ -683,8 +684,8 @@ namespace Trade_Simulator
                 decimal beWinPercent = lost / (lost + won) * 100;
                 rtbProfitLossResults.SelectionAlignment = HorizontalAlignment.Center;
 
-                string pGain = decimal.Round(won / balance * 100, 2) + "%";
-                string pLoss = decimal.Round(lost / balance * 100, 2) + "%";
+                string pGain = decimal.Round((won) / balance * 100, 2) + "%";
+                string pLoss = decimal.Round((lost) / balance * 100, 2) + "%";
                 
                 rtbProfitLossResults.Text = "\nWon: $" + decimal.Round(won, 2) + " (" + pGain + ")" + "\nLost: $" + decimal.Round(lost, 2) + " (" + pLoss + ")" + "\nBE: " + decimal.Round(beWinPercent, 1) + "%";
             }
@@ -789,12 +790,77 @@ namespace Trade_Simulator
                 tbPLBalance.Text = newBalance.ToString();
                 tbPrincipal.Text = newBalance.ToString();
                 tbTSBalance.Text = newBalance.ToString();
+                tbPSTableBalance.Text = newBalance.ToString();
 
                 MessageBox.Show("Entry Added.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Please check the input.");
+            }
+        }
+
+        private void btnResetBalance_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal newBalance = decimal.Parse(tbNewBalance.Text);
+
+                ConfirmationDialog cd = new ConfirmationDialog();
+
+                DialogResult diagRes = cd.ShowDialog();
+
+                if (diagRes == DialogResult.OK)
+                {
+                    using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + @"\Data\Equity.dat", false))
+                    {
+                        sw.Write(newBalance);
+                    }
+
+                    tbStartingBalance.Text = newBalance.ToString();
+                    tbPLBalance.Text = newBalance.ToString();
+                    tbPrincipal.Text = newBalance.ToString();
+                    tbTSBalance.Text = newBalance.ToString();
+                    tbPSTableBalance.Text = newBalance.ToString();
+
+                    MessageBox.Show("Equity reset.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please check the input.");
+            }
+        }
+
+        private void btnGenerateSizingTable_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal balance = decimal.Parse(tbPSTableBalance.Text);
+                decimal price = decimal.Parse(tbPSTablePrice.Text);
+                decimal lossPercent = decimal.Parse(tbPSTableLoss.Text) / 100;
+                decimal entryFee = decimal.Parse(tbPSTableFeeEntry.Text) / 100;
+                decimal exitFee = decimal.Parse(tbPSTableFeeExit.Text) / 100;
+                int ulev = int.Parse(tbPSTableULev.Text);
+
+                int sigX = (int)nudPSTableSigX.Value;
+                int stepSize = (int)nudPSTableStepSize.Value;
+                int rows = (int)nudPSTableRows.Value;
+
+                if (sigX != 0)
+                {
+                    PositionSizingWindow psw = new PositionSizingWindow(balance, price, lossPercent, entryFee, exitFee, sigX, stepSize, rows, ulev);
+
+                    psw.Show(this);
+                }
+                else
+                {
+                    MessageBox.Show("SigX cannot equal zero.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please check the inputs.");
             }
         }
     }
