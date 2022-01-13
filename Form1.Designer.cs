@@ -1330,7 +1330,7 @@ namespace Trade_Simulator
             this.tbFeesPerOrderExit.Name = "tbFeesPerOrderExit";
             this.tbFeesPerOrderExit.Size = new System.Drawing.Size(47, 20);
             this.tbFeesPerOrderExit.TabIndex = 9;
-            this.tbFeesPerOrderExit.Text = "-0.25";
+            this.tbFeesPerOrderExit.Text = "-0.025";
             this.tbFeesPerOrderExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label49

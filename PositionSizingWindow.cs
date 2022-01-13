@@ -22,8 +22,6 @@ namespace Trade_Simulator
 
             for (int i = 1; i <= rows; i++)
             {
-                // Calculate diff
-
                 decimal tick = 0;
 
                 switch (sigX)
@@ -87,25 +85,11 @@ namespace Trade_Simulator
             formattedOutput = formattedOutput.Trim();
 
             tbOutput.Text = formattedOutput;
-
-            ///////
-            ///
-            //decimal riskPercentPerTrade = decimal.Parse(tbRiskPL.Text) / 100;
-            //decimal tradeAmount = balance * riskPercentPerTrade;
-
-            //decimal assetBasePrice = decimal.Parse(tbPricePL.Text);
-
-            //decimal diffPercent = (1 - ((assetBasePrice - stoploss) / assetBasePrice));
-
-            //decimal lost = leveragedAmount * diffPercent + lossFees;
-            //////
-            ///
-
         }
 
         public string GetPositionSize(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
         {
-            // Solve for tradeAmount, Convert to lots and return.
+            // Solve for tradeAmount, return.
 
             // amountLost = entryFee + exitFee + tradeDevaluationAmount
             // amountLost = accountBalance * lossPercent
