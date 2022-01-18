@@ -78,8 +78,7 @@ namespace Trade_Simulator
 
                 decimal diff = tick * stepSz * i;
 
-                // Send balance, price, losspercent, entryFee, exitFee, diff
-                formattedOutput += "Stop: " + diff + ", Sz: " + GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + Environment.NewLine;
+                formattedOutput += "Stop: " + diff + ", Coins: " + GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + ", ACC%: " + GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + Environment.NewLine;
             }
 
             formattedOutput = formattedOutput.Trim();
@@ -89,42 +88,18 @@ namespace Trade_Simulator
 
         public string GetPositionSize(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
         {
-            // Solve for tradeAmount, return.
+            decimal tradeAmount = (accountBalance * lossPercent - exitFeePercent * priceDifference * ulev) / (ulev * (entryFeePercent + exitFeePercent + priceDifference));
 
-            // amountLost = entryFee + exitFee + tradeDevaluationAmount
-            // amountLost = accountBalance * lossPercent
-            // =>
-            // accountBalance * lossPercent = entryFee + exitFee + tradeDevaluationAmount
+            int tradePercentageOfAccount = (int)(tradeAmount / accountBalance * 100);
 
-            // entryFee = tradeAmount * entryFeePercent
-            // exitFee = (tradeAmount + tradeAmount * (priceDifference / assetPrice)) * exitFeePercent
-            // tradeDevaluationAmount = (tradeAmount * (priceDifference / assetPrice))
-            // =>
-            // accountBalance * lossPercent = tradeAmount * entryFeePercent + (tradeAmount + tradeAmount * priceDifference / assetPrice) * exitFeePercent + (tradeAmount * priceDifference / assetPrice)
+            return decimal.Round(tradeAmount / assetPrice, 0).ToString();
+        }
 
-            // (tradeAmount / assetPrice) * priceDifference, 
+        public string GetPositionSizeAccountPercentage(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
+        {
+            decimal tradeAmount = (accountBalance * lossPercent - exitFeePercent * priceDifference * ulev) / (ulev * (entryFeePercent + exitFeePercent + priceDifference));
 
-            // a = accountBalance
-            // b = lossPercent
-            // c = priceDifference
-            // d = assetPrice
-            // e = exitFeePercent
-            // f = entryFeePercent
-            // x = tradeAmount
-
-            // a * b = (x * f) + ((x + x * c / d) * e) + (x * c / d)
-
-            // Solve for x...
-
-            // x = (a * b * d) / ((c * e) + c + (d * e) + (d * f))
-
-            // tradeAmount = (accountBalance * lossPercent * assetPrice) / (priceDifference * exitFeePercent + priceDifference + assetPrice * exitFeePercent + assetPrice * entryFeePercent)
-
-            decimal tradeAmount = (accountBalance * lossPercent * assetPrice) / (priceDifference * exitFeePercent + priceDifference + assetPrice * exitFeePercent + assetPrice * entryFeePercent);
-
-            decimal positionSize = tradeAmount / ulev;
-
-            return decimal.Round(positionSize, 0).ToString();
+            return decimal.Round((tradeAmount / accountBalance * 100), 1).ToString();
         }
     }
 }

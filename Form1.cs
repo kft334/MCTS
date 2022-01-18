@@ -37,7 +37,6 @@ namespace Trade_Simulator
             tbStartingBalance.Text = currentBalance.ToString();
             tbPLBalance.Text = currentBalance.ToString();
             tbPrincipal.Text = currentBalance.ToString();
-            tbTSBalance.Text = currentBalance.ToString();
             tbPSTableBalance.Text = currentBalance.ToString();
         }
 
@@ -756,23 +755,6 @@ namespace Trade_Simulator
             }
         }
 
-        private void btnGetPositionSize_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                decimal price = decimal.Parse(tbPSPrice.Text);
-                decimal buyingPower = decimal.Parse(tbTSBalance.Text) * decimal.Parse(tbTSLev.Text);
-                decimal percent = decimal.Parse(tbTSPercent.Text) / 100;
-
-                tbPositionSize.Text = (buyingPower / price * percent) + " Lots";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Please check the inputs.");
-                
-            }
-        }
-
         private void btnEntry_Click(object sender, EventArgs e)
         {
             // logic here
@@ -789,7 +771,6 @@ namespace Trade_Simulator
                 tbStartingBalance.Text = newBalance.ToString();
                 tbPLBalance.Text = newBalance.ToString();
                 tbPrincipal.Text = newBalance.ToString();
-                tbTSBalance.Text = newBalance.ToString();
                 tbPSTableBalance.Text = newBalance.ToString();
 
                 MessageBox.Show("Entry Added.");
@@ -820,7 +801,6 @@ namespace Trade_Simulator
                     tbStartingBalance.Text = newBalance.ToString();
                     tbPLBalance.Text = newBalance.ToString();
                     tbPrincipal.Text = newBalance.ToString();
-                    tbTSBalance.Text = newBalance.ToString();
                     tbPSTableBalance.Text = newBalance.ToString();
 
                     MessageBox.Show("Equity reset.");
