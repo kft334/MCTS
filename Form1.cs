@@ -140,8 +140,10 @@ namespace Trade_Simulator
                         totalFees += exitFee;
                         currentBalance -= exitFee;
 
-                        currentBalance += leveragedAmount * tpRandomized;
-                        totalCurrencyWon += leveragedAmount * tpRandomized;
+                        decimal balanceChange = (assetNewValue - assetBasePrice) * leveragedAmount;
+
+                        currentBalance += balanceChange;
+                        totalCurrencyWon += balanceChange;
 
                         max = currentBalance > max ? currentBalance : max;
                     }
@@ -159,8 +161,10 @@ namespace Trade_Simulator
                         totalFees += exitFee;
                         currentBalance -= exitFee;
 
-                        currentBalance -= leveragedAmount * slRandomized;
-                        totalCurrencyLost -= leveragedAmount * slRandomized;
+                        decimal balanceChange = (assetBasePrice - assetNewValue) * leveragedAmount;
+
+                        currentBalance -= balanceChange;
+                        totalCurrencyLost -= balanceChange;
 
                         maxDrawdown = 1 - (currentBalance / max) > maxDrawdown ? 1 - (currentBalance / max) : maxDrawdown;
                     }
@@ -408,8 +412,10 @@ namespace Trade_Simulator
                             totalFees += exitFee;
                             currentBalance -= exitFee;
 
-                            currentBalance += leveragedAmount * tpRandomized;
-                            totalCurrencyWon += leveragedAmount * tpRandomized;
+                            decimal balanceChange = (assetNewValue - assetBasePrice) * leveragedAmount;
+
+                            currentBalance += balanceChange;
+                            totalCurrencyWon += balanceChange;
 
                             max = currentBalance > max ? currentBalance : max;
                         }
@@ -427,8 +433,10 @@ namespace Trade_Simulator
                             totalFees += exitFee;
                             currentBalance -= exitFee;
 
-                            currentBalance -= leveragedAmount * slRandomized;
-                            totalCurrencyLost -= leveragedAmount * slRandomized;
+                            decimal balanceChange = (assetBasePrice - assetNewValue) * leveragedAmount;
+
+                            currentBalance -= balanceChange;
+                            totalCurrencyLost -= balanceChange;
 
                             maxDrawdown = 1 - (currentBalance / max) > maxDrawdown ? 1 - (currentBalance / max) : maxDrawdown;
                         }
