@@ -617,8 +617,10 @@ namespace Trade_Simulator
                 decimal lossFees = entryFee + exitFeeSL;
                 decimal winFees = entryFee + exitFeeTP;
 
-                decimal lost = leveragedAmount * diffPercent + lossFees;
-                decimal won = leveragedAmount * diffPercent * rR - winFees;
+
+
+                decimal lost = leveragedAmount * stoploss + lossFees;
+                decimal won = leveragedAmount * stoploss * rR - winFees;
 
                 decimal beWinPercent = lost / (lost + won) * 100;
                 rtbProfitLossResults.SelectionAlignment = HorizontalAlignment.Center;
