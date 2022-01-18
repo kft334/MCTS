@@ -491,9 +491,7 @@ namespace Trade_Simulator
                 int numberOfSimulations = pts.Count / (numOfTrades + 1);
 
                 List<Tuple<int, double>> p5 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p10 = new List<Tuple<int, double>>();
                 List<Tuple<int, double>> p50 = new List<Tuple<int, double>>();
-                List<Tuple<int, double>> p90 = new List<Tuple<int, double>>();
                 List<Tuple<int, double>> p95 = new List<Tuple<int, double>>();
 
                 double[] pq95 = new double[pts.Count / (numOfTrades + 1)];
@@ -503,18 +501,14 @@ namespace Trade_Simulator
                     IEnumerable<double> yVals = pts.Where(x => x.Item1 == i).Select(pt => (double)pt.Item2);
 
                     p5.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.05)));
-                    p10.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.1)));
                     p50.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.50)));
-                    p90.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.90))); 
                     p95.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.95)));
                 }
                 
-                for (int i = 0; i < p10.Count - 1; i++)
+                for (int i = 0; i < p50.Count - 1; i++)
                 {
                     plot.AddLine(p5[i].Item1, p5[i].Item2, p5[i + 1].Item1, p5[i + 1].Item2, Color.FromArgb(255, 0, 0));
-                    plot.AddLine(p10[i].Item1, p10[i].Item2, p10[i + 1].Item1, p10[i + 1].Item2, Color.FromArgb(255, 38, 0));
                     plot.AddLine(p50[i].Item1, p50[i].Item2, p50[i + 1].Item1, p50[i + 1].Item2, Color.FromArgb(0, 0, 0));
-                    plot.AddLine(p90[i].Item1, p90[i].Item2, p90[i + 1].Item1, p90[i + 1].Item2, Color.FromArgb(38, 255, 0));
                     plot.AddLine(p95[i].Item1, p95[i].Item2, p95[i + 1].Item1, p95[i + 1].Item2, Color.FromArgb(0, 255, 0));
                 }   
 
@@ -641,10 +635,6 @@ namespace Trade_Simulator
                 decimal t = decimal.Parse(tbT.Text);
 
                 tbCompOut.Text = (decimal.Round((decimal)((double)principal * Math.Pow((double)(1 + rate), (double)t)), 2)).ToString();
-
-                // P (1 + r / n) ^ (nt)
-
-                // TODO: Calculate RoC for compounding, variable period
             }
             catch (Exception exComp) 
             {
@@ -659,8 +649,6 @@ namespace Trade_Simulator
                 panelGraph.BackgroundImage = null;
 
                 plot = new ScottPlot.Plot();
-
-                // Logic here
 
                 List<decimal> bPt = new List<decimal>();
 
@@ -695,8 +683,6 @@ namespace Trade_Simulator
 
         private void btnEntry_Click(object sender, EventArgs e)
         {
-            // logic here
-
             try
             {
                 decimal newBalance = decimal.Parse(tbNewBalance.Text);
