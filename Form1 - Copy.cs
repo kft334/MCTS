@@ -16,11 +16,6 @@ namespace Trade_Simulator
         Random rand = new Random();
         Random slRand = new Random();
 
-        List<Tuple<decimal, string>> logAxes = new List<Tuple<decimal, string>>();
-
-        double[] positions;
-        string[] labels;
-
         ScottPlot.Plot plot;
 
         public Form1()
@@ -42,143 +37,8 @@ namespace Trade_Simulator
             tbStartingBalance.Text = currentBalance.ToString();
             tbPLBalance.Text = currentBalance.ToString();
             tbPrincipal.Text = currentBalance.ToString();
-            tbPSTableBalance.Text = (currentBalance * int.Parse(tbPSTableULev.Text)).ToString();
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(1), "1"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(2), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(3), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(4), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(5), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(6), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(7), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(8), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(9), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(10), "10"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(20), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(30), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(40), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(50), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(60), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(70), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(80), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(90), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(100), "100"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(200), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(300), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(400), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(500), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(600), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(700), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(800), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(900), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(1000), "1,000"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(2000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(3000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(4000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(5000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(6000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(7000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(8000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(9000), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(10000), "10,000"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(20000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(30000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(40000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(50000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(60000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(70000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(80000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(90000), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(100000), "100,000"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(200000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(300000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(400000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(500000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(600000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(700000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(800000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(900000), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(1000000), "1,000,000"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(2000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(3000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(4000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(5000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(6000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(7000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(8000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(9000000), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(10000000), "10,000,000"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(20000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(30000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(40000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(50000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(60000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(70000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(80000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(90000000), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(100000000), "100,000,000"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(200000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(300000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(400000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(500000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(600000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(700000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(800000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(900000000), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(1000000000), "1,000,000,000"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(2000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(3000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(4000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(5000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(6000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(7000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(8000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(9000000000), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(10000000000), "10,000,000,000"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(20000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(30000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(40000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(50000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(60000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(70000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(80000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(90000000000), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(100000000000), "100,000,000,000"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(200000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(300000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(400000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(500000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(600000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(700000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(800000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(900000000000), null));
-
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(1000000000000), "1,000,000,000,000"));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(2000000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(3000000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(4000000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(5000000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(6000000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(7000000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(8000000000000), null));
-            logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(9000000000000), null));
-
-            positions = logAxes.Select(i => (double)i.Item1).ToArray();
-            labels = logAxes.Select(i => i.Item2).ToArray();
+            tbPSTableBalance.Text = currentBalance.ToString();
         }
-
-        static string logTickLabels(double y) => Math.Pow(10, y).ToString("N0");
 
         private void btnProcess_Click(object sender, EventArgs e)
         {
@@ -227,9 +87,6 @@ namespace Trade_Simulator
 
                 decimal max = startingBalance;
                 decimal maxDrawdown = 0;
-
-                decimal minimumBalance = startingBalance;
-                decimal maximumBalance = startingBalance;
 
                 Random rand = new Random();
 
@@ -312,16 +169,7 @@ namespace Trade_Simulator
                         maxDrawdown = 1 - (currentBalance / max) > maxDrawdown ? 1 - (currentBalance / max) : maxDrawdown;
                     }
 
-                    if (cbLog.Checked)
-                        plot.AddLine((double)lastPt.Item1, Math.Log10((double)lastPt.Item2), i + 1, Math.Log10((double)currentBalance));
-                    else
-                        plot.AddLine((double)lastPt.Item1, (double)lastPt.Item2, i + 1, (double)currentBalance);
-
-                    // set min max
-                    if (minimumBalance > currentBalance)
-                        minimumBalance = currentBalance;
-                    if (maximumBalance < currentBalance)
-                        maximumBalance = currentBalance;
+                    plot.AddLine((double)lastPt.Item1, (double)lastPt.Item2, i + 1, (double)currentBalance);
 
                     lastPt = new Tuple<decimal, decimal>(i + 1, currentBalance);
                 }
@@ -344,30 +192,13 @@ namespace Trade_Simulator
                 tbCapReached.Text = capReached ? "Trade # " + capReachedOnTrade.ToString() : "Not reached";
                 tbDaysToComplete.Text = daysToComplete.ToString();
 
-                int minL = decimal.Floor(minimumBalance).ToString().Count(); // From min of minL
-                int maxL = decimal.Ceiling(maximumBalance).ToString().Count() + 1; // To min of maxL
-
-                if (cbLog.Checked)
-                {
-                    plot.YAxis.ManualTickPositions(positions, labels);
-
-                    plot.Title($"Equity Curve");
-                    plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
-                    plot.XLabel("Trade #");
-                    plot.YLabel("Equity");
-
-                    plot.SetAxisLimitsY(Math.Log10(Math.Pow(10, minL - 1)), Math.Log10(Math.Pow(10, maxL - 1)));
-                }
-                else
-                {
-                    plot.Title($"Equity Curve");
-                    plot.YAxis.TickDensity(3);
-                    plot.XAxis.TickDensity(2);
-                    plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
-                    plot.XLabel("Trade #");
-                    plot.YLabel("Equity");
-                    plot.AxisAuto();
-                }
+                plot.Title($"Equity Curve");
+                plot.YAxis.TickDensity(3);
+                plot.XAxis.TickDensity(2);
+                plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
+                plot.XLabel("Trade #");
+                plot.YLabel("Equity");
+                plot.AxisAuto();
 
                 panelGraph.BackgroundImage = new Bitmap(plot.Render(panelGraph.Width, panelGraph.Height));
             }
@@ -762,16 +593,14 @@ namespace Trade_Simulator
             {
                 decimal stoploss = decimal.Parse(tbSLDiff.Text);
                 decimal balance = decimal.Parse(tbPLBalance.Text);
-                decimal assetBasePrice = decimal.Parse(tbPricePL.Text);
-                int leverage = int.Parse(tbLevPL.Text);
-
-                decimal riskPercentPerTrade = (decimal.Parse(tbRiskPL.Text) * assetBasePrice) / (balance * leverage); 
-
-                //decimal riskPercentPerTrade = decimal.Parse(tbRiskPL.Text) / 100;
-
+                decimal riskPercentPerTrade = decimal.Parse(tbRiskPL.Text) / 100;
                 decimal tradeAmount = balance * riskPercentPerTrade;
 
+                decimal assetBasePrice = decimal.Parse(tbPricePL.Text);
+
                 decimal diffPercent = (1 - ((assetBasePrice - stoploss) / assetBasePrice));
+
+                int leverage = int.Parse(tbLevPL.Text);
 
                 decimal leveragedAmount = tradeAmount * leverage;
 
@@ -787,6 +616,8 @@ namespace Trade_Simulator
 
                 decimal lossFees = entryFee + exitFeeSL;
                 decimal winFees = entryFee + exitFeeTP;
+
+
 
                 decimal lost = leveragedAmount * stoploss + lossFees;
                 decimal won = leveragedAmount * stoploss * rR - winFees;
@@ -874,7 +705,7 @@ namespace Trade_Simulator
                 tbStartingBalance.Text = newBalance.ToString();
                 tbPLBalance.Text = newBalance.ToString();
                 tbPrincipal.Text = newBalance.ToString();
-                tbPSTableBalance.Text = (newBalance * int.Parse(tbPSTableULev.Text)).ToString();
+                tbPSTableBalance.Text = newBalance.ToString();
 
                 MessageBox.Show("Entry Added.");
             }
@@ -904,7 +735,7 @@ namespace Trade_Simulator
                     tbStartingBalance.Text = newBalance.ToString();
                     tbPLBalance.Text = newBalance.ToString();
                     tbPrincipal.Text = newBalance.ToString();
-                    tbPSTableBalance.Text = (newBalance * int.Parse(tbPSTableULev.Text)).ToString();
+                    tbPSTableBalance.Text = newBalance.ToString();
 
                     MessageBox.Show("Equity reset.");
                 }
