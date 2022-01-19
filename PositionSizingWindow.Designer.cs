@@ -38,14 +38,14 @@
             this.tbOutput.Multiline = true;
             this.tbOutput.Name = "tbOutput";
             this.tbOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbOutput.Size = new System.Drawing.Size(445, 511);
+            this.tbOutput.Size = new System.Drawing.Size(684, 511);
             this.tbOutput.TabIndex = 0;
             // 
             // PositionSizingWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 536);
+            this.ClientSize = new System.Drawing.Size(709, 536);
             this.Controls.Add(this.tbOutput);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;

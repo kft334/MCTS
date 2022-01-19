@@ -16,7 +16,7 @@ namespace Trade_Simulator
         {
             InitializeComponent();
 
-            this.Text = "[ACC: $" + balance + ", AP: $" + price + ", L: " + lossPercent * 100 + "%]" + "   [SX: " + sigX + ", STP: " + stepSz + ", RWS: " + rows + "]";
+            this.Text = "[ Bal: $" + balance + " ] [ ~Asset $: $" + price + " ] [ Loss: " + lossPercent * 100 + "% ] [ SIGX: " + sigX + " ] [ XSTEP: " + stepSz + " ]";
 
             string formattedOutput = String.Empty;
 
@@ -78,7 +78,7 @@ namespace Trade_Simulator
 
                 decimal diff = tick * stepSz * i;
 
-                formattedOutput += "Stop: " + diff + ", Coins: " + GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + ", ACC%: " + GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + Environment.NewLine;
+                formattedOutput += "Stop: " + diff + ", Units: " + GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + ", ACC%: " + GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + Environment.NewLine;
             }
 
             formattedOutput = formattedOutput.Trim();

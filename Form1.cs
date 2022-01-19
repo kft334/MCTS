@@ -220,10 +220,10 @@ namespace Trade_Simulator
                 int totalTradesWon = 0;
                 int totalTradesLost = 0;
 
-                tbSLPips.Text = decimal.Round((assetBasePrice * sLPercentMin), 4).ToString();
-                tbSLPips2.Text = decimal.Round((assetBasePrice * sLPercentMax), 4).ToString();
-                tbTPPips.Text = decimal.Round((assetBasePrice * sLPercentMin * rR), 4).ToString();
-                tbTPPips2.Text = decimal.Round((assetBasePrice * sLPercentMax * rR), 4).ToString();
+                //tbSLPips.Text = decimal.Round((assetBasePrice * sLPercentMin), 4).ToString();
+                //tbSLPips2.Text = decimal.Round((assetBasePrice * sLPercentMax), 4).ToString();
+                //tbTPPips.Text = decimal.Round((assetBasePrice * sLPercentMin * rR), 4).ToString();
+                //tbTPPips2.Text = decimal.Round((assetBasePrice * sLPercentMax * rR), 4).ToString();
 
                 decimal max = startingBalance;
                 decimal maxDrawdown = 0;
@@ -377,35 +377,30 @@ namespace Trade_Simulator
             }
         }
 
-        private void btnGetPercentVariance_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                decimal assetBasePrice = decimal.Parse(tbAssetBasePrice.Text);
-                decimal differenceInPrice = decimal.Parse(tbDiff.Text);
+        //private void btnGetPercentVariance_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        decimal assetBasePrice = decimal.Parse(tbAssetBasePrice.Text);
+        //        decimal differenceInPrice = decimal.Parse(tbDiff.Text);
 
-                decimal diffPercent = (1 - ((assetBasePrice - differenceInPrice) / assetBasePrice)) * 100;
+        //        decimal diffPercent = (1 - ((assetBasePrice - differenceInPrice) / assetBasePrice)) * 100;
 
-                tbDiffPercent.Text = decimal.Round(diffPercent, 4).ToString() + "%";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Please check the inputs.");
-            }
-        }
+        //        tbDiffPercent.Text = decimal.Round(diffPercent, 4).ToString() + "%";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Please check the inputs.");
+        //    }
+        //}
 
         private void btnGetBreakEvenWin_Click(object sender, EventArgs e)
         {
             try
             {
-                decimal assetBasePrice = decimal.Parse(tbAssetBasePrice.Text);
-                decimal feePerTradeEntry = decimal.Parse(tbFeesPerOrderEnt.Text) / 100;
-                decimal feePerTradeExit = decimal.Parse(tbFeesPerOrderExit.Text) / 100;
-
-                // ExitPrice - ExitPrice * ExitFee = Price + Price * EntryFee
-                // x - xy = z + ze
-                // exitprice =
-                // x = -((y + e) * z) / (y - 1)
+                decimal assetBasePrice = decimal.Parse(tbGBEAssetPrice.Text);
+                decimal feePerTradeEntry = decimal.Parse(tbGBEFeeEntry.Text) / 100;
+                decimal feePerTradeExit = decimal.Parse(tbGBEFeeExit.Text) / 100;
                 
                 decimal exitPrice = -((1 + feePerTradeEntry) * assetBasePrice) / (feePerTradeExit - 1);
 
@@ -502,10 +497,10 @@ namespace Trade_Simulator
 
                     decimal rR = decimal.Parse(tbRR.Text);
 
-                    tbSLPips.Text = decimal.Round((assetBasePrice * sLPercentMin), 4).ToString();
-                    tbSLPips2.Text = decimal.Round((assetBasePrice * sLPercentMax), 4).ToString();
-                    tbTPPips.Text = decimal.Round((assetBasePrice * sLPercentMin * rR), 4).ToString();
-                    tbTPPips2.Text = decimal.Round((assetBasePrice * sLPercentMax * rR), 4).ToString();
+                    //tbSLPips.Text = decimal.Round((assetBasePrice * sLPercentMin), 4).ToString();
+                    //tbSLPips2.Text = decimal.Round((assetBasePrice * sLPercentMax), 4).ToString();
+                    //tbTPPips.Text = decimal.Round((assetBasePrice * sLPercentMin * rR), 4).ToString();
+                    //tbTPPips2.Text = decimal.Round((assetBasePrice * sLPercentMax * rR), 4).ToString();
 
                     int cap = int.Parse(tbOrderCap.Text);
 
