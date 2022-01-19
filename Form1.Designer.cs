@@ -262,7 +262,7 @@ namespace Trade_Simulator
             this.tbNumberOfTrades.Name = "tbNumberOfTrades";
             this.tbNumberOfTrades.Size = new System.Drawing.Size(100, 20);
             this.tbNumberOfTrades.TabIndex = 7;
-            this.tbNumberOfTrades.Text = "100";
+            this.tbNumberOfTrades.Text = "250";
             this.tbNumberOfTrades.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbLeverage
@@ -516,7 +516,7 @@ namespace Trade_Simulator
             this.panelGraph.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelGraph.Location = new System.Drawing.Point(259, 8);
             this.panelGraph.Name = "panelGraph";
-            this.panelGraph.Size = new System.Drawing.Size(692, 557);
+            this.panelGraph.Size = new System.Drawing.Size(692, 568);
             this.panelGraph.TabIndex = 15;
             // 
             // tbMaxDrawdown
@@ -565,7 +565,7 @@ namespace Trade_Simulator
             this.numSimCount.TabIndex = 14;
             this.numSimCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numSimCount.Value = new decimal(new int[] {
-            1000,
+            250,
             0,
             0,
             0});
@@ -761,7 +761,7 @@ namespace Trade_Simulator
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(365, 571);
+            this.label31.Location = new System.Drawing.Point(365, 591);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(480, 13);
             this.label31.TabIndex = 26;

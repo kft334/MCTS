@@ -90,16 +90,14 @@ namespace Trade_Simulator
         {
             decimal tradeAmount = (accountBalance * lossPercent - exitFeePercent * priceDifference * ulev) / (ulev * (entryFeePercent + exitFeePercent + priceDifference));
 
-            int tradePercentageOfAccount = (int)(tradeAmount / accountBalance * 100);
-
-            return decimal.Round(tradeAmount / assetPrice, 0).ToString();
+            return decimal.Round(tradeAmount / assetPrice, 2).ToString();
         }
 
         public string GetPositionSizeAccountPercentage(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
         {
             decimal tradeAmount = (accountBalance * lossPercent - exitFeePercent * priceDifference * ulev) / (ulev * (entryFeePercent + exitFeePercent + priceDifference));
 
-            return decimal.Round((tradeAmount / accountBalance * 100), 1).ToString();
+            return decimal.Round((tradeAmount / accountBalance * 100), 2).ToString();
         }
     }
 }
