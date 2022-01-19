@@ -42,7 +42,7 @@ namespace Trade_Simulator
             tbStartingBalance.Text = currentBalance.ToString();
             tbPLBalance.Text = currentBalance.ToString();
             tbPrincipal.Text = currentBalance.ToString();
-            tbPSTableBalance.Text = (currentBalance * int.Parse(tbPSTableULev.Text)).ToString();
+            tbPSTableBalance.Text = currentBalance.ToString();
 
             logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(1), "1"));
             logAxes.Add(new Tuple<decimal, string>((decimal)Math.Log10(2), null));
@@ -681,31 +681,71 @@ namespace Trade_Simulator
                     p50.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.50)));
                     p95.Add(new Tuple<int, double>(i, MathNet.Numerics.Statistics.Statistics.Quantile(yVals, 0.95)));
                 }
-                
-                for (int i = 0; i < p50.Count - 1; i++)
-                {
-                    plot.AddLine(p5[i].Item1, p5[i].Item2, p5[i + 1].Item1, p5[i + 1].Item2, Color.FromArgb(255, 0, 0));
-                    plot.AddLine(p50[i].Item1, p50[i].Item2, p50[i + 1].Item1, p50[i + 1].Item2, Color.FromArgb(0, 0, 0));
-                    plot.AddLine(p95[i].Item1, p95[i].Item2, p95[i + 1].Item1, p95[i + 1].Item2, Color.FromArgb(0, 255, 0));
-                }   
 
-                for (int i = 0; i < superSim.X_YMin_YAv_YMax.Count() - 1; i++)
+                if (cbLog.Checked)
                 {
-                    plot.AddLine(superSim.X_YMin_YAv_YMax[i].Item1, (double)superSim.X_YMin_YAv_YMax[i].Item2, superSim.X_YMin_YAv_YMax[i + 1].Item1, (double)superSim.X_YMin_YAv_YMax[i + 1].Item2);
+                    for (int i = 0; i < p50.Count - 1; i++)
+                    {
+                        plot.AddLine(p5[i].Item1, Math.Log10(p5[i].Item2), p5[i + 1].Item1, Math.Log10(p5[i + 1].Item2), Color.FromArgb(255, 0, 0));
+                        plot.AddLine(p50[i].Item1, Math.Log10(p50[i].Item2), p50[i + 1].Item1, Math.Log10(p50[i + 1].Item2), Color.FromArgb(0, 0, 0));
+                        plot.AddLine(p95[i].Item1, Math.Log10(p95[i].Item2), p95[i + 1].Item1, Math.Log10(p95[i + 1].Item2), Color.FromArgb(0, 255, 0));
+                    }
+
+                    for (int i = 0; i < superSim.X_YMin_YAv_YMax.Count() - 1; i++)
+                    {
+                        plot.AddLine(superSim.X_YMin_YAv_YMax[i].Item1, Math.Log10((double)superSim.X_YMin_YAv_YMax[i].Item2), superSim.X_YMin_YAv_YMax[i + 1].Item1, Math.Log10((double)superSim.X_YMin_YAv_YMax[i + 1].Item2));
+                    }
+
+                    for (int i = 0; i < superSim.X_YMin_YAv_YMax.Count() - 1; i++)
+                    {
+                        plot.AddLine(superSim.X_YMin_YAv_YMax[i].Item1, Math.Log10((double)superSim.X_YMin_YAv_YMax[i].Item4), superSim.X_YMin_YAv_YMax[i + 1].Item1, Math.Log10((double)superSim.X_YMin_YAv_YMax[i + 1].Item4));
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < p50.Count - 1; i++)
+                    {
+                        plot.AddLine(p5[i].Item1, p5[i].Item2, p5[i + 1].Item1, p5[i + 1].Item2, Color.FromArgb(255, 0, 0));
+                        plot.AddLine(p50[i].Item1, p50[i].Item2, p50[i + 1].Item1, p50[i + 1].Item2, Color.FromArgb(0, 0, 0));
+                        plot.AddLine(p95[i].Item1, p95[i].Item2, p95[i + 1].Item1, p95[i + 1].Item2, Color.FromArgb(0, 255, 0));
+                    }
+
+                    for (int i = 0; i < superSim.X_YMin_YAv_YMax.Count() - 1; i++)
+                    {
+                        plot.AddLine(superSim.X_YMin_YAv_YMax[i].Item1, (double)superSim.X_YMin_YAv_YMax[i].Item2, superSim.X_YMin_YAv_YMax[i + 1].Item1, (double)superSim.X_YMin_YAv_YMax[i + 1].Item2);
+                    }
+
+                    for (int i = 0; i < superSim.X_YMin_YAv_YMax.Count() - 1; i++)
+                    {
+                        plot.AddLine(superSim.X_YMin_YAv_YMax[i].Item1, (double)superSim.X_YMin_YAv_YMax[i].Item4, superSim.X_YMin_YAv_YMax[i + 1].Item1, (double)superSim.X_YMin_YAv_YMax[i + 1].Item4);
+                    }
                 }
 
-                for (int i = 0; i < superSim.X_YMin_YAv_YMax.Count() - 1; i++)
+                int minL = decimal.Floor(superSim.X_YMin_YAv_YMax.Min(s => s.Item2)).ToString().Count(); // From min of minL
+                int maxL = decimal.Ceiling(superSim.X_YMin_YAv_YMax.Max(s => s.Item4)).ToString().Count() + 1; // To min of maxL
+
+                if (cbLog.Checked)
                 {
-                    plot.AddLine(superSim.X_YMin_YAv_YMax[i].Item1, (double)superSim.X_YMin_YAv_YMax[i].Item4, superSim.X_YMin_YAv_YMax[i + 1].Item1, (double)superSim.X_YMin_YAv_YMax[i + 1].Item4);
+                    plot.YAxis.ManualTickPositions(positions, labels);
+
+                    plot.Title($"Equity Curve");
+                    plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
+                    plot.XLabel("Trade #");
+                    plot.YLabel("Equity");
+
+                    plot.SetAxisLimitsY(Math.Log10(Math.Pow(10, minL - 1)), Math.Log10(Math.Pow(10, maxL - 1)));
                 }
 
-                plot.Title($"Equity Curve");
-                plot.YAxis.TickDensity(3);
-                plot.XAxis.TickDensity(2);
-                plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
-                plot.XLabel("Trade #");
-                plot.YLabel("Equity");
-                plot.AxisAuto();
+                else
+                {
+                    plot.Title($"Equity Curve");
+                    plot.YAxis.TickDensity(3);
+                    plot.XAxis.TickDensity(2);
+                    plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
+                    plot.XLabel("Trade #");
+                    plot.YLabel("Equity");
+                    plot.AxisAuto();
+                }
 
                 panelGraph.BackgroundImage = new Bitmap(plot.Render(panelGraph.Width, panelGraph.Height));
 
@@ -874,7 +914,7 @@ namespace Trade_Simulator
                 tbStartingBalance.Text = newBalance.ToString();
                 tbPLBalance.Text = newBalance.ToString();
                 tbPrincipal.Text = newBalance.ToString();
-                tbPSTableBalance.Text = (newBalance * int.Parse(tbPSTableULev.Text)).ToString();
+                tbPSTableBalance.Text = newBalance.ToString();
 
                 MessageBox.Show("Entry Added.");
             }
@@ -904,7 +944,7 @@ namespace Trade_Simulator
                     tbStartingBalance.Text = newBalance.ToString();
                     tbPLBalance.Text = newBalance.ToString();
                     tbPrincipal.Text = newBalance.ToString();
-                    tbPSTableBalance.Text = (newBalance * int.Parse(tbPSTableULev.Text)).ToString();
+                    tbPSTableBalance.Text = newBalance.ToString();
 
                     MessageBox.Show("Equity reset.");
                 }
@@ -919,12 +959,12 @@ namespace Trade_Simulator
         {
             try
             {
-                decimal balance = decimal.Parse(tbPSTableBalance.Text);
+                int ulev = int.Parse(tbPSTableULev.Text);
+                decimal balance = decimal.Parse(tbPSTableBalance.Text) * ulev;
                 decimal price = decimal.Parse(tbPSTablePrice.Text);
                 decimal lossPercent = decimal.Parse(tbPSTableLoss.Text) / 100;
                 decimal entryFee = decimal.Parse(tbPSTableFeeEntry.Text) / 100;
                 decimal exitFee = decimal.Parse(tbPSTableFeeExit.Text) / 100;
-                int ulev = int.Parse(tbPSTableULev.Text);
 
                 int sigX = (int)nudPSTableSigX.Value;
                 int stepSize = (int)nudPSTableStepSize.Value;
