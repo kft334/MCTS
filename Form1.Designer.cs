@@ -29,6 +29,7 @@ namespace Trade_Simulator
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tbStartingBalance = new System.Windows.Forms.TextBox();
             this.btnProcess = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -1493,7 +1494,7 @@ namespace Trade_Simulator
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(2, 128);
+            this.label47.Location = new System.Drawing.Point(4, 128);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(32, 13);
             this.label47.TabIndex = 29;
@@ -1587,7 +1588,7 @@ namespace Trade_Simulator
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1344, 638);
+            this.ClientSize = new System.Drawing.Size(1348, 630);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel8);
@@ -1600,6 +1601,7 @@ namespace Trade_Simulator
             this.Controls.Add(this.label31);
             this.Controls.Add(this.panelGraph);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
