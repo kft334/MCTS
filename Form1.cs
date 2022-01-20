@@ -1032,7 +1032,7 @@ namespace Trade_Simulator
 
                 if (sigX != 0)
                 {
-                    PositionSizingWindow psw = new PositionSizingWindow(balance, price, lossPercent, entryFee, exitFee, sigX, stepSize, rows, ulev);
+                    PositionSizingWindow psw = new PositionSizingWindow(balance, price, lossPercent, entryFee, exitFee, sigX, stepSize, rows, ulev, 0);
 
                     psw.Show(this);
                 }
@@ -1064,7 +1064,7 @@ namespace Trade_Simulator
 
                 if (sigX != 0)
                 {
-                    PositionSizingWindow psw = new PositionSizingWindow(balance, price, lossPercent, entryFee, exitFee, sigX, stepSize, rows, ulev);
+                    PositionSizingWindow psw = new PositionSizingWindow(balance, price, lossPercent, entryFee, exitFee, sigX, stepSize, rows, ulev, 1);
 
                     List<Tuple<decimal, decimal>> sizingTuples = psw.SizingTuples;
 
@@ -1080,12 +1080,66 @@ namespace Trade_Simulator
                         plot.AddLine((double)sizingTuples[i].Item1, (double)sizingTuples[i].Item2, (double)sizingTuples[i + 1].Item1, (double)sizingTuples[i + 1].Item2, Color.Black);
                     }
 
-                    plot.Title("[ Bal: $" + (balance / ulev) + " ] [ ~Asset $: $" + price + " ] [ Loss: " + lossPercent * 100 + "% ] [ SIGX: " + sigX + " ] [ XSTEP: " + stepSize + " ]");
+                    plot.Title("[Bal:$" + (balance / ulev) + "] [~Asset$:$" + price + "] [Loss:" + lossPercent * 100 + "%]");
                     plot.YAxis.TickDensity(3);
                     plot.XAxis.TickDensity(2);
                     plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
                     plot.XLabel("Stoploss");
                     plot.YLabel("Units");
+                    plot.AxisAuto();
+
+                    panelGraph.BackgroundImage = new Bitmap(plot.Render(panelGraph.Width, panelGraph.Height));
+                }
+                else
+                {
+                    MessageBox.Show("Sig. X cannot equal zero.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please check the inputs.");
+            }
+        }
+
+        private void btnPSTPlotPercent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ulev = int.Parse(tbPSTableULev.Text);
+                decimal balance = decimal.Parse(tbPSTableBalance.Text) * ulev;
+                decimal price = decimal.Parse(tbPSTablePrice.Text);
+                decimal lossPercent = decimal.Parse(tbPSTableLoss.Text) / 100;
+                decimal entryFee = decimal.Parse(tbPSTableFeeEntry.Text) / 100;
+                decimal exitFee = decimal.Parse(tbPSTableFeeExit.Text) / 100;
+
+                int sigX = (int)nudPSTableSigX.Value;
+                int stepSize = (int)nudPSTableStepSize.Value;
+                int rows = (int)nudPSTableRows.Value;
+
+                if (sigX != 0)
+                {
+                    PositionSizingWindow psw = new PositionSizingWindow(balance, price, lossPercent, entryFee, exitFee, sigX, stepSize, rows, ulev, 2);
+
+                    List<Tuple<decimal, decimal>> sizingTuples = psw.SizingTuples;
+
+                    psw.Dispose();
+
+                    // plot
+                    panelGraph.BackgroundImage = null;
+
+                    plot = new ScottPlot.Plot();
+
+                    for (int i = 0; i < sizingTuples.Count - 1; i++)
+                    {
+                        plot.AddLine((double)sizingTuples[i].Item1, (double)sizingTuples[i].Item2, (double)sizingTuples[i + 1].Item1, (double)sizingTuples[i + 1].Item2, Color.Black);
+                    }
+
+                    plot.Title("[Bal:$" + (balance / ulev) + "] [Lev:" + ulev + "] [Loss:" + lossPercent * 100 + "%]");
+                    plot.YAxis.TickDensity(3);
+                    plot.XAxis.TickDensity(2);
+                    plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
+                    plot.XLabel("Stoploss");
+                    plot.YLabel("Account %");
                     plot.AxisAuto();
 
                     panelGraph.BackgroundImage = new Bitmap(plot.Render(panelGraph.Width, panelGraph.Height));

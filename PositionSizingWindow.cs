@@ -14,7 +14,7 @@ namespace Trade_Simulator
     {
         public List<Tuple<decimal, decimal>> SizingTuples = new List<Tuple<decimal, decimal>>();
 
-        public PositionSizingWindow(decimal balance, decimal price, decimal lossPercent, decimal entryFee, decimal exitFee, int sigX, int stepSz, int rows, int ulev)
+        public PositionSizingWindow(decimal balance, decimal price, decimal lossPercent, decimal entryFee, decimal exitFee, int sigX, int stepSz, int rows, int ulev, int sizingType)
         {
             InitializeComponent();
 
@@ -22,7 +22,7 @@ namespace Trade_Simulator
 
             string formattedOutput = String.Empty;
 
-            formattedOutput += "[ Bal: $" + (balance / ulev) + " ] [ ~Asset $: $" + price + " ] [ Loss: " + lossPercent * 100 + "% ] [ SIGX: " + sigX + " ] [ XSTEP: " + stepSz + " ]" + Environment.NewLine + Environment.NewLine;
+            formattedOutput += "[Bal:$" + (balance / ulev) + "] [~Asset$:$" + price + "] [Lev:" + ulev + "] [Loss:" + lossPercent * 100 + "%]" + Environment.NewLine + Environment.NewLine;
 
             for (int i = 1; i <= rows; i++)
             {
@@ -82,7 +82,10 @@ namespace Trade_Simulator
 
                 decimal diff = tick * stepSz * i;
 
-                SizingTuples.Add(new Tuple<decimal, decimal>(diff, GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev)));
+                if (sizingType == 1)
+                    SizingTuples.Add(new Tuple<decimal, decimal>(diff, GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev)));
+                if (sizingType == 2)
+                    SizingTuples.Add(new Tuple<decimal, decimal>(diff, GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev)));
 
                 formattedOutput += "Stop: " + diff + ", Units: " + GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + ", ACC%: " + GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + Environment.NewLine;
             }

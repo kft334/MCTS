@@ -167,6 +167,7 @@ namespace Trade_Simulator
             this.cbPlotEquityLog = new System.Windows.Forms.CheckBox();
             this.btnSaveFigure = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
+            this.btnPSTPlotPercent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numSimCount)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -822,9 +823,9 @@ namespace Trade_Simulator
             this.panel3.Controls.Add(this.tbLevPL);
             this.panel3.Controls.Add(this.tbSLDiff);
             this.panel3.Controls.Add(this.label32);
-            this.panel3.Location = new System.Drawing.Point(957, 272);
+            this.panel3.Location = new System.Drawing.Point(957, 295);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(188, 287);
+            this.panel3.Size = new System.Drawing.Size(188, 270);
             this.panel3.TabIndex = 4;
             // 
             // btnProfitLossProcess
@@ -865,7 +866,7 @@ namespace Trade_Simulator
             this.rtbProfitLossResults.Location = new System.Drawing.Point(51, 205);
             this.rtbProfitLossResults.Name = "rtbProfitLossResults";
             this.rtbProfitLossResults.ReadOnly = true;
-            this.rtbProfitLossResults.Size = new System.Drawing.Size(127, 72);
+            this.rtbProfitLossResults.Size = new System.Drawing.Size(127, 50);
             this.rtbProfitLossResults.TabIndex = 22;
             this.rtbProfitLossResults.TabStop = false;
             this.rtbProfitLossResults.Text = "";
@@ -1143,6 +1144,7 @@ namespace Trade_Simulator
             this.panel4.Controls.Add(this.nudPSTableRows);
             this.panel4.Controls.Add(this.nudPSTableSigX);
             this.panel4.Controls.Add(this.nudPSTableStepSize);
+            this.panel4.Controls.Add(this.btnPSTPlotPercent);
             this.panel4.Controls.Add(this.btnPSTablePlot);
             this.panel4.Controls.Add(this.btnGenerateSizingTable);
             this.panel4.Controls.Add(this.tbPSTableLoss);
@@ -1160,7 +1162,7 @@ namespace Trade_Simulator
             this.panel4.Controls.Add(this.label54);
             this.panel4.Location = new System.Drawing.Point(957, 8);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(188, 258);
+            this.panel4.Size = new System.Drawing.Size(188, 281);
             this.panel4.TabIndex = 3;
             // 
             // tbPSTableFeeEntry
@@ -1252,7 +1254,7 @@ namespace Trade_Simulator
             this.btnPSTablePlot.Name = "btnPSTablePlot";
             this.btnPSTablePlot.Size = new System.Drawing.Size(128, 23);
             this.btnPSTablePlot.TabIndex = 29;
-            this.btnPSTablePlot.Text = "Plot";
+            this.btnPSTablePlot.Text = "Plot (Units)";
             this.btnPSTablePlot.UseVisualStyleBackColor = false;
             this.btnPSTablePlot.Click += new System.EventHandler(this.btnPSTablePlot_Click);
             // 
@@ -1445,7 +1447,7 @@ namespace Trade_Simulator
             this.panel7.Controls.Add(this.label44);
             this.panel7.Location = new System.Drawing.Point(1151, 382);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(188, 177);
+            this.panel7.Size = new System.Drawing.Size(188, 182);
             this.panel7.TabIndex = 8;
             // 
             // label46
@@ -1656,9 +1658,9 @@ namespace Trade_Simulator
             this.panel6.Controls.Add(this.btnPlotEquity);
             this.panel6.Controls.Add(this.label18);
             this.panel6.Controls.Add(this.cbPlotEquityLog);
-            this.panel6.Location = new System.Drawing.Point(957, 565);
+            this.panel6.Location = new System.Drawing.Point(957, 570);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(382, 68);
+            this.panel6.Size = new System.Drawing.Size(382, 63);
             this.panel6.TabIndex = 9;
             // 
             // label18
@@ -1683,12 +1685,15 @@ namespace Trade_Simulator
             // 
             // btnSaveFigure
             // 
+            this.btnSaveFigure.BackColor = System.Drawing.Color.Black;
+            this.btnSaveFigure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveFigure.ForeColor = System.Drawing.Color.White;
             this.btnSaveFigure.Location = new System.Drawing.Point(259, 587);
             this.btnSaveFigure.Name = "btnSaveFigure";
             this.btnSaveFigure.Size = new System.Drawing.Size(692, 23);
             this.btnSaveFigure.TabIndex = 29;
             this.btnSaveFigure.Text = "Save Graph To Output Folder";
-            this.btnSaveFigure.UseVisualStyleBackColor = true;
+            this.btnSaveFigure.UseVisualStyleBackColor = false;
             this.btnSaveFigure.Click += new System.EventHandler(this.btnSaveFigure_Click);
             // 
             // label20
@@ -1701,12 +1706,25 @@ namespace Trade_Simulator
             this.label20.TabIndex = 38;
             this.label20.Text = "Trade Simulator";
             // 
+            // btnPSTPlotPercent
+            // 
+            this.btnPSTPlotPercent.BackColor = System.Drawing.Color.Black;
+            this.btnPSTPlotPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPSTPlotPercent.ForeColor = System.Drawing.Color.White;
+            this.btnPSTPlotPercent.Location = new System.Drawing.Point(50, 250);
+            this.btnPSTPlotPercent.Name = "btnPSTPlotPercent";
+            this.btnPSTPlotPercent.Size = new System.Drawing.Size(128, 23);
+            this.btnPSTPlotPercent.TabIndex = 29;
+            this.btnPSTPlotPercent.Text = "Plot (%)";
+            this.btnPSTPlotPercent.UseVisualStyleBackColor = false;
+            this.btnPSTPlotPercent.Click += new System.EventHandler(this.btnPSTPlotPercent_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1348, 635);
+            this.ClientSize = new System.Drawing.Size(1348, 646);
             this.Controls.Add(this.btnSaveFigure);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel2);
@@ -1889,6 +1907,7 @@ namespace Trade_Simulator
         private System.Windows.Forms.CheckBox cbPlotEquityLog;
         private System.Windows.Forms.Button btnSaveFigure;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button btnPSTPlotPercent;
     }
 }
 
