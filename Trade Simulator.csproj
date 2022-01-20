@@ -36,11 +36,17 @@
     <ApplicationIcon>tumbling_dice.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="C1.Win.4.5.2, Version=4.5.20213.537, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL">
+      <HintPath>packages\C1.Win.4.5.20213.537\lib\net452\C1.Win.4.5.2.dll</HintPath>
+    </Reference>
     <Reference Include="MathNet.Numerics, Version=4.15.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MathNet.Numerics.4.15.0\lib\net461\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="ScottPlot, Version=4.1.27.0, Culture=neutral, PublicKeyToken=86698dc10387c39e, processorArchitecture=MSIL">
       <HintPath>packages\ScottPlot.4.1.27\lib\net461\ScottPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceGrid, Version=4.40.4580.29115, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
+      <HintPath>packages\SourceGrid.4.4.0\lib\net35\SourceGrid.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -101,6 +107,12 @@
     <Compile Include="TradeEntryWindow.Designer.cs">
       <DependentUpon>TradeEntryWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="TradeViewerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TradeViewerWindow.Designer.cs">
+      <DependentUpon>TradeViewerWindow.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ConfirmationDialog.resx">
       <DependentUpon>ConfirmationDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TradeEntryWindow.resx">
       <DependentUpon>TradeEntryWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TradeViewerWindow.resx">
+      <DependentUpon>TradeViewerWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

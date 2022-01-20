@@ -1132,7 +1132,11 @@ namespace Trade_Simulator
 
             if (trades.Count > 0)
             {
-                // Load trade viewer, pass trades
+                TradeViewerWindow tvw = new TradeViewerWindow(trades);
+
+                tvw.ShowDialog();
+
+                //SaveTrades(tvw.AllTrades);
             }
             else
             {
@@ -1181,6 +1185,22 @@ namespace Trade_Simulator
             catch (Exception ex)
             {
                 MessageBox.Show("There was an error inserting the trade.");
+            }
+        }
+
+        public void SaveTrades(List<Trade> trades)
+        {
+            try
+            {
+                using (FileStream fs = new FileStream("Trades.bin", FileMode.Truncate))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(fs, trades);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error saving the changes.");
             }
         }
 
