@@ -93,9 +93,9 @@ namespace Trade_Simulator
             this.tbSLDiff = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnProfitLossProcess = new System.Windows.Forms.Button();
-            this.rtbProfitLossResults = new System.Windows.Forms.RichTextBox();
-            this.label34 = new System.Windows.Forms.Label();
             this.tbPLBalance = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.rtbProfitLossResults = new System.Windows.Forms.RichTextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.fdsf = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -129,6 +129,7 @@ namespace Trade_Simulator
             this.nudPSTableRows = new System.Windows.Forms.NumericUpDown();
             this.nudPSTableSigX = new System.Windows.Forms.NumericUpDown();
             this.nudPSTableStepSize = new System.Windows.Forms.NumericUpDown();
+            this.btnPSTablePlot = new System.Windows.Forms.Button();
             this.btnGenerateSizingTable = new System.Windows.Forms.Button();
             this.tbPSTableLoss = new System.Windows.Forms.TextBox();
             this.tbPSTableULev = new System.Windows.Forms.TextBox();
@@ -160,10 +161,9 @@ namespace Trade_Simulator
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnTradeEntry = new System.Windows.Forms.Button();
-            this.btnTradeViewer = new System.Windows.Forms.Button();
             this.btnResetTrades = new System.Windows.Forms.Button();
-            this.btnPSTablePlot = new System.Windows.Forms.Button();
+            this.btnTradeViewer = new System.Windows.Forms.Button();
+            this.btnTradeEntry = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.cbPlotEquityLog = new System.Windows.Forms.CheckBox();
@@ -200,7 +200,7 @@ namespace Trade_Simulator
             this.btnProcess.Location = new System.Drawing.Point(94, 5);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(138, 23);
-            this.btnProcess.TabIndex = 13;
+            this.btnProcess.TabIndex = 15;
             this.btnProcess.Text = "Run One Simulation";
             this.btnProcess.UseVisualStyleBackColor = false;
             this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
@@ -507,7 +507,7 @@ namespace Trade_Simulator
             this.btnGetBreakEvenWin.Location = new System.Drawing.Point(51, 77);
             this.btnGetBreakEvenWin.Name = "btnGetBreakEvenWin";
             this.btnGetBreakEvenWin.Size = new System.Drawing.Size(128, 23);
-            this.btnGetBreakEvenWin.TabIndex = 19;
+            this.btnGetBreakEvenWin.TabIndex = 53;
             this.btnGetBreakEvenWin.Text = "Process";
             this.btnGetBreakEvenWin.UseVisualStyleBackColor = false;
             this.btnGetBreakEvenWin.Click += new System.EventHandler(this.btnGetBreakEvenWin_Click);
@@ -561,7 +561,7 @@ namespace Trade_Simulator
             this.btnSuperSim.Location = new System.Drawing.Point(127, 33);
             this.btnSuperSim.Name = "btnSuperSim";
             this.btnSuperSim.Size = new System.Drawing.Size(69, 22);
-            this.btnSuperSim.TabIndex = 15;
+            this.btnSuperSim.TabIndex = 17;
             this.btnSuperSim.Text = "SuperSim";
             this.btnSuperSim.UseVisualStyleBackColor = false;
             this.btnSuperSim.Click += new System.EventHandler(this.btnSuperSim_Click);
@@ -576,7 +576,7 @@ namespace Trade_Simulator
             0});
             this.numSimCount.Name = "numSimCount";
             this.numSimCount.Size = new System.Drawing.Size(60, 20);
-            this.numSimCount.TabIndex = 14;
+            this.numSimCount.TabIndex = 16;
             this.numSimCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numSimCount.Value = new decimal(new int[] {
             250,
@@ -620,7 +620,7 @@ namespace Trade_Simulator
             this.btnSupersimPlus.Margin = new System.Windows.Forms.Padding(0);
             this.btnSupersimPlus.Name = "btnSupersimPlus";
             this.btnSupersimPlus.Size = new System.Drawing.Size(30, 22);
-            this.btnSupersimPlus.TabIndex = 16;
+            this.btnSupersimPlus.TabIndex = 18;
             this.btnSupersimPlus.Text = "+";
             this.btnSupersimPlus.UseVisualStyleBackColor = false;
             this.btnSupersimPlus.Click += new System.EventHandler(this.btnSupersimPlus_Click);
@@ -672,7 +672,7 @@ namespace Trade_Simulator
             this.tbOrderCap.Location = new System.Drawing.Point(132, 187);
             this.tbOrderCap.Name = "tbOrderCap";
             this.tbOrderCap.Size = new System.Drawing.Size(100, 20);
-            this.tbOrderCap.TabIndex = 10;
+            this.tbOrderCap.TabIndex = 11;
             this.tbOrderCap.Text = "5000";
             this.tbOrderCap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -720,7 +720,7 @@ namespace Trade_Simulator
             this.tbEntriesPerHour.Location = new System.Drawing.Point(132, 207);
             this.tbEntriesPerHour.Name = "tbEntriesPerHour";
             this.tbEntriesPerHour.Size = new System.Drawing.Size(100, 20);
-            this.tbEntriesPerHour.TabIndex = 11;
+            this.tbEntriesPerHour.TabIndex = 12;
             this.tbEntriesPerHour.Text = "10";
             this.tbEntriesPerHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -738,7 +738,7 @@ namespace Trade_Simulator
             this.tbHoursPerDay.Location = new System.Drawing.Point(132, 227);
             this.tbHoursPerDay.Name = "tbHoursPerDay";
             this.tbHoursPerDay.Size = new System.Drawing.Size(100, 20);
-            this.tbHoursPerDay.TabIndex = 12;
+            this.tbHoursPerDay.TabIndex = 13;
             this.tbHoursPerDay.Text = "8";
             this.tbHoursPerDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -797,7 +797,7 @@ namespace Trade_Simulator
             this.tbSLDiff.Location = new System.Drawing.Point(51, 158);
             this.tbSLDiff.Name = "tbSLDiff";
             this.tbSLDiff.Size = new System.Drawing.Size(127, 20);
-            this.tbSLDiff.TabIndex = 27;
+            this.tbSLDiff.TabIndex = 38;
             this.tbSLDiff.Text = "0.015";
             this.tbSLDiff.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -826,7 +826,7 @@ namespace Trade_Simulator
             this.panel3.Location = new System.Drawing.Point(957, 272);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(188, 287);
-            this.panel3.TabIndex = 28;
+            this.panel3.TabIndex = 4;
             // 
             // btnProfitLossProcess
             // 
@@ -836,10 +836,28 @@ namespace Trade_Simulator
             this.btnProfitLossProcess.Location = new System.Drawing.Point(51, 180);
             this.btnProfitLossProcess.Name = "btnProfitLossProcess";
             this.btnProfitLossProcess.Size = new System.Drawing.Size(127, 23);
-            this.btnProfitLossProcess.TabIndex = 28;
+            this.btnProfitLossProcess.TabIndex = 39;
             this.btnProfitLossProcess.Text = "Process";
             this.btnProfitLossProcess.UseVisualStyleBackColor = false;
             this.btnProfitLossProcess.Click += new System.EventHandler(this.btnProfitLossProcess_Click);
+            // 
+            // tbPLBalance
+            // 
+            this.tbPLBalance.Location = new System.Drawing.Point(51, 54);
+            this.tbPLBalance.Name = "tbPLBalance";
+            this.tbPLBalance.Size = new System.Drawing.Size(127, 20);
+            this.tbPLBalance.TabIndex = 31;
+            this.tbPLBalance.Text = "100";
+            this.tbPLBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(3, 57);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(46, 13);
+            this.label34.TabIndex = 21;
+            this.label34.Text = "Balance";
             // 
             // rtbProfitLossResults
             // 
@@ -852,24 +870,6 @@ namespace Trade_Simulator
             this.rtbProfitLossResults.TabIndex = 22;
             this.rtbProfitLossResults.TabStop = false;
             this.rtbProfitLossResults.Text = "";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(3, 57);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(46, 13);
-            this.label34.TabIndex = 21;
-            this.label34.Text = "Balance";
-            // 
-            // tbPLBalance
-            // 
-            this.tbPLBalance.Location = new System.Drawing.Point(51, 54);
-            this.tbPLBalance.Name = "tbPLBalance";
-            this.tbPLBalance.Size = new System.Drawing.Size(127, 20);
-            this.tbPLBalance.TabIndex = 21;
-            this.tbPLBalance.Text = "100";
-            this.tbPLBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label35
             // 
@@ -930,7 +930,7 @@ namespace Trade_Simulator
             this.tbPricePL.Location = new System.Drawing.Point(51, 33);
             this.tbPricePL.Name = "tbPricePL";
             this.tbPricePL.Size = new System.Drawing.Size(127, 20);
-            this.tbPricePL.TabIndex = 22;
+            this.tbPricePL.TabIndex = 30;
             this.tbPricePL.Text = "5";
             this.tbPricePL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -939,7 +939,7 @@ namespace Trade_Simulator
             this.tbRRPL.Location = new System.Drawing.Point(51, 95);
             this.tbRRPL.Name = "tbRRPL";
             this.tbRRPL.Size = new System.Drawing.Size(127, 20);
-            this.tbRRPL.TabIndex = 24;
+            this.tbRRPL.TabIndex = 33;
             this.tbRRPL.Text = "2";
             this.tbRRPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -948,7 +948,7 @@ namespace Trade_Simulator
             this.tbRiskPL.Location = new System.Drawing.Point(51, 74);
             this.tbRiskPL.Name = "tbRiskPL";
             this.tbRiskPL.Size = new System.Drawing.Size(127, 20);
-            this.tbRiskPL.TabIndex = 23;
+            this.tbRiskPL.TabIndex = 32;
             this.tbRiskPL.Text = "20";
             this.tbRiskPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -957,7 +957,7 @@ namespace Trade_Simulator
             this.tbFeePLExit.Location = new System.Drawing.Point(114, 137);
             this.tbFeePLExit.Name = "tbFeePLExit";
             this.tbFeePLExit.Size = new System.Drawing.Size(64, 20);
-            this.tbFeePLExit.TabIndex = 26;
+            this.tbFeePLExit.TabIndex = 37;
             this.tbFeePLExit.Text = "-0.025";
             this.tbFeePLExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -966,7 +966,7 @@ namespace Trade_Simulator
             this.tbFeePLEnt.Location = new System.Drawing.Point(51, 137);
             this.tbFeePLEnt.Name = "tbFeePLEnt";
             this.tbFeePLEnt.Size = new System.Drawing.Size(59, 20);
-            this.tbFeePLEnt.TabIndex = 26;
+            this.tbFeePLEnt.TabIndex = 35;
             this.tbFeePLEnt.Text = "0.075";
             this.tbFeePLEnt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -975,7 +975,7 @@ namespace Trade_Simulator
             this.tbLevPL.Location = new System.Drawing.Point(51, 116);
             this.tbLevPL.Name = "tbLevPL";
             this.tbLevPL.Size = new System.Drawing.Size(127, 20);
-            this.tbLevPL.TabIndex = 25;
+            this.tbLevPL.TabIndex = 34;
             this.tbLevPL.Text = "50";
             this.tbLevPL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -987,7 +987,7 @@ namespace Trade_Simulator
             this.btnCompound.Location = new System.Drawing.Point(81, 100);
             this.btnCompound.Name = "btnCompound";
             this.btnCompound.Size = new System.Drawing.Size(97, 23);
-            this.btnCompound.TabIndex = 31;
+            this.btnCompound.TabIndex = 49;
             this.btnCompound.Text = "Process";
             this.btnCompound.UseVisualStyleBackColor = false;
             this.btnCompound.Click += new System.EventHandler(this.btnCompound_Click);
@@ -1009,7 +1009,7 @@ namespace Trade_Simulator
             this.tbT.Location = new System.Drawing.Point(81, 78);
             this.tbT.Name = "tbT";
             this.tbT.Size = new System.Drawing.Size(97, 20);
-            this.tbT.TabIndex = 30;
+            this.tbT.TabIndex = 48;
             this.tbT.Text = "100";
             this.tbT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1018,7 +1018,7 @@ namespace Trade_Simulator
             this.tbRate.Location = new System.Drawing.Point(81, 57);
             this.tbRate.Name = "tbRate";
             this.tbRate.Size = new System.Drawing.Size(97, 20);
-            this.tbRate.TabIndex = 30;
+            this.tbRate.TabIndex = 47;
             this.tbRate.Text = "1.25";
             this.tbRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1036,7 +1036,7 @@ namespace Trade_Simulator
             this.tbPrincipal.Location = new System.Drawing.Point(81, 36);
             this.tbPrincipal.Name = "tbPrincipal";
             this.tbPrincipal.Size = new System.Drawing.Size(97, 20);
-            this.tbPrincipal.TabIndex = 30;
+            this.tbPrincipal.TabIndex = 46;
             this.tbPrincipal.Text = "100";
             this.tbPrincipal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1076,7 +1076,7 @@ namespace Trade_Simulator
             this.btnPlotEquity.Location = new System.Drawing.Point(245, 28);
             this.btnPlotEquity.Name = "btnPlotEquity";
             this.btnPlotEquity.Size = new System.Drawing.Size(126, 26);
-            this.btnPlotEquity.TabIndex = 37;
+            this.btnPlotEquity.TabIndex = 55;
             this.btnPlotEquity.Text = "Plot Equity";
             this.btnPlotEquity.UseVisualStyleBackColor = false;
             this.btnPlotEquity.Click += new System.EventHandler(this.btnPlotEquity_Click);
@@ -1086,7 +1086,7 @@ namespace Trade_Simulator
             this.tbFeesPerOrderExit.Location = new System.Drawing.Point(185, 167);
             this.tbFeesPerOrderExit.Name = "tbFeesPerOrderExit";
             this.tbFeesPerOrderExit.Size = new System.Drawing.Size(47, 20);
-            this.tbFeesPerOrderExit.TabIndex = 9;
+            this.tbFeesPerOrderExit.TabIndex = 10;
             this.tbFeesPerOrderExit.Text = "-0.025";
             this.tbFeesPerOrderExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1095,7 +1095,7 @@ namespace Trade_Simulator
             this.tbNewBalance.Location = new System.Drawing.Point(6, 33);
             this.tbNewBalance.Name = "tbNewBalance";
             this.tbNewBalance.Size = new System.Drawing.Size(76, 20);
-            this.tbNewBalance.TabIndex = 30;
+            this.tbNewBalance.TabIndex = 43;
             this.tbNewBalance.Text = "0";
             this.tbNewBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1107,7 +1107,7 @@ namespace Trade_Simulator
             this.btnEntry.Location = new System.Drawing.Point(87, 31);
             this.btnEntry.Name = "btnEntry";
             this.btnEntry.Size = new System.Drawing.Size(91, 23);
-            this.btnEntry.TabIndex = 31;
+            this.btnEntry.TabIndex = 44;
             this.btnEntry.Text = "Set Balance";
             this.btnEntry.UseVisualStyleBackColor = false;
             this.btnEntry.Click += new System.EventHandler(this.btnEntry_Click);
@@ -1120,7 +1120,7 @@ namespace Trade_Simulator
             this.btnResetBalance.Location = new System.Drawing.Point(87, 55);
             this.btnResetBalance.Name = "btnResetBalance";
             this.btnResetBalance.Size = new System.Drawing.Size(91, 23);
-            this.btnResetBalance.TabIndex = 31;
+            this.btnResetBalance.TabIndex = 45;
             this.btnResetBalance.Text = "Reset";
             this.btnResetBalance.UseVisualStyleBackColor = false;
             this.btnResetBalance.Click += new System.EventHandler(this.btnResetBalance_Click);
@@ -1162,14 +1162,14 @@ namespace Trade_Simulator
             this.panel4.Location = new System.Drawing.Point(957, 8);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(188, 258);
-            this.panel4.TabIndex = 38;
+            this.panel4.TabIndex = 3;
             // 
             // tbPSTableFeeEntry
             // 
             this.tbPSTableFeeEntry.Location = new System.Drawing.Point(50, 116);
             this.tbPSTableFeeEntry.Name = "tbPSTableFeeEntry";
             this.tbPSTableFeeEntry.Size = new System.Drawing.Size(59, 20);
-            this.tbPSTableFeeEntry.TabIndex = 46;
+            this.tbPSTableFeeEntry.TabIndex = 23;
             this.tbPSTableFeeEntry.Text = "0.075";
             this.tbPSTableFeeEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1178,7 +1178,7 @@ namespace Trade_Simulator
             this.tbPSTableFeeExit.Location = new System.Drawing.Point(114, 116);
             this.tbPSTableFeeExit.Name = "tbPSTableFeeExit";
             this.tbPSTableFeeExit.Size = new System.Drawing.Size(63, 20);
-            this.tbPSTableFeeExit.TabIndex = 46;
+            this.tbPSTableFeeExit.TabIndex = 24;
             this.tbPSTableFeeExit.Text = "-0.025";
             this.tbPSTableFeeExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1193,7 +1193,7 @@ namespace Trade_Simulator
             this.nudPSTableRows.Name = "nudPSTableRows";
             this.nudPSTableRows.ReadOnly = true;
             this.nudPSTableRows.Size = new System.Drawing.Size(127, 20);
-            this.nudPSTableRows.TabIndex = 49;
+            this.nudPSTableRows.TabIndex = 27;
             this.nudPSTableRows.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudPSTableRows.Value = new decimal(new int[] {
             20,
@@ -1217,7 +1217,7 @@ namespace Trade_Simulator
             this.nudPSTableSigX.Name = "nudPSTableSigX";
             this.nudPSTableSigX.ReadOnly = true;
             this.nudPSTableSigX.Size = new System.Drawing.Size(127, 20);
-            this.nudPSTableSigX.TabIndex = 49;
+            this.nudPSTableSigX.TabIndex = 25;
             this.nudPSTableSigX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudPSTableSigX.Value = new decimal(new int[] {
             3,
@@ -1236,13 +1236,26 @@ namespace Trade_Simulator
             this.nudPSTableStepSize.Name = "nudPSTableStepSize";
             this.nudPSTableStepSize.ReadOnly = true;
             this.nudPSTableStepSize.Size = new System.Drawing.Size(127, 20);
-            this.nudPSTableStepSize.TabIndex = 49;
+            this.nudPSTableStepSize.TabIndex = 26;
             this.nudPSTableStepSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudPSTableStepSize.Value = new decimal(new int[] {
             2,
             0,
             0,
             0});
+            // 
+            // btnPSTablePlot
+            // 
+            this.btnPSTablePlot.BackColor = System.Drawing.Color.Black;
+            this.btnPSTablePlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPSTablePlot.ForeColor = System.Drawing.Color.White;
+            this.btnPSTablePlot.Location = new System.Drawing.Point(50, 226);
+            this.btnPSTablePlot.Name = "btnPSTablePlot";
+            this.btnPSTablePlot.Size = new System.Drawing.Size(128, 23);
+            this.btnPSTablePlot.TabIndex = 29;
+            this.btnPSTablePlot.Text = "Plot (TODO)";
+            this.btnPSTablePlot.UseVisualStyleBackColor = false;
+            this.btnPSTablePlot.Click += new System.EventHandler(this.btnGenerateSizingTable_Click);
             // 
             // btnGenerateSizingTable
             // 
@@ -1252,7 +1265,7 @@ namespace Trade_Simulator
             this.btnGenerateSizingTable.Location = new System.Drawing.Point(50, 203);
             this.btnGenerateSizingTable.Name = "btnGenerateSizingTable";
             this.btnGenerateSizingTable.Size = new System.Drawing.Size(128, 23);
-            this.btnGenerateSizingTable.TabIndex = 47;
+            this.btnGenerateSizingTable.TabIndex = 28;
             this.btnGenerateSizingTable.Text = "Table";
             this.btnGenerateSizingTable.UseVisualStyleBackColor = false;
             this.btnGenerateSizingTable.Click += new System.EventHandler(this.btnGenerateSizingTable_Click);
@@ -1262,7 +1275,7 @@ namespace Trade_Simulator
             this.tbPSTableLoss.Location = new System.Drawing.Point(50, 95);
             this.tbPSTableLoss.Name = "tbPSTableLoss";
             this.tbPSTableLoss.Size = new System.Drawing.Size(127, 20);
-            this.tbPSTableLoss.TabIndex = 46;
+            this.tbPSTableLoss.TabIndex = 22;
             this.tbPSTableLoss.Text = "1";
             this.tbPSTableLoss.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1271,7 +1284,7 @@ namespace Trade_Simulator
             this.tbPSTableULev.Location = new System.Drawing.Point(50, 74);
             this.tbPSTableULev.Name = "tbPSTableULev";
             this.tbPSTableULev.Size = new System.Drawing.Size(127, 20);
-            this.tbPSTableULev.TabIndex = 44;
+            this.tbPSTableULev.TabIndex = 21;
             this.tbPSTableULev.Text = "50";
             this.tbPSTableULev.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1280,7 +1293,7 @@ namespace Trade_Simulator
             this.tbPSTableBalance.Location = new System.Drawing.Point(50, 53);
             this.tbPSTableBalance.Name = "tbPSTableBalance";
             this.tbPSTableBalance.Size = new System.Drawing.Size(127, 20);
-            this.tbPSTableBalance.TabIndex = 44;
+            this.tbPSTableBalance.TabIndex = 20;
             this.tbPSTableBalance.Text = "100";
             this.tbPSTableBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1289,7 +1302,7 @@ namespace Trade_Simulator
             this.tbPSTablePrice.Location = new System.Drawing.Point(50, 32);
             this.tbPSTablePrice.Name = "tbPSTablePrice";
             this.tbPSTablePrice.Size = new System.Drawing.Size(127, 20);
-            this.tbPSTablePrice.TabIndex = 38;
+            this.tbPSTablePrice.TabIndex = 19;
             this.tbPSTablePrice.Text = "5";
             this.tbPSTablePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1381,7 +1394,7 @@ namespace Trade_Simulator
             this.cbLog.Location = new System.Drawing.Point(8, 8);
             this.cbLog.Name = "cbLog";
             this.cbLog.Size = new System.Drawing.Size(80, 17);
-            this.cbLog.TabIndex = 40;
+            this.cbLog.TabIndex = 14;
             this.cbLog.Text = "Logarithmic";
             this.cbLog.UseVisualStyleBackColor = true;
             // 
@@ -1396,7 +1409,7 @@ namespace Trade_Simulator
             this.panel2.Location = new System.Drawing.Point(1151, 124);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(188, 89);
-            this.panel2.TabIndex = 28;
+            this.panel2.TabIndex = 6;
             // 
             // panel5
             // 
@@ -1414,7 +1427,7 @@ namespace Trade_Simulator
             this.panel5.Location = new System.Drawing.Point(1151, 219);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(188, 157);
-            this.panel5.TabIndex = 28;
+            this.panel5.TabIndex = 7;
             // 
             // panel7
             // 
@@ -1434,7 +1447,7 @@ namespace Trade_Simulator
             this.panel7.Location = new System.Drawing.Point(1151, 382);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(188, 177);
-            this.panel7.TabIndex = 28;
+            this.panel7.TabIndex = 8;
             // 
             // label46
             // 
@@ -1451,7 +1464,7 @@ namespace Trade_Simulator
             this.tbGBEFeeExit.Location = new System.Drawing.Point(116, 54);
             this.tbGBEFeeExit.Name = "tbGBEFeeExit";
             this.tbGBEFeeExit.Size = new System.Drawing.Size(62, 20);
-            this.tbGBEFeeExit.TabIndex = 46;
+            this.tbGBEFeeExit.TabIndex = 52;
             this.tbGBEFeeExit.Text = "-0.025";
             this.tbGBEFeeExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1460,7 +1473,7 @@ namespace Trade_Simulator
             this.tbGBEAssetPrice.Location = new System.Drawing.Point(51, 33);
             this.tbGBEAssetPrice.Name = "tbGBEAssetPrice";
             this.tbGBEAssetPrice.Size = new System.Drawing.Size(127, 20);
-            this.tbGBEAssetPrice.TabIndex = 30;
+            this.tbGBEAssetPrice.TabIndex = 50;
             this.tbGBEAssetPrice.Text = "5";
             this.tbGBEAssetPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1469,7 +1482,7 @@ namespace Trade_Simulator
             this.tbGBEFeeEntry.Location = new System.Drawing.Point(51, 54);
             this.tbGBEFeeEntry.Name = "tbGBEFeeEntry";
             this.tbGBEFeeEntry.Size = new System.Drawing.Size(59, 20);
-            this.tbGBEFeeEntry.TabIndex = 46;
+            this.tbGBEFeeEntry.TabIndex = 51;
             this.tbGBEFeeEntry.Text = "0.075";
             this.tbGBEFeeEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1542,7 +1555,7 @@ namespace Trade_Simulator
             this.panel8.Location = new System.Drawing.Point(8, 8);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(245, 262);
-            this.panel8.TabIndex = 28;
+            this.panel8.TabIndex = 1;
             // 
             // panel9
             // 
@@ -1557,7 +1570,7 @@ namespace Trade_Simulator
             this.panel9.Location = new System.Drawing.Point(8, 275);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(245, 67);
-            this.panel9.TabIndex = 28;
+            this.panel9.TabIndex = 2;
             // 
             // panel10
             // 
@@ -1603,7 +1616,7 @@ namespace Trade_Simulator
             this.panel1.Location = new System.Drawing.Point(1151, 8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(188, 110);
-            this.panel1.TabIndex = 28;
+            this.panel1.TabIndex = 5;
             // 
             // label4
             // 
@@ -1615,18 +1628,18 @@ namespace Trade_Simulator
             this.label4.TabIndex = 19;
             this.label4.Text = "Trades";
             // 
-            // btnTradeEntry
+            // btnResetTrades
             // 
-            this.btnTradeEntry.BackColor = System.Drawing.Color.Black;
-            this.btnTradeEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTradeEntry.ForeColor = System.Drawing.Color.White;
-            this.btnTradeEntry.Location = new System.Drawing.Point(7, 31);
-            this.btnTradeEntry.Name = "btnTradeEntry";
-            this.btnTradeEntry.Size = new System.Drawing.Size(170, 23);
-            this.btnTradeEntry.TabIndex = 19;
-            this.btnTradeEntry.Text = "Trade Entry";
-            this.btnTradeEntry.UseVisualStyleBackColor = false;
-            this.btnTradeEntry.Click += new System.EventHandler(this.btnTradeEntry_Click);
+            this.btnResetTrades.BackColor = System.Drawing.Color.Red;
+            this.btnResetTrades.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetTrades.ForeColor = System.Drawing.Color.White;
+            this.btnResetTrades.Location = new System.Drawing.Point(7, 77);
+            this.btnResetTrades.Name = "btnResetTrades";
+            this.btnResetTrades.Size = new System.Drawing.Size(170, 23);
+            this.btnResetTrades.TabIndex = 42;
+            this.btnResetTrades.Text = "Purge";
+            this.btnResetTrades.UseVisualStyleBackColor = false;
+            this.btnResetTrades.Click += new System.EventHandler(this.btnResetTrades_Click);
             // 
             // btnTradeViewer
             // 
@@ -1636,36 +1649,23 @@ namespace Trade_Simulator
             this.btnTradeViewer.Location = new System.Drawing.Point(7, 54);
             this.btnTradeViewer.Name = "btnTradeViewer";
             this.btnTradeViewer.Size = new System.Drawing.Size(170, 23);
-            this.btnTradeViewer.TabIndex = 19;
-            this.btnTradeViewer.Text = "Trade Viewer";
+            this.btnTradeViewer.TabIndex = 41;
+            this.btnTradeViewer.Text = "Trade Viewer (TODO)";
             this.btnTradeViewer.UseVisualStyleBackColor = false;
             this.btnTradeViewer.Click += new System.EventHandler(this.btnTradeViewer_Click);
             // 
-            // btnResetTrades
+            // btnTradeEntry
             // 
-            this.btnResetTrades.BackColor = System.Drawing.Color.Red;
-            this.btnResetTrades.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetTrades.ForeColor = System.Drawing.Color.White;
-            this.btnResetTrades.Location = new System.Drawing.Point(7, 77);
-            this.btnResetTrades.Name = "btnResetTrades";
-            this.btnResetTrades.Size = new System.Drawing.Size(170, 23);
-            this.btnResetTrades.TabIndex = 31;
-            this.btnResetTrades.Text = "Purge";
-            this.btnResetTrades.UseVisualStyleBackColor = false;
-            this.btnResetTrades.Click += new System.EventHandler(this.btnResetTrades_Click);
-            // 
-            // btnPSTablePlot
-            // 
-            this.btnPSTablePlot.BackColor = System.Drawing.Color.Black;
-            this.btnPSTablePlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPSTablePlot.ForeColor = System.Drawing.Color.White;
-            this.btnPSTablePlot.Location = new System.Drawing.Point(50, 226);
-            this.btnPSTablePlot.Name = "btnPSTablePlot";
-            this.btnPSTablePlot.Size = new System.Drawing.Size(128, 23);
-            this.btnPSTablePlot.TabIndex = 47;
-            this.btnPSTablePlot.Text = "Plot (TODO)";
-            this.btnPSTablePlot.UseVisualStyleBackColor = false;
-            this.btnPSTablePlot.Click += new System.EventHandler(this.btnGenerateSizingTable_Click);
+            this.btnTradeEntry.BackColor = System.Drawing.Color.Black;
+            this.btnTradeEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTradeEntry.ForeColor = System.Drawing.Color.White;
+            this.btnTradeEntry.Location = new System.Drawing.Point(7, 31);
+            this.btnTradeEntry.Name = "btnTradeEntry";
+            this.btnTradeEntry.Size = new System.Drawing.Size(170, 23);
+            this.btnTradeEntry.TabIndex = 40;
+            this.btnTradeEntry.Text = "Trade Entry";
+            this.btnTradeEntry.UseVisualStyleBackColor = false;
+            this.btnTradeEntry.Click += new System.EventHandler(this.btnTradeEntry_Click);
             // 
             // panel6
             // 
@@ -1677,7 +1677,7 @@ namespace Trade_Simulator
             this.panel6.Location = new System.Drawing.Point(957, 565);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(382, 68);
-            this.panel6.TabIndex = 28;
+            this.panel6.TabIndex = 9;
             // 
             // label18
             // 
@@ -1695,7 +1695,7 @@ namespace Trade_Simulator
             this.cbPlotEquityLog.Location = new System.Drawing.Point(7, 35);
             this.cbPlotEquityLog.Name = "cbPlotEquityLog";
             this.cbPlotEquityLog.Size = new System.Drawing.Size(80, 17);
-            this.cbPlotEquityLog.TabIndex = 40;
+            this.cbPlotEquityLog.TabIndex = 54;
             this.cbPlotEquityLog.Text = "Logarithmic";
             this.cbPlotEquityLog.UseVisualStyleBackColor = true;
             // 

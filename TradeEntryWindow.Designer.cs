@@ -30,6 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TradeEntryWindow));
             this.panel8 = new System.Windows.Forms.Panel();
+            this.cbResult = new System.Windows.Forms.ComboBox();
+            this.tbExitPrice = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbReasoning = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbBalance = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.tbSymbol = new System.Windows.Forms.TextBox();
             this.tbExchange = new System.Windows.Forms.TextBox();
@@ -54,14 +62,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbExitPrice = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbReasoning = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbBalance = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cbResult = new System.Windows.Forms.ComboBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel8.SuspendLayout();
@@ -107,6 +107,81 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(532, 526);
             this.panel8.TabIndex = 29;
+            // 
+            // cbResult
+            // 
+            this.cbResult.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbResult.FormattingEnabled = true;
+            this.cbResult.Items.AddRange(new object[] {
+            "Win",
+            "Partial Win",
+            "Partial Loss",
+            "Loss"});
+            this.cbResult.Location = new System.Drawing.Point(132, 267);
+            this.cbResult.Name = "cbResult";
+            this.cbResult.Size = new System.Drawing.Size(388, 21);
+            this.cbResult.TabIndex = 14;
+            // 
+            // tbExitPrice
+            // 
+            this.tbExitPrice.Location = new System.Drawing.Point(132, 247);
+            this.tbExitPrice.Name = "tbExitPrice";
+            this.tbExitPrice.Size = new System.Drawing.Size(388, 20);
+            this.tbExitPrice.TabIndex = 13;
+            this.tbExitPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 310);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Reasoning";
+            // 
+            // tbReasoning
+            // 
+            this.tbReasoning.Location = new System.Drawing.Point(132, 308);
+            this.tbReasoning.Multiline = true;
+            this.tbReasoning.Name = "tbReasoning";
+            this.tbReasoning.Size = new System.Drawing.Size(388, 206);
+            this.tbReasoning.TabIndex = 16;
+            this.tbReasoning.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(5, 290);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(46, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Balance";
+            // 
+            // tbBalance
+            // 
+            this.tbBalance.Location = new System.Drawing.Point(132, 288);
+            this.tbBalance.Name = "tbBalance";
+            this.tbBalance.Size = new System.Drawing.Size(388, 20);
+            this.tbBalance.TabIndex = 15;
+            this.tbBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(5, 250);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 13);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Exit Price";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(5, 270);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 13);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "Result";
             // 
             // label17
             // 
@@ -312,87 +387,12 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Risk %";
             // 
-            // tbExitPrice
-            // 
-            this.tbExitPrice.Location = new System.Drawing.Point(132, 247);
-            this.tbExitPrice.Name = "tbExitPrice";
-            this.tbExitPrice.Size = new System.Drawing.Size(388, 20);
-            this.tbExitPrice.TabIndex = 27;
-            this.tbExitPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 310);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 13);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Reasoning";
-            // 
-            // tbReasoning
-            // 
-            this.tbReasoning.Location = new System.Drawing.Point(132, 308);
-            this.tbReasoning.Multiline = true;
-            this.tbReasoning.Name = "tbReasoning";
-            this.tbReasoning.Size = new System.Drawing.Size(388, 206);
-            this.tbReasoning.TabIndex = 30;
-            this.tbReasoning.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 290);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 13);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Balance";
-            // 
-            // tbBalance
-            // 
-            this.tbBalance.Location = new System.Drawing.Point(132, 288);
-            this.tbBalance.Name = "tbBalance";
-            this.tbBalance.Size = new System.Drawing.Size(388, 20);
-            this.tbBalance.TabIndex = 29;
-            this.tbBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 250);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 13);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Exit Price";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 270);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 13);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "Result";
-            // 
-            // cbResult
-            // 
-            this.cbResult.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbResult.FormattingEnabled = true;
-            this.cbResult.Items.AddRange(new object[] {
-            "Win",
-            "Partial Win",
-            "Partial Loss",
-            "Loss"});
-            this.cbResult.Location = new System.Drawing.Point(132, 267);
-            this.cbResult.Name = "cbResult";
-            this.cbResult.Size = new System.Drawing.Size(388, 21);
-            this.cbResult.TabIndex = 35;
-            // 
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(468, 544);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 30;
+            this.btnOK.TabIndex = 17;
             this.btnOK.Text = "Add";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -402,7 +402,7 @@
             this.btnCancel.Location = new System.Drawing.Point(387, 544);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 30;
+            this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
