@@ -164,6 +164,9 @@ namespace Trade_Simulator
             this.btnTradeViewer = new System.Windows.Forms.Button();
             this.btnResetTrades = new System.Windows.Forms.Button();
             this.btnPSTablePlot = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.cbPlotEquityLog = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numSimCount)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -177,6 +180,7 @@ namespace Trade_Simulator
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbStartingBalance
@@ -191,6 +195,7 @@ namespace Trade_Simulator
             // btnProcess
             // 
             this.btnProcess.BackColor = System.Drawing.Color.Black;
+            this.btnProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcess.ForeColor = System.Drawing.Color.White;
             this.btnProcess.Location = new System.Drawing.Point(94, 5);
             this.btnProcess.Name = "btnProcess";
@@ -497,6 +502,7 @@ namespace Trade_Simulator
             // btnGetBreakEvenWin
             // 
             this.btnGetBreakEvenWin.BackColor = System.Drawing.Color.Black;
+            this.btnGetBreakEvenWin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGetBreakEvenWin.ForeColor = System.Drawing.Color.White;
             this.btnGetBreakEvenWin.Location = new System.Drawing.Point(51, 77);
             this.btnGetBreakEvenWin.Name = "btnGetBreakEvenWin";
@@ -523,7 +529,7 @@ namespace Trade_Simulator
             this.panelGraph.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelGraph.Location = new System.Drawing.Point(259, 8);
             this.panelGraph.Name = "panelGraph";
-            this.panelGraph.Size = new System.Drawing.Size(692, 568);
+            this.panelGraph.Size = new System.Drawing.Size(692, 590);
             this.panelGraph.TabIndex = 15;
             // 
             // tbMaxDrawdown
@@ -550,6 +556,7 @@ namespace Trade_Simulator
             // btnSuperSim
             // 
             this.btnSuperSim.BackColor = System.Drawing.Color.Black;
+            this.btnSuperSim.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuperSim.ForeColor = System.Drawing.Color.White;
             this.btnSuperSim.Location = new System.Drawing.Point(127, 33);
             this.btnSuperSim.Name = "btnSuperSim";
@@ -607,7 +614,7 @@ namespace Trade_Simulator
             // btnSupersimPlus
             // 
             this.btnSupersimPlus.BackColor = System.Drawing.Color.Black;
-            this.btnSupersimPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupersimPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupersimPlus.ForeColor = System.Drawing.Color.White;
             this.btnSupersimPlus.Location = new System.Drawing.Point(202, 33);
             this.btnSupersimPlus.Margin = new System.Windows.Forms.Padding(0);
@@ -768,7 +775,7 @@ namespace Trade_Simulator
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(365, 591);
+            this.label31.Location = new System.Drawing.Point(365, 608);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(480, 13);
             this.label31.TabIndex = 26;
@@ -824,6 +831,7 @@ namespace Trade_Simulator
             // btnProfitLossProcess
             // 
             this.btnProfitLossProcess.BackColor = System.Drawing.Color.Black;
+            this.btnProfitLossProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfitLossProcess.ForeColor = System.Drawing.Color.White;
             this.btnProfitLossProcess.Location = new System.Drawing.Point(51, 180);
             this.btnProfitLossProcess.Name = "btnProfitLossProcess";
@@ -974,6 +982,7 @@ namespace Trade_Simulator
             // btnCompound
             // 
             this.btnCompound.BackColor = System.Drawing.Color.Black;
+            this.btnCompound.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompound.ForeColor = System.Drawing.Color.White;
             this.btnCompound.Location = new System.Drawing.Point(81, 100);
             this.btnCompound.Name = "btnCompound";
@@ -1062,11 +1071,11 @@ namespace Trade_Simulator
             // btnPlotEquity
             // 
             this.btnPlotEquity.BackColor = System.Drawing.Color.Black;
-            this.btnPlotEquity.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlotEquity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlotEquity.ForeColor = System.Drawing.Color.White;
-            this.btnPlotEquity.Location = new System.Drawing.Point(1151, 548);
+            this.btnPlotEquity.Location = new System.Drawing.Point(245, 28);
             this.btnPlotEquity.Name = "btnPlotEquity";
-            this.btnPlotEquity.Size = new System.Drawing.Size(188, 72);
+            this.btnPlotEquity.Size = new System.Drawing.Size(126, 26);
             this.btnPlotEquity.TabIndex = 37;
             this.btnPlotEquity.Text = "Plot Equity";
             this.btnPlotEquity.UseVisualStyleBackColor = false;
@@ -1093,6 +1102,7 @@ namespace Trade_Simulator
             // btnEntry
             // 
             this.btnEntry.BackColor = System.Drawing.Color.Black;
+            this.btnEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntry.ForeColor = System.Drawing.Color.White;
             this.btnEntry.Location = new System.Drawing.Point(87, 31);
             this.btnEntry.Name = "btnEntry";
@@ -1105,6 +1115,7 @@ namespace Trade_Simulator
             // btnResetBalance
             // 
             this.btnResetBalance.BackColor = System.Drawing.Color.Red;
+            this.btnResetBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetBalance.ForeColor = System.Drawing.Color.White;
             this.btnResetBalance.Location = new System.Drawing.Point(87, 55);
             this.btnResetBalance.Name = "btnResetBalance";
@@ -1236,12 +1247,13 @@ namespace Trade_Simulator
             // btnGenerateSizingTable
             // 
             this.btnGenerateSizingTable.BackColor = System.Drawing.Color.Black;
+            this.btnGenerateSizingTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerateSizingTable.ForeColor = System.Drawing.Color.White;
             this.btnGenerateSizingTable.Location = new System.Drawing.Point(50, 203);
             this.btnGenerateSizingTable.Name = "btnGenerateSizingTable";
             this.btnGenerateSizingTable.Size = new System.Drawing.Size(128, 23);
             this.btnGenerateSizingTable.TabIndex = 47;
-            this.btnGenerateSizingTable.Text = "Generate";
+            this.btnGenerateSizingTable.Text = "Table";
             this.btnGenerateSizingTable.UseVisualStyleBackColor = false;
             this.btnGenerateSizingTable.Click += new System.EventHandler(this.btnGenerateSizingTable_Click);
             // 
@@ -1421,7 +1433,7 @@ namespace Trade_Simulator
             this.panel7.Controls.Add(this.label44);
             this.panel7.Location = new System.Drawing.Point(1151, 382);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(188, 160);
+            this.panel7.Size = new System.Drawing.Size(188, 177);
             this.panel7.TabIndex = 28;
             // 
             // label46
@@ -1606,6 +1618,7 @@ namespace Trade_Simulator
             // btnTradeEntry
             // 
             this.btnTradeEntry.BackColor = System.Drawing.Color.Black;
+            this.btnTradeEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTradeEntry.ForeColor = System.Drawing.Color.White;
             this.btnTradeEntry.Location = new System.Drawing.Point(7, 31);
             this.btnTradeEntry.Name = "btnTradeEntry";
@@ -1618,6 +1631,7 @@ namespace Trade_Simulator
             // btnTradeViewer
             // 
             this.btnTradeViewer.BackColor = System.Drawing.Color.Black;
+            this.btnTradeViewer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTradeViewer.ForeColor = System.Drawing.Color.White;
             this.btnTradeViewer.Location = new System.Drawing.Point(7, 54);
             this.btnTradeViewer.Name = "btnTradeViewer";
@@ -1630,6 +1644,7 @@ namespace Trade_Simulator
             // btnResetTrades
             // 
             this.btnResetTrades.BackColor = System.Drawing.Color.Red;
+            this.btnResetTrades.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetTrades.ForeColor = System.Drawing.Color.White;
             this.btnResetTrades.Location = new System.Drawing.Point(7, 77);
             this.btnResetTrades.Name = "btnResetTrades";
@@ -1642,6 +1657,7 @@ namespace Trade_Simulator
             // btnPSTablePlot
             // 
             this.btnPSTablePlot.BackColor = System.Drawing.Color.Black;
+            this.btnPSTablePlot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPSTablePlot.ForeColor = System.Drawing.Color.White;
             this.btnPSTablePlot.Location = new System.Drawing.Point(50, 226);
             this.btnPSTablePlot.Name = "btnPSTablePlot";
@@ -1651,13 +1667,45 @@ namespace Trade_Simulator
             this.btnPSTablePlot.UseVisualStyleBackColor = false;
             this.btnPSTablePlot.Click += new System.EventHandler(this.btnGenerateSizingTable_Click);
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.btnPlotEquity);
+            this.panel6.Controls.Add(this.label18);
+            this.panel6.Controls.Add(this.cbPlotEquityLog);
+            this.panel6.Location = new System.Drawing.Point(957, 565);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(382, 68);
+            this.panel6.TabIndex = 28;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(3, 5);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(95, 20);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "Plot Equity";
+            // 
+            // cbPlotEquityLog
+            // 
+            this.cbPlotEquityLog.AutoSize = true;
+            this.cbPlotEquityLog.Location = new System.Drawing.Point(7, 35);
+            this.cbPlotEquityLog.Name = "cbPlotEquityLog";
+            this.cbPlotEquityLog.Size = new System.Drawing.Size(80, 17);
+            this.cbPlotEquityLog.TabIndex = 40;
+            this.cbPlotEquityLog.Text = "Logarithmic";
+            this.cbPlotEquityLog.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1348, 630);
-            this.Controls.Add(this.btnPlotEquity);
+            this.ClientSize = new System.Drawing.Size(1348, 645);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
@@ -1675,6 +1723,7 @@ namespace Trade_Simulator
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Monte Carlo Trade Simulator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.numSimCount)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1697,6 +1746,8 @@ namespace Trade_Simulator
             this.panel10.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1838,6 +1889,9 @@ namespace Trade_Simulator
         private System.Windows.Forms.Button btnResetTrades;
         private System.Windows.Forms.Button btnTradeViewer;
         private System.Windows.Forms.Button btnTradeEntry;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.CheckBox cbPlotEquityLog;
     }
 }
 

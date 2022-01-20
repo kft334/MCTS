@@ -28,6 +28,58 @@ namespace Trade_Simulator
         {
             InitializeComponent();
 
+            if (File.Exists("State.bin"))
+            {
+                using (FileStream fs = new FileStream("State.bin", FileMode.Open))
+                {
+                    BinaryFormatter debf = new BinaryFormatter();
+                    FormState state = (FormState)debf.Deserialize(fs);
+
+                    tbAssetBasePrice.Text = state.SIMAssetPrice;
+                    tbRiskPerTrade.Text = state.SIMPercentAccountPerTrade;
+                    tbWinRate.Text = state.SIMWinRate;
+                    tbStopLoss.Text = state.SIMStoploss;
+                    tbStopLoss2.Text = state.SIMStoploss2;
+                    tbRR.Text = state.SIMRR;
+                    tbNumberOfTrades.Text = state.SIMTrades;
+                    tbLeverage.Text = state.SIMLeverage;
+                    tbFeesPerOrderEnt.Text = state.SIMEntryFee;
+                    tbFeesPerOrderExit.Text = state.SIMExitFee;
+                    tbOrderCap.Text = state.SIMOrderCap;
+                    tbEntriesPerHour.Text = state.SIMEntriesPerHour;
+                    tbHoursPerDay.Text = state.SIMTradingHoursPerDay;
+                    cbLog.Checked = state.SIMLogarithmic;
+                    numSimCount.Value = state.SIMIterations;
+
+                    tbPSTablePrice.Text = state.PSTPrice;
+                    tbPSTableULev.Text = state.PSTLeverage;
+                    tbPSTableLoss.Text = state.PSTRisk;
+                    tbPSTableFeeEntry.Text = state.PSTEntryFee;
+                    tbPSTableFeeExit.Text = state.PSTExitFee;
+                    nudPSTableSigX.Value = state.PSTSigX;
+                    nudPSTableStepSize.Value = state.PSTXStep;
+                    nudPSTableRows.Value = state.PSTRows;
+
+                    tbPricePL.Text = state.PLPrice;
+                    tbRiskPL.Text = state.PLUnits;
+                    tbRRPL.Text = state.PLRR;
+                    tbLevPL.Text = state.PLLeverage;
+                    tbFeePLEnt.Text = state.PLEntryFee;
+                    tbFeePLExit.Text = state.PLExitFee;
+                    tbSLDiff.Text = state.PLStoploss;
+
+                    tbRate.Text = state.CMPRateOfReturn;
+                    tbT.Text = state.CMPNumberOfCompounds;
+
+                    tbGBEAssetPrice.Text = state.BEPrice;
+                    tbGBEFeeEntry.Text = state.BEEntryFee;
+                    tbGBEFeeExit.Text = state.BEExitFee;
+
+                    cbPlotEquityLog.Checked = state.PEQLogarithmic;
+                }
+            }
+            
+
             if (!File.Exists("Trades.bin"))
             {
                 using (FileStream fs = new FileStream("Trades.bin", FileMode.Create))
@@ -860,25 +912,55 @@ namespace Trade_Simulator
 
                 using (StreamReader sr = new StreamReader("Equity.dat"))
                 {
+                    sr.ReadLine();
+
                     while (!sr.EndOfStream)
                     {
                         bPt.Add(decimal.Parse(sr.ReadLine()));
                     }
                 }
 
-                for (int i = 1; i < bPt.Count - 1; i++)
+                if (cbPlotEquityLog.Checked)
                 {
-                    plot.AddLine(i, (double)bPt[i], i + 1, (double)bPt[i + 1]);
+                    for (int i = 0; i < bPt.Count - 1; i++)
+                    {
+                        plot.AddLine(i, Math.Log10((double)bPt[i]), i + 1, Math.Log10((double)bPt[i + 1]));
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < bPt.Count - 1; i++)
+                    {
+                        plot.AddLine(i, (double)bPt[i], i + 1, (double)bPt[i + 1]);
+                    }
                 }
 
-                plot.Title($"Equity Curve");
-                plot.YAxis.TickDensity(3);
-                plot.XAxis.TickDensity(2);
-                plot.XAxis.MinimumTickSpacing(1);
-                plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
-                plot.XLabel("Trade #");
-                plot.YLabel("Equity ($)");
-                plot.AxisAuto();
+                int minL = decimal.Floor(bPt.Min()).ToString().Count();
+                int maxL = decimal.Ceiling(bPt.Max()).ToString().Count() + 1;
+
+                if (cbPlotEquityLog.Checked)
+                {
+                    plot.YAxis.ManualTickPositions(positions, labels);
+
+                    plot.Title($"Equity Curve");
+                    plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
+                    plot.XAxis.MinimumTickSpacing(1);
+                    plot.XLabel("Trade #");
+                    plot.YLabel("Equity");
+
+                    plot.SetAxisLimitsY(Math.Log10(Math.Pow(10, minL - 1)), Math.Log10(Math.Pow(10, maxL - 1)));
+                }
+                else
+                {
+                    plot.Title($"Equity Curve");
+                    plot.YAxis.TickDensity(3);
+                    plot.XAxis.TickDensity(2);
+                    plot.XAxis.MinimumTickSpacing(1);
+                    plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
+                    plot.XLabel("Trade #");
+                    plot.YLabel("Equity");
+                    plot.AxisAuto();
+                }
 
                 panelGraph.BackgroundImage = new Bitmap(plot.Render(panelGraph.Width, panelGraph.Height));
             }
@@ -924,12 +1006,12 @@ namespace Trade_Simulator
                     tbPrincipal.Text = "0";
                     tbPSTableBalance.Text = "0";
 
-                    MessageBox.Show("Equity reset.");
+                    MessageBox.Show("Balance history has been erased.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There was an error resetting the equity.");
+                MessageBox.Show("There was an error erasing balance history");
             }
         }
 
@@ -977,7 +1059,7 @@ namespace Trade_Simulator
 
                 tew = new TradeEntryWindow(last.Exchange, last.Symbol, last.Timeframe, last.Leverage, last.Risk);
             }
-            else 
+            else
             {
                 tew = new TradeEntryWindow(String.Empty, String.Empty, String.Empty, 0, 0);
             }
@@ -1087,5 +1169,109 @@ namespace Trade_Simulator
                 MessageBox.Show("Trades successfully purged.");
             }
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormState state = new FormState();
+
+            state.SIMAssetPrice = tbAssetBasePrice.Text;
+            state.SIMPercentAccountPerTrade = tbRiskPerTrade.Text;
+            state.SIMWinRate = tbWinRate.Text;
+            state.SIMStoploss = tbStopLoss.Text;
+            state.SIMStoploss2 = tbStopLoss2.Text;
+            state.SIMRR = tbRR.Text;
+            state.SIMTrades = tbNumberOfTrades.Text;
+            state.SIMLeverage = tbLeverage.Text;
+            state.SIMEntryFee = tbFeesPerOrderEnt.Text;
+            state.SIMExitFee = tbFeesPerOrderExit.Text;
+            state.SIMOrderCap = tbOrderCap.Text;
+            state.SIMEntriesPerHour = tbEntriesPerHour.Text;
+            state.SIMTradingHoursPerDay = tbHoursPerDay.Text;
+            state.SIMLogarithmic = cbLog.Checked;
+            state.SIMIterations = (int)numSimCount.Value;
+
+            state.PSTPrice = tbPSTablePrice.Text;
+            state.PSTLeverage = tbPSTableULev.Text;
+            state.PSTRisk = tbPSTableLoss.Text;
+            state.PSTEntryFee = tbPSTableFeeEntry.Text;
+            state.PSTExitFee = tbPSTableFeeExit.Text;
+            state.PSTSigX = (int)nudPSTableSigX.Value;
+            state.PSTXStep = (int)nudPSTableStepSize.Value;
+            state.PSTRows = (int)nudPSTableRows.Value;
+
+            state.PLPrice = tbPricePL.Text;
+            state.PLUnits = tbRiskPL.Text;
+            state.PLRR = tbRRPL.Text;
+            state.PLLeverage = tbLevPL.Text;
+            state.PLEntryFee = tbFeePLEnt.Text;
+            state.PLExitFee = tbFeePLExit.Text;
+            state.PLStoploss = tbSLDiff.Text;
+
+            state.CMPRateOfReturn = tbRate.Text;
+            state.CMPNumberOfCompounds = tbT.Text;
+
+            state.BEPrice = tbGBEAssetPrice.Text;
+            state.BEEntryFee = tbGBEFeeEntry.Text;
+            state.BEExitFee = tbGBEFeeExit.Text;
+
+            state.PEQLogarithmic = cbPlotEquityLog.Checked;
+
+            if (File.Exists("State.bin"))
+                File.Delete("State.bin");
+
+            using (FileStream fs = new FileStream("State.bin", FileMode.Create))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(fs, state);
+            }
+        }
+    }
+
+    [Serializable]
+    public class FormState
+    {
+        public string SIMAssetPrice { get; set; }
+        public string SIMPercentAccountPerTrade { get; set; }
+        public string SIMWinRate { get; set; }
+        public string SIMStoploss { get; set; }
+        public string SIMStoploss2 { get; set; }
+        public string SIMRR { get; set; }
+        public string SIMTrades { get; set; }
+        public string SIMLeverage { get; set; }
+        public string SIMEntryFee { get; set; }
+        public string SIMExitFee { get; set; }
+        public string SIMOrderCap { get; set; }
+        public string SIMEntriesPerHour { get; set; }
+        public string SIMTradingHoursPerDay { get; set; }
+        public bool SIMLogarithmic { get; set; }
+        public int SIMIterations { get; set; }
+
+        public string PSTPrice { get; set; }
+        public string PSTLeverage { get; set; }
+        public string PSTRisk { get; set; }
+        public string PSTEntryFee { get; set; }
+        public string PSTExitFee { get; set; }
+        public int PSTSigX { get; set; }
+        public int PSTXStep { get; set; }
+        public int PSTRows { get; set; }
+
+        public string PLPrice { get; set; }
+        public string PLUnits { get; set; }
+        public string PLRR { get; set; }
+        public string PLLeverage { get; set; }
+        public string PLEntryFee { get; set; }
+        public string PLExitFee { get; set; }
+        public string PLStoploss { get; set; }
+
+        public string CMPRateOfReturn { get; set; }
+        public string CMPNumberOfCompounds { get; set; }
+
+        public string BEPrice { get; set; }
+        public string BEEntryFee { get; set; }
+        public string BEExitFee { get; set; }
+
+        public bool PEQLogarithmic { get; set; }
+
+        public FormState() { }
     }
 }
