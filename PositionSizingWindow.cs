@@ -18,9 +18,11 @@ namespace Trade_Simulator
         {
             InitializeComponent();
 
-            this.Text = "[ Bal: $" + balance + " ] [ ~Asset $: $" + price + " ] [ Loss: " + lossPercent * 100 + "% ] [ SIGX: " + sigX + " ] [ XSTEP: " + stepSz + " ]";
+            this.Text = "Position Sizing";
 
             string formattedOutput = String.Empty;
+
+            formattedOutput += "[ Bal: $" + (balance / ulev) + " ] [ ~Asset $: $" + price + " ] [ Loss: " + lossPercent * 100 + "% ] [ SIGX: " + sigX + " ] [ XSTEP: " + stepSz + " ]" + Environment.NewLine + Environment.NewLine;
 
             for (int i = 1; i <= rows; i++)
             {
