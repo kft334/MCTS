@@ -64,6 +64,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbDirection = new System.Windows.Forms.ComboBox();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +73,9 @@
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.btnCancel);
+            this.panel8.Controls.Add(this.btnOK);
+            this.panel8.Controls.Add(this.cbDirection);
             this.panel8.Controls.Add(this.cbResult);
             this.panel8.Controls.Add(this.tbExitPrice);
             this.panel8.Controls.Add(this.label6);
@@ -98,6 +103,7 @@
             this.panel8.Controls.Add(this.tbTakeProfit);
             this.panel8.Controls.Add(this.label25);
             this.panel8.Controls.Add(this.label2);
+            this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.label19);
             this.panel8.Controls.Add(this.tbStoploss);
             this.panel8.Controls.Add(this.label8);
@@ -105,7 +111,7 @@
             this.panel8.Controls.Add(this.label9);
             this.panel8.Location = new System.Drawing.Point(12, 12);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(532, 526);
+            this.panel8.Size = new System.Drawing.Size(532, 582);
             this.panel8.TabIndex = 29;
             // 
             // cbResult
@@ -117,14 +123,14 @@
             "Partial Win",
             "Partial Loss",
             "Loss"});
-            this.cbResult.Location = new System.Drawing.Point(132, 267);
+            this.cbResult.Location = new System.Drawing.Point(110, 288);
             this.cbResult.Name = "cbResult";
             this.cbResult.Size = new System.Drawing.Size(388, 21);
             this.cbResult.TabIndex = 14;
             // 
             // tbExitPrice
             // 
-            this.tbExitPrice.Location = new System.Drawing.Point(132, 247);
+            this.tbExitPrice.Location = new System.Drawing.Point(110, 268);
             this.tbExitPrice.Name = "tbExitPrice";
             this.tbExitPrice.Size = new System.Drawing.Size(388, 20);
             this.tbExitPrice.TabIndex = 13;
@@ -133,7 +139,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 310);
+            this.label6.Location = new System.Drawing.Point(5, 331);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 33;
@@ -141,17 +147,17 @@
             // 
             // tbReasoning
             // 
-            this.tbReasoning.Location = new System.Drawing.Point(132, 308);
+            this.tbReasoning.Location = new System.Drawing.Point(110, 329);
             this.tbReasoning.Multiline = true;
             this.tbReasoning.Name = "tbReasoning";
-            this.tbReasoning.Size = new System.Drawing.Size(388, 206);
+            this.tbReasoning.Size = new System.Drawing.Size(388, 202);
             this.tbReasoning.TabIndex = 16;
             this.tbReasoning.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 290);
+            this.label10.Location = new System.Drawing.Point(5, 311);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 13);
             this.label10.TabIndex = 34;
@@ -159,7 +165,7 @@
             // 
             // tbBalance
             // 
-            this.tbBalance.Location = new System.Drawing.Point(132, 288);
+            this.tbBalance.Location = new System.Drawing.Point(110, 309);
             this.tbBalance.Name = "tbBalance";
             this.tbBalance.Size = new System.Drawing.Size(388, 20);
             this.tbBalance.TabIndex = 15;
@@ -168,7 +174,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 250);
+            this.label11.Location = new System.Drawing.Point(5, 271);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(51, 13);
             this.label11.TabIndex = 25;
@@ -177,7 +183,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 270);
+            this.label12.Location = new System.Drawing.Point(5, 291);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(37, 13);
             this.label12.TabIndex = 26;
@@ -194,7 +200,7 @@
             // 
             // tbSymbol
             // 
-            this.tbSymbol.Location = new System.Drawing.Point(132, 27);
+            this.tbSymbol.Location = new System.Drawing.Point(110, 27);
             this.tbSymbol.Name = "tbSymbol";
             this.tbSymbol.Size = new System.Drawing.Size(388, 20);
             this.tbSymbol.TabIndex = 1;
@@ -202,7 +208,7 @@
             // 
             // tbExchange
             // 
-            this.tbExchange.Location = new System.Drawing.Point(132, 7);
+            this.tbExchange.Location = new System.Drawing.Point(110, 7);
             this.tbExchange.Name = "tbExchange";
             this.tbExchange.Size = new System.Drawing.Size(388, 20);
             this.tbExchange.TabIndex = 0;
@@ -210,7 +216,7 @@
             // 
             // tbUnits
             // 
-            this.tbUnits.Location = new System.Drawing.Point(132, 127);
+            this.tbUnits.Location = new System.Drawing.Point(110, 148);
             this.tbUnits.Name = "tbUnits";
             this.tbUnits.Size = new System.Drawing.Size(388, 20);
             this.tbUnits.TabIndex = 7;
@@ -218,7 +224,7 @@
             // 
             // tbTimeOfEntry
             // 
-            this.tbTimeOfEntry.Location = new System.Drawing.Point(132, 87);
+            this.tbTimeOfEntry.Location = new System.Drawing.Point(110, 87);
             this.tbTimeOfEntry.Name = "tbTimeOfEntry";
             this.tbTimeOfEntry.Size = new System.Drawing.Size(388, 20);
             this.tbTimeOfEntry.TabIndex = 4;
@@ -226,7 +232,7 @@
             // 
             // tbEntryPrice
             // 
-            this.tbEntryPrice.Location = new System.Drawing.Point(132, 107);
+            this.tbEntryPrice.Location = new System.Drawing.Point(110, 128);
             this.tbEntryPrice.Name = "tbEntryPrice";
             this.tbEntryPrice.Size = new System.Drawing.Size(388, 20);
             this.tbEntryPrice.TabIndex = 6;
@@ -234,7 +240,7 @@
             // 
             // tbTimeframe
             // 
-            this.tbTimeframe.Location = new System.Drawing.Point(132, 47);
+            this.tbTimeframe.Location = new System.Drawing.Point(110, 47);
             this.tbTimeframe.Name = "tbTimeframe";
             this.tbTimeframe.Size = new System.Drawing.Size(388, 20);
             this.tbTimeframe.TabIndex = 2;
@@ -251,7 +257,7 @@
             // 
             // tbLeverage
             // 
-            this.tbLeverage.Location = new System.Drawing.Point(132, 147);
+            this.tbLeverage.Location = new System.Drawing.Point(110, 168);
             this.tbLeverage.Name = "tbLeverage";
             this.tbLeverage.Size = new System.Drawing.Size(388, 20);
             this.tbLeverage.TabIndex = 8;
@@ -260,7 +266,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 130);
+            this.label7.Location = new System.Drawing.Point(5, 151);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 13);
             this.label7.TabIndex = 2;
@@ -269,7 +275,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(5, 230);
+            this.label29.Location = new System.Drawing.Point(5, 251);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(64, 13);
             this.label29.TabIndex = 24;
@@ -286,7 +292,7 @@
             // 
             // tbTimeOfExit
             // 
-            this.tbTimeOfExit.Location = new System.Drawing.Point(132, 227);
+            this.tbTimeOfExit.Location = new System.Drawing.Point(110, 248);
             this.tbTimeOfExit.Name = "tbTimeOfExit";
             this.tbTimeOfExit.Size = new System.Drawing.Size(388, 20);
             this.tbTimeOfExit.TabIndex = 12;
@@ -294,7 +300,7 @@
             // 
             // tbDate
             // 
-            this.tbDate.Location = new System.Drawing.Point(132, 67);
+            this.tbDate.Location = new System.Drawing.Point(110, 67);
             this.tbDate.Name = "tbDate";
             this.tbDate.Size = new System.Drawing.Size(388, 20);
             this.tbDate.TabIndex = 3;
@@ -303,7 +309,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(5, 210);
+            this.label28.Location = new System.Drawing.Point(5, 232);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(91, 13);
             this.label28.TabIndex = 24;
@@ -311,7 +317,7 @@
             // 
             // tbRisk
             // 
-            this.tbRisk.Location = new System.Drawing.Point(132, 167);
+            this.tbRisk.Location = new System.Drawing.Point(110, 188);
             this.tbRisk.Name = "tbRisk";
             this.tbRisk.Size = new System.Drawing.Size(388, 20);
             this.tbRisk.TabIndex = 9;
@@ -319,7 +325,7 @@
             // 
             // tbTakeProfit
             // 
-            this.tbTakeProfit.Location = new System.Drawing.Point(132, 207);
+            this.tbTakeProfit.Location = new System.Drawing.Point(110, 228);
             this.tbTakeProfit.Name = "tbTakeProfit";
             this.tbTakeProfit.Size = new System.Drawing.Size(388, 20);
             this.tbTakeProfit.TabIndex = 11;
@@ -328,7 +334,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(5, 190);
+            this.label25.Location = new System.Drawing.Point(5, 211);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(86, 13);
             this.label25.TabIndex = 24;
@@ -346,7 +352,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(5, 110);
+            this.label19.Location = new System.Drawing.Point(5, 131);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(58, 13);
             this.label19.TabIndex = 2;
@@ -354,7 +360,7 @@
             // 
             // tbStoploss
             // 
-            this.tbStoploss.Location = new System.Drawing.Point(132, 187);
+            this.tbStoploss.Location = new System.Drawing.Point(110, 208);
             this.tbStoploss.Name = "tbStoploss";
             this.tbStoploss.Size = new System.Drawing.Size(388, 20);
             this.tbStoploss.TabIndex = 10;
@@ -363,7 +369,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 150);
+            this.label8.Location = new System.Drawing.Point(5, 171);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
             this.label8.TabIndex = 2;
@@ -381,7 +387,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(5, 170);
+            this.label9.Location = new System.Drawing.Point(5, 191);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(39, 13);
             this.label9.TabIndex = 2;
@@ -389,7 +395,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(468, 544);
+            this.btnOK.Location = new System.Drawing.Point(423, 543);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 17;
@@ -399,7 +405,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(387, 544);
+            this.btnCancel.Location = new System.Drawing.Point(342, 543);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 18;
@@ -407,16 +413,39 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Direction";
+            // 
+            // cbDirection
+            // 
+            this.cbDirection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDirection.FormattingEnabled = true;
+            this.cbDirection.Items.AddRange(new object[] {
+            "Long",
+            "Short"});
+            this.cbDirection.Location = new System.Drawing.Point(110, 107);
+            this.cbDirection.Name = "cbDirection";
+            this.cbDirection.Size = new System.Drawing.Size(388, 21);
+            this.cbDirection.TabIndex = 5;
+            // 
             // TradeEntryWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 575);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOK);
+            this.ClientSize = new System.Drawing.Size(550, 602);
             this.Controls.Add(this.panel8);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TradeEntryWindow";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trade Entry";
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -461,5 +490,7 @@
         private System.Windows.Forms.ComboBox cbResult;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ComboBox cbDirection;
+        private System.Windows.Forms.Label label4;
     }
 }

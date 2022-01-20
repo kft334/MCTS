@@ -197,11 +197,11 @@ namespace Trade_Simulator
             this.btnProcess.BackColor = System.Drawing.Color.Black;
             this.btnProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcess.ForeColor = System.Drawing.Color.White;
-            this.btnProcess.Location = new System.Drawing.Point(94, 5);
+            this.btnProcess.Location = new System.Drawing.Point(127, 5);
             this.btnProcess.Name = "btnProcess";
-            this.btnProcess.Size = new System.Drawing.Size(138, 23);
+            this.btnProcess.Size = new System.Drawing.Size(105, 23);
             this.btnProcess.TabIndex = 15;
-            this.btnProcess.Text = "Run One Simulation";
+            this.btnProcess.Text = "Single";
             this.btnProcess.UseVisualStyleBackColor = false;
             this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
             // 
@@ -228,9 +228,9 @@ namespace Trade_Simulator
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(5, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 13);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "% Account / Trade (Int)";
+            this.label2.Text = "Risk %";
             // 
             // tbWinRate
             // 
@@ -246,9 +246,9 @@ namespace Trade_Simulator
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(5, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "% Win Rate (Int)";
+            this.label3.Text = "Win Rate %";
             // 
             // tbStopLoss
             // 
@@ -560,9 +560,9 @@ namespace Trade_Simulator
             this.btnSuperSim.ForeColor = System.Drawing.Color.White;
             this.btnSuperSim.Location = new System.Drawing.Point(127, 33);
             this.btnSuperSim.Name = "btnSuperSim";
-            this.btnSuperSim.Size = new System.Drawing.Size(69, 22);
+            this.btnSuperSim.Size = new System.Drawing.Size(63, 22);
             this.btnSuperSim.TabIndex = 17;
-            this.btnSuperSim.Text = "SuperSim";
+            this.btnSuperSim.Text = "Multiple";
             this.btnSuperSim.UseVisualStyleBackColor = false;
             this.btnSuperSim.Click += new System.EventHandler(this.btnSuperSim_Click);
             // 
@@ -616,12 +616,12 @@ namespace Trade_Simulator
             this.btnSupersimPlus.BackColor = System.Drawing.Color.Black;
             this.btnSupersimPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupersimPlus.ForeColor = System.Drawing.Color.White;
-            this.btnSupersimPlus.Location = new System.Drawing.Point(202, 33);
+            this.btnSupersimPlus.Location = new System.Drawing.Point(193, 33);
             this.btnSupersimPlus.Margin = new System.Windows.Forms.Padding(0);
             this.btnSupersimPlus.Name = "btnSupersimPlus";
-            this.btnSupersimPlus.Size = new System.Drawing.Size(30, 22);
+            this.btnSupersimPlus.Size = new System.Drawing.Size(39, 22);
             this.btnSupersimPlus.TabIndex = 18;
-            this.btnSupersimPlus.Text = "+";
+            this.btnSupersimPlus.Text = "M+";
             this.btnSupersimPlus.UseVisualStyleBackColor = false;
             this.btnSupersimPlus.Click += new System.EventHandler(this.btnSupersimPlus_Click);
             // 
@@ -709,7 +709,7 @@ namespace Trade_Simulator
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(6, 38);
+            this.label27.Location = new System.Drawing.Point(6, 37);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(50, 13);
             this.label27.TabIndex = 25;
@@ -729,9 +729,9 @@ namespace Trade_Simulator
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(5, 210);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(73, 13);
+            this.label28.Size = new System.Drawing.Size(70, 13);
             this.label28.TabIndex = 24;
-            this.label28.Text = "Entries / Hour";
+            this.label28.Text = "Entries /Hour";
             // 
             // tbHoursPerDay
             // 
@@ -747,9 +747,9 @@ namespace Trade_Simulator
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(5, 230);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(104, 13);
+            this.label29.Size = new System.Drawing.Size(62, 13);
             this.label29.TabIndex = 24;
-            this.label29.Text = "Trading Hours / Day";
+            this.label29.Text = "Hours /Day";
             // 
             // tbDaysToComplete
             // 
@@ -775,12 +775,13 @@ namespace Trade_Simulator
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(365, 608);
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(258, 608);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(480, 13);
+            this.label31.Size = new System.Drawing.Size(694, 13);
             this.label31.TabIndex = 26;
-            this.label31.Text = "Top/Bottom Lines: Green Line: 95th Percentile. Red Line: 5th Percentile. Black Li" +
-    "ne: 50th Percentile";
+            this.label31.Text = "MultiSim: Top/Bottom Lines: Extremes. Green Line: 95th Percentile. Red Line: 5th " +
+    "Percentile. Black Line: 50th Percentile";
             // 
             // label32
             // 
@@ -1253,9 +1254,9 @@ namespace Trade_Simulator
             this.btnPSTablePlot.Name = "btnPSTablePlot";
             this.btnPSTablePlot.Size = new System.Drawing.Size(128, 23);
             this.btnPSTablePlot.TabIndex = 29;
-            this.btnPSTablePlot.Text = "Plot (TODO)";
+            this.btnPSTablePlot.Text = "Plot";
             this.btnPSTablePlot.UseVisualStyleBackColor = false;
-            this.btnPSTablePlot.Click += new System.EventHandler(this.btnGenerateSizingTable_Click);
+            this.btnPSTablePlot.Click += new System.EventHandler(this.btnPSTablePlot_Click);
             // 
             // btnGenerateSizingTable
             // 

@@ -14,6 +14,7 @@ namespace Trade_Simulator
         public string Timeframe { get; set; }
         public string Date { get; set; }
         public string TimeOfEntry { get; set; }
+        public string Direction { get; set; }
         public decimal EntryPrice { get; set; }
         public decimal Units { get; set; }
         public int Leverage { get; set; }

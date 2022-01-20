@@ -41,6 +41,7 @@ namespace Trade_Simulator
                 TradeResult.Timeframe = tbTimeframe.Text;
                 TradeResult.Date = tbDate.Text;
                 TradeResult.TimeOfEntry = tbTimeOfEntry.Text;
+                TradeResult.Direction = cbDirection.Text;
                 TradeResult.EntryPrice = decimal.Parse(tbEntryPrice.Text);
                 TradeResult.Units = decimal.Parse(tbUnits.Text);
                 TradeResult.Leverage = int.Parse(tbLeverage.Text);

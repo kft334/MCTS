@@ -12,6 +12,8 @@ namespace Trade_Simulator
 {
     public partial class PositionSizingWindow : Form
     {
+        public List<Tuple<decimal, decimal>> SizingTuples = new List<Tuple<decimal, decimal>>();
+
         public PositionSizingWindow(decimal balance, decimal price, decimal lossPercent, decimal entryFee, decimal exitFee, int sigX, int stepSz, int rows, int ulev)
         {
             InitializeComponent();
@@ -78,6 +80,8 @@ namespace Trade_Simulator
 
                 decimal diff = tick * stepSz * i;
 
+                SizingTuples.Add(new Tuple<decimal, decimal>(diff, GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev)));
+
                 formattedOutput += "Stop: " + diff + ", Units: " + GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + ", ACC%: " + GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + Environment.NewLine;
             }
 
@@ -86,18 +90,18 @@ namespace Trade_Simulator
             tbOutput.Text = formattedOutput;
         }
 
-        public string GetPositionSize(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
+        public decimal GetPositionSize(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
         {
             decimal tradeAmount = (accountBalance * lossPercent - exitFeePercent * priceDifference * ulev) / (ulev * (entryFeePercent + exitFeePercent + priceDifference));
 
-            return decimal.Round(tradeAmount / assetPrice, 2).ToString();
+            return decimal.Round(tradeAmount / assetPrice, 2);
         }
 
-        public string GetPositionSizeAccountPercentage(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
+        public decimal GetPositionSizeAccountPercentage(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
         {
             decimal tradeAmount = (accountBalance * lossPercent - exitFeePercent * priceDifference * ulev) / (ulev * (entryFeePercent + exitFeePercent + priceDifference));
 
-            return decimal.Round((tradeAmount / accountBalance * 100), 2).ToString();
+            return decimal.Round((tradeAmount / accountBalance * 100), 2);
         }
     }
 }
