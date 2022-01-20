@@ -167,6 +167,7 @@ namespace Trade_Simulator
             this.panel6 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.cbPlotEquityLog = new System.Windows.Forms.CheckBox();
+            this.btnSaveFigure = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numSimCount)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -529,7 +530,7 @@ namespace Trade_Simulator
             this.panelGraph.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelGraph.Location = new System.Drawing.Point(259, 8);
             this.panelGraph.Name = "panelGraph";
-            this.panelGraph.Size = new System.Drawing.Size(692, 590);
+            this.panelGraph.Size = new System.Drawing.Size(692, 584);
             this.panelGraph.TabIndex = 15;
             // 
             // tbMaxDrawdown
@@ -776,7 +777,7 @@ namespace Trade_Simulator
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(258, 608);
+            this.label31.Location = new System.Drawing.Point(259, 627);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(694, 13);
             this.label31.TabIndex = 26;
@@ -1700,12 +1701,23 @@ namespace Trade_Simulator
             this.cbPlotEquityLog.Text = "Logarithmic";
             this.cbPlotEquityLog.UseVisualStyleBackColor = true;
             // 
+            // btnSaveFigure
+            // 
+            this.btnSaveFigure.Location = new System.Drawing.Point(259, 596);
+            this.btnSaveFigure.Name = "btnSaveFigure";
+            this.btnSaveFigure.Size = new System.Drawing.Size(692, 23);
+            this.btnSaveFigure.TabIndex = 29;
+            this.btnSaveFigure.Text = "Save Graph To Output Folder";
+            this.btnSaveFigure.UseVisualStyleBackColor = true;
+            this.btnSaveFigure.Click += new System.EventHandler(this.btnSaveFigure_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1348, 645);
+            this.Controls.Add(this.btnSaveFigure);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1893,6 +1905,7 @@ namespace Trade_Simulator
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.CheckBox cbPlotEquityLog;
+        private System.Windows.Forms.Button btnSaveFigure;
     }
 }
 

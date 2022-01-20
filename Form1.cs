@@ -1080,7 +1080,7 @@ namespace Trade_Simulator
                         plot.AddLine((double)sizingTuples[i].Item1, (double)sizingTuples[i].Item2, (double)sizingTuples[i + 1].Item1, (double)sizingTuples[i + 1].Item2, Color.Black);
                     }
 
-                    plot.Title("[ Bal: $" + balance + " ] [ ~Asset $: $" + price + " ] [ Loss: " + lossPercent * 100 + "% ] [ SIGX: " + sigX + " ] [ XSTEP: " + stepSize + " ]");
+                    plot.Title("[ Bal: $" + (balance / ulev) + " ] [ ~Asset $: $" + price + " ] [ Loss: " + lossPercent * 100 + "% ] [ SIGX: " + sigX + " ] [ XSTEP: " + stepSize + " ]");
                     plot.YAxis.TickDensity(3);
                     plot.XAxis.TickDensity(2);
                     plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
@@ -1137,6 +1137,7 @@ namespace Trade_Simulator
                 tvw.ShowDialog();
 
                 //SaveTrades(tvw.AllTrades);
+                
             }
             else
             {
@@ -1306,6 +1307,25 @@ namespace Trade_Simulator
             {
                 BinaryFormatter bf = new BinaryFormatter();
                 bf.Serialize(fs, state);
+            }
+        }
+
+        private void btnSaveFigure_Click(object sender, EventArgs e)
+        {
+            if (plot != null)
+            {
+                if (!Directory.Exists(Environment.CurrentDirectory + @"\Output"))
+                {
+                    Directory.CreateDirectory(Environment.CurrentDirectory + @"\Output");
+                }
+
+                plot.SaveFig(Environment.CurrentDirectory + @"\Output\MCTS-Graph.jpg");
+
+                MessageBox.Show(@"...\Output\MCTS-Graph.jpg has been saved.");
+            }
+            else
+            {
+                MessageBox.Show("Nothing to save.");
             }
         }
     }
