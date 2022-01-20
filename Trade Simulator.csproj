@@ -94,6 +94,13 @@
     <Compile Include="SuperSimResultsWindow.Designer.cs">
       <DependentUpon>SuperSimResultsWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Trade.cs" />
+    <Compile Include="TradeEntryWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TradeEntryWindow.Designer.cs">
+      <DependentUpon>TradeEntryWindow.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ConfirmationDialog.resx">
       <DependentUpon>ConfirmationDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="SuperSimResultsWindow.resx">
       <DependentUpon>SuperSimResultsWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TradeEntryWindow.resx">
+      <DependentUpon>TradeEntryWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

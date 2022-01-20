@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,9 +28,26 @@ namespace Trade_Simulator
         {
             InitializeComponent();
 
+            if (!File.Exists("Trades.bin"))
+            {
+                using (FileStream fs = new FileStream("Trades.bin", FileMode.Create))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(fs, new List<Trade>());
+                }
+            }
+
             List<decimal> bPt = new List<decimal>();
 
-            using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + @"\Data\Equity.dat"))
+            if (!File.Exists("Equity.dat"))
+            {
+                using (StreamWriter sw = new StreamWriter("Equity.dat"))
+                {
+                    sw.Write(0);
+                }
+            }
+
+            using (StreamReader sr = new StreamReader("Equity.dat"))
             {
                 while (!sr.EndOfStream)
                 {
@@ -220,11 +238,6 @@ namespace Trade_Simulator
                 int totalTradesWon = 0;
                 int totalTradesLost = 0;
 
-                //tbSLPips.Text = decimal.Round((assetBasePrice * sLPercentMin), 4).ToString();
-                //tbSLPips2.Text = decimal.Round((assetBasePrice * sLPercentMax), 4).ToString();
-                //tbTPPips.Text = decimal.Round((assetBasePrice * sLPercentMin * rR), 4).ToString();
-                //tbTPPips2.Text = decimal.Round((assetBasePrice * sLPercentMax * rR), 4).ToString();
-
                 decimal max = startingBalance;
                 decimal maxDrawdown = 0;
 
@@ -317,7 +330,6 @@ namespace Trade_Simulator
                     else
                         plot.AddLine((double)lastPt.Item1, (double)lastPt.Item2, i + 1, (double)currentBalance);
 
-                    // set min max
                     if (minimumBalance > currentBalance)
                         minimumBalance = currentBalance;
                     if (maximumBalance < currentBalance)
@@ -344,8 +356,8 @@ namespace Trade_Simulator
                 tbCapReached.Text = capReached ? "Trade # " + capReachedOnTrade.ToString() : "Not reached";
                 tbDaysToComplete.Text = daysToComplete.ToString();
 
-                int minL = decimal.Floor(minimumBalance).ToString().Count(); // From min of minL
-                int maxL = decimal.Ceiling(maximumBalance).ToString().Count() + 1; // To min of maxL
+                int minL = decimal.Floor(minimumBalance).ToString().Count();
+                int maxL = decimal.Ceiling(maximumBalance).ToString().Count() + 1;
 
                 if (cbLog.Checked)
                 {
@@ -353,6 +365,7 @@ namespace Trade_Simulator
 
                     plot.Title($"Equity Curve");
                     plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
+                    plot.XAxis.MinimumTickSpacing(1);
                     plot.XLabel("Trade #");
                     plot.YLabel("Equity");
 
@@ -363,6 +376,7 @@ namespace Trade_Simulator
                     plot.Title($"Equity Curve");
                     plot.YAxis.TickDensity(3);
                     plot.XAxis.TickDensity(2);
+                    plot.XAxis.MinimumTickSpacing(1);
                     plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
                     plot.XLabel("Trade #");
                     plot.YLabel("Equity");
@@ -377,23 +391,6 @@ namespace Trade_Simulator
             }
         }
 
-        //private void btnGetPercentVariance_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        decimal assetBasePrice = decimal.Parse(tbAssetBasePrice.Text);
-        //        decimal differenceInPrice = decimal.Parse(tbDiff.Text);
-
-        //        decimal diffPercent = (1 - ((assetBasePrice - differenceInPrice) / assetBasePrice)) * 100;
-
-        //        tbDiffPercent.Text = decimal.Round(diffPercent, 4).ToString() + "%";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Please check the inputs.");
-        //    }
-        //}
-
         private void btnGetBreakEvenWin_Click(object sender, EventArgs e)
         {
             try
@@ -401,7 +398,7 @@ namespace Trade_Simulator
                 decimal assetBasePrice = decimal.Parse(tbGBEAssetPrice.Text);
                 decimal feePerTradeEntry = decimal.Parse(tbGBEFeeEntry.Text) / 100;
                 decimal feePerTradeExit = decimal.Parse(tbGBEFeeExit.Text) / 100;
-                
+
                 decimal exitPrice = -((1 + feePerTradeEntry) * assetBasePrice) / (feePerTradeExit - 1);
 
                 decimal diff = exitPrice - assetBasePrice;
@@ -496,11 +493,6 @@ namespace Trade_Simulator
                     decimal sLPercentMax = decimal.Parse(tbStopLoss2.Text) / 100;
 
                     decimal rR = decimal.Parse(tbRR.Text);
-
-                    //tbSLPips.Text = decimal.Round((assetBasePrice * sLPercentMin), 4).ToString();
-                    //tbSLPips2.Text = decimal.Round((assetBasePrice * sLPercentMax), 4).ToString();
-                    //tbTPPips.Text = decimal.Round((assetBasePrice * sLPercentMin * rR), 4).ToString();
-                    //tbTPPips2.Text = decimal.Round((assetBasePrice * sLPercentMax * rR), 4).ToString();
 
                     int cap = int.Parse(tbOrderCap.Text);
 
@@ -716,8 +708,8 @@ namespace Trade_Simulator
                     }
                 }
 
-                int minL = decimal.Floor(superSim.X_YMin_YAv_YMax.Min(s => s.Item2)).ToString().Count(); // From min of minL
-                int maxL = decimal.Ceiling(superSim.X_YMin_YAv_YMax.Max(s => s.Item4)).ToString().Count() + 1; // To min of maxL
+                int minL = decimal.Floor(superSim.X_YMin_YAv_YMax.Min(s => s.Item2)).ToString().Count();
+                int maxL = decimal.Ceiling(superSim.X_YMin_YAv_YMax.Max(s => s.Item4)).ToString().Count() + 1;
 
                 if (cbLog.Checked)
                 {
@@ -725,6 +717,7 @@ namespace Trade_Simulator
 
                     plot.Title($"Equity Curve");
                     plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
+                    plot.XAxis.MinimumTickSpacing(1);
                     plot.XLabel("Trade #");
                     plot.YLabel("Equity");
 
@@ -736,6 +729,7 @@ namespace Trade_Simulator
                     plot.Title($"Equity Curve");
                     plot.YAxis.TickDensity(3);
                     plot.XAxis.TickDensity(2);
+                    plot.XAxis.MinimumTickSpacing(1);
                     plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
                     plot.XLabel("Trade #");
                     plot.YLabel("Equity");
@@ -800,9 +794,7 @@ namespace Trade_Simulator
                 decimal assetBasePrice = decimal.Parse(tbPricePL.Text);
                 int leverage = int.Parse(tbLevPL.Text);
 
-                decimal riskPercentPerTrade = (decimal.Parse(tbRiskPL.Text) * assetBasePrice) / (balance * leverage); 
-
-                //decimal riskPercentPerTrade = decimal.Parse(tbRiskPL.Text) / 100;
+                decimal riskPercentPerTrade = (decimal.Parse(tbRiskPL.Text) * assetBasePrice) / (balance * leverage);
 
                 decimal tradeAmount = balance * riskPercentPerTrade;
 
@@ -831,7 +823,7 @@ namespace Trade_Simulator
 
                 string pGain = decimal.Round((won) / balance * 100, 2) + "%";
                 string pLoss = decimal.Round((lost) / balance * 100, 2) + "%";
-                
+
                 rtbProfitLossResults.Text = "\nWon: $" + decimal.Round(won, 2) + " (" + pGain + ")" + "\nLost: $" + decimal.Round(lost, 2) + " (" + pLoss + ")" + "\nBE: " + decimal.Round(beWinPercent, 1) + "%";
             }
             catch (Exception exPL)
@@ -850,7 +842,7 @@ namespace Trade_Simulator
 
                 tbCompOut.Text = (decimal.Round((decimal)((double)principal * Math.Pow((double)(1 + rate), (double)t)), 2)).ToString();
             }
-            catch (Exception exComp) 
+            catch (Exception exComp)
             {
                 MessageBox.Show("Please check the inputs.");
             }
@@ -866,7 +858,7 @@ namespace Trade_Simulator
 
                 List<decimal> bPt = new List<decimal>();
 
-                using (StreamReader sr = new StreamReader(Environment.CurrentDirectory + @"\Data\Equity.dat"))
+                using (StreamReader sr = new StreamReader("Equity.dat"))
                 {
                     while (!sr.EndOfStream)
                     {
@@ -874,7 +866,7 @@ namespace Trade_Simulator
                     }
                 }
 
-                for (int i = 0; i < bPt.Count - 1; i++)
+                for (int i = 1; i < bPt.Count - 1; i++)
                 {
                     plot.AddLine(i, (double)bPt[i], i + 1, (double)bPt[i + 1]);
                 }
@@ -882,6 +874,7 @@ namespace Trade_Simulator
                 plot.Title($"Equity Curve");
                 plot.YAxis.TickDensity(3);
                 plot.XAxis.TickDensity(2);
+                plot.XAxis.MinimumTickSpacing(1);
                 plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
                 plot.XLabel("Trade #");
                 plot.YLabel("Equity ($)");
@@ -891,7 +884,7 @@ namespace Trade_Simulator
             }
             catch (Exception ex)
             {
-                MessageBox.Show(@"Please ensure that the data in bin\Data\Equity.dat is properly formatted.");
+                MessageBox.Show("Please ensure that the data in Equity.dat is properly formatted.");
             }
         }
 
@@ -901,17 +894,9 @@ namespace Trade_Simulator
             {
                 decimal newBalance = decimal.Parse(tbNewBalance.Text);
 
-                using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + @"\Data\Equity.dat", true))
-                {
-                    sw.Write("\n" + newBalance);
-                }
+                ChangeBalance(newBalance);
 
-                tbStartingBalance.Text = newBalance.ToString();
-                tbPLBalance.Text = newBalance.ToString();
-                tbPrincipal.Text = newBalance.ToString();
-                tbPSTableBalance.Text = newBalance.ToString();
-
-                MessageBox.Show("Entry Added.");
+                MessageBox.Show("Balance has been set to $" + newBalance);
             }
             catch (Exception ex)
             {
@@ -923,30 +908,28 @@ namespace Trade_Simulator
         {
             try
             {
-                decimal newBalance = decimal.Parse(tbNewBalance.Text);
-
-                ConfirmationDialog cd = new ConfirmationDialog();
+                ConfirmationDialog cd = new ConfirmationDialog("Please confirm that you wish to reset your balance. You will lose all historical balance data. This does not affect trades. This process is irreversible.");
 
                 DialogResult diagRes = cd.ShowDialog();
 
                 if (diagRes == DialogResult.OK)
                 {
-                    using (StreamWriter sw = new StreamWriter(Environment.CurrentDirectory + @"\Data\Equity.dat", false))
+                    using (StreamWriter sw = new StreamWriter("Equity.dat", false))
                     {
-                        sw.Write(newBalance);
+                        sw.Write("0");
                     }
 
-                    tbStartingBalance.Text = newBalance.ToString();
-                    tbPLBalance.Text = newBalance.ToString();
-                    tbPrincipal.Text = newBalance.ToString();
-                    tbPSTableBalance.Text = newBalance.ToString();
+                    tbStartingBalance.Text = "0";
+                    tbPLBalance.Text = "0";
+                    tbPrincipal.Text = "0";
+                    tbPSTableBalance.Text = "0";
 
                     MessageBox.Show("Equity reset.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please check the input.");
+                MessageBox.Show("There was an error resetting the equity.");
             }
         }
 
@@ -973,12 +956,135 @@ namespace Trade_Simulator
                 }
                 else
                 {
-                    MessageBox.Show("SigX cannot equal zero.");
+                    MessageBox.Show("Sig. X cannot equal zero.");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Please check the inputs.");
+            }
+        }
+
+        private void btnTradeEntry_Click(object sender, EventArgs e)
+        {
+            List<Trade> trades = LoadTrades();
+
+            TradeEntryWindow tew;
+
+            if (trades.Count > 0)
+            {
+                Trade last = trades.Last();
+
+                tew = new TradeEntryWindow(last.Exchange, last.Symbol, last.Timeframe, last.Leverage, last.Risk);
+            }
+            else 
+            {
+                tew = new TradeEntryWindow(String.Empty, String.Empty, String.Empty, 0, 0);
+            }
+
+            if (tew.ShowDialog() == DialogResult.OK)
+            {
+                InsertTrade(tew.TradeResult);
+
+                MessageBox.Show("Trade was added successfully.");
+            }
+        }
+
+        private void btnTradeViewer_Click(object sender, EventArgs e)
+        {
+            // TODO
+        }
+
+        public List<Trade> LoadTrades()
+        {
+            try
+            {
+                List<Trade> trades;
+
+                using (FileStream fs = new FileStream("Trades.bin", FileMode.Open))
+                {
+                    BinaryFormatter debf = new BinaryFormatter();
+                    trades = (List<Trade>)debf.Deserialize(fs);
+                }
+
+                return trades;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error loading the trades. Empty list returned.");
+
+                return new List<Trade>();
+            }
+        }
+
+        public void InsertTrade(Trade trade)
+        {
+            try
+            {
+                List<Trade> trades = LoadTrades();
+
+                trades.Add(trade);
+
+                using (FileStream fs = new FileStream("Trades.bin", FileMode.Truncate))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(fs, trades);
+                }
+
+                ChangeBalance(trade.Balance);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error inserting the trade.");
+            }
+        }
+
+        public void ChangeBalance(decimal balance)
+        {
+            using (StreamWriter sw = new StreamWriter("Equity.dat", true))
+            {
+                sw.Write("\n" + balance);
+            }
+
+            tbStartingBalance.Text = balance.ToString();
+            tbPLBalance.Text = balance.ToString();
+            tbPrincipal.Text = balance.ToString();
+            tbPSTableBalance.Text = balance.ToString();
+        }
+
+        public void RemoveTrade(Trade trade)
+        {
+            try
+            {
+                List<Trade> trades = LoadTrades();
+
+                trades.Remove(trades.Find(t => t.Date == trade.Date & t.TimeOfEntry == trade.TimeOfEntry & t.Symbol == trade.Symbol & t.Exchange == trade.Exchange));
+
+                using (FileStream fs = new FileStream("Trades.bin", FileMode.Truncate))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(fs, trades);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error removing the trade.");
+            }
+        }
+
+        private void btnResetTrades_Click(object sender, EventArgs e)
+        {
+            ConfirmationDialog cd = new ConfirmationDialog("Please confirm that you wish to purge trades. This will not affect current balance nor balance history. This process is irreversible.");
+
+            if (cd.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream fs = new FileStream("Trades.bin", FileMode.Truncate))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(fs, new List<Trade>());
+                }
+
+                MessageBox.Show("Trades successfully purged.");
             }
         }
     }

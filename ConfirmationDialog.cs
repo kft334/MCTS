@@ -12,9 +12,11 @@ namespace Trade_Simulator
 {
     public partial class ConfirmationDialog : Form
     {
-        public ConfirmationDialog()
+        public ConfirmationDialog(string msg)
         {
             InitializeComponent();
+
+            tbMsg.Text = msg;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

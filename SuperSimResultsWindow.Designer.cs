@@ -29,6 +29,7 @@ namespace Trade_Simulator
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuperSimResultsWindow));
             this.label23 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -786,6 +787,7 @@ namespace Trade_Simulator
             this.Controls.Add(this.tbWinsMin);
             this.Controls.Add(this.tbWonMin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SuperSimResultsWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
