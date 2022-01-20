@@ -1632,7 +1632,7 @@ namespace Trade_Simulator
             this.btnTradeViewer.Name = "btnTradeViewer";
             this.btnTradeViewer.Size = new System.Drawing.Size(170, 23);
             this.btnTradeViewer.TabIndex = 41;
-            this.btnTradeViewer.Text = "Trade Viewer (TODO)";
+            this.btnTradeViewer.Text = "Trade Viewer";
             this.btnTradeViewer.UseVisualStyleBackColor = false;
             this.btnTradeViewer.Click += new System.EventHandler(this.btnTradeViewer_Click);
             // 
