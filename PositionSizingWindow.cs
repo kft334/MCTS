@@ -22,7 +22,31 @@ namespace Trade_Simulator
 
             string formattedOutput = String.Empty;
 
-            formattedOutput += "[Bal:$" + (balance / ulev) + "] [~Asset$:$" + price + "] [Lev:" + ulev + "] [Loss:" + lossPercent * 100 + "%]" + Environment.NewLine + Environment.NewLine;
+            this.Text = "[Bal:$" + (balance / ulev) + "] [~Asset$:$" + price + "] [Lev:" + ulev + "] [Loss:" + lossPercent * 100 + "%]" + Environment.NewLine + Environment.NewLine;
+
+            SourceGrid.Grid grid = new SourceGrid.Grid();
+
+            panel1.Controls.Add(grid);
+
+            grid.Dock = DockStyle.Fill;
+            grid.BorderStyle = BorderStyle.FixedSingle;
+
+            grid.ColumnsCount = 4;
+            grid.FixedRows = 1;
+            grid.Rows.Insert(0);
+
+            SourceGrid.Cells.Views.ColumnHeader header = new SourceGrid.Cells.Views.ColumnHeader();
+            header.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
+            header.BackColor = Color.DarkGray;
+            header.Font = new Font(grid.Font, FontStyle.Bold);
+
+            SourceGrid.Cells.Views.Cell centered = new SourceGrid.Cells.Views.Cell();
+            centered.TextAlignment = DevAge.Drawing.ContentAlignment.MiddleCenter;
+
+            grid[0, 0] = new SourceGrid.Cells.ColumnHeader("#") { View = header };
+            grid[0, 1] = new SourceGrid.Cells.ColumnHeader("Stop") { View = header };
+            grid[0, 2] = new SourceGrid.Cells.ColumnHeader("Units") { View = header };
+            grid[0, 3] = new SourceGrid.Cells.ColumnHeader("Acc%") { View = header };
 
             for (int i = 1; i <= rows; i++)
             {
@@ -87,12 +111,27 @@ namespace Trade_Simulator
                 if (sizingType == 2)
                     SizingTuples.Add(new Tuple<decimal, decimal>(diff, GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev)));
 
-                formattedOutput += "Stop: " + diff + ", Units: " + GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + ", ACC%: " + GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + Environment.NewLine;
+                // Add row to table
+
+                grid.Rows.Insert(i);
+
+                grid[i, 0] = new SourceGrid.Cells.Cell(i);
+                grid[i, 0].View = centered;
+
+                grid[i, 1] = new SourceGrid.Cells.Cell(diff);
+                grid[i, 1].View = centered;
+
+                grid[i, 2] = new SourceGrid.Cells.Cell(GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev));
+                grid[i, 2].View = centered;
+
+                grid[i, 3] = new SourceGrid.Cells.Cell(GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev));
+                grid[i, 3].View = centered;
+
+                //formattedOutput += "Stop: " + diff + ", Units: " + GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + ", ACC%: " + GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + Environment.NewLine;
             }
 
-            formattedOutput = formattedOutput.Trim();
-
-            tbOutput.Text = formattedOutput;
+            grid.AutoSizeCells();
+            grid.Columns.AutoSize(false);
         }
 
         public decimal GetPositionSize(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
