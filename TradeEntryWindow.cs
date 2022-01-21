@@ -27,7 +27,7 @@ namespace Trade_Simulator
             if (risk != 0)
                 tbRisk.Text = risk.ToString();
 
-            tbDate.Text = DateTime.Now.ToShortDateString();
+            tbDate.Value = DateTime.Now;
         }
 
         private void btnOK_Click(object sender, EventArgs e)

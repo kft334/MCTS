@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TradeEntryWindow));
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.cbDirection = new System.Windows.Forms.ComboBox();
             this.cbResult = new System.Windows.Forms.ComboBox();
             this.tbExitPrice = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,21 +54,18 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbTimeOfExit = new System.Windows.Forms.TextBox();
-            this.tbDate = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.tbRisk = new System.Windows.Forms.TextBox();
             this.tbTakeProfit = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tbStoploss = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbDirection = new System.Windows.Forms.ComboBox();
+            this.tbDate = new System.Windows.Forms.DateTimePicker();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,7 @@
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.tbDate);
             this.panel8.Controls.Add(this.btnCancel);
             this.panel8.Controls.Add(this.btnOK);
             this.panel8.Controls.Add(this.cbDirection);
@@ -97,7 +98,6 @@
             this.panel8.Controls.Add(this.label29);
             this.panel8.Controls.Add(this.label5);
             this.panel8.Controls.Add(this.tbTimeOfExit);
-            this.panel8.Controls.Add(this.tbDate);
             this.panel8.Controls.Add(this.label28);
             this.panel8.Controls.Add(this.tbRisk);
             this.panel8.Controls.Add(this.tbTakeProfit);
@@ -113,6 +113,38 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(532, 582);
             this.panel8.TabIndex = 29;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(342, 543);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 18;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(423, 543);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 17;
+            this.btnOK.Text = "Add";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // cbDirection
+            // 
+            this.cbDirection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDirection.FormattingEnabled = true;
+            this.cbDirection.Items.AddRange(new object[] {
+            "Long",
+            "Short"});
+            this.cbDirection.Location = new System.Drawing.Point(110, 107);
+            this.cbDirection.Name = "cbDirection";
+            this.cbDirection.Size = new System.Drawing.Size(388, 21);
+            this.cbDirection.TabIndex = 5;
             // 
             // cbResult
             // 
@@ -298,14 +330,6 @@
             this.tbTimeOfExit.TabIndex = 12;
             this.tbTimeOfExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbDate
-            // 
-            this.tbDate.Location = new System.Drawing.Point(110, 67);
-            this.tbDate.Name = "tbDate";
-            this.tbDate.Size = new System.Drawing.Size(388, 20);
-            this.tbDate.TabIndex = 3;
-            this.tbDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -348,6 +372,15 @@
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Timeframe";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Direction";
             // 
             // label19
             // 
@@ -393,46 +426,12 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Risk %";
             // 
-            // btnOK
+            // tbDate
             // 
-            this.btnOK.Location = new System.Drawing.Point(423, 543);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 17;
-            this.btnOK.Text = "Add";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(342, 543);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 18;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Direction";
-            // 
-            // cbDirection
-            // 
-            this.cbDirection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDirection.FormattingEnabled = true;
-            this.cbDirection.Items.AddRange(new object[] {
-            "Long",
-            "Short"});
-            this.cbDirection.Location = new System.Drawing.Point(110, 107);
-            this.cbDirection.Name = "cbDirection";
-            this.cbDirection.Size = new System.Drawing.Size(388, 21);
-            this.cbDirection.TabIndex = 5;
+            this.tbDate.Location = new System.Drawing.Point(110, 67);
+            this.tbDate.Name = "tbDate";
+            this.tbDate.Size = new System.Drawing.Size(388, 20);
+            this.tbDate.TabIndex = 3;
             // 
             // TradeEntryWindow
             // 
@@ -476,7 +475,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbTimeOfExit;
-        private System.Windows.Forms.TextBox tbDate;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox tbRisk;
         private System.Windows.Forms.TextBox tbTakeProfit;
@@ -492,5 +490,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ComboBox cbDirection;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker tbDate;
     }
 }

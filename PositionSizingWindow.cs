@@ -110,8 +110,6 @@ namespace Trade_Simulator
                 if (sizingType == 2)
                     SizingTuples.Add(new Tuple<decimal, decimal>(diff, GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev)));
 
-                // Add row to table
-
                 grid.Rows.Insert(i);
 
                 grid[i, 0] = new SourceGrid.Cells.Cell(i);
@@ -125,14 +123,10 @@ namespace Trade_Simulator
 
                 grid[i, 3] = new SourceGrid.Cells.Cell(GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev));
                 grid[i, 3].View = centered;
-
-                //formattedOutput += "Stop: " + diff + ", Units: " + GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + ", ACC%: " + GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev) + Environment.NewLine;
             }
 
             grid.AutoSizeCells();
             grid.Columns.AutoSize(false);
-
-            //grid.AutoSize();
 
             grid.Left = 10;
             grid.Top = 10;

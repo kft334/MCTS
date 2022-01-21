@@ -192,7 +192,7 @@ namespace Trade_Simulator
             this.tbStartingBalance.Name = "tbStartingBalance";
             this.tbStartingBalance.Size = new System.Drawing.Size(181, 20);
             this.tbStartingBalance.TabIndex = 1;
-            this.tbStartingBalance.Text = "100";
+            this.tbStartingBalance.Text = "0";
             this.tbStartingBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnProcess
@@ -845,7 +845,7 @@ namespace Trade_Simulator
             this.tbPLBalance.Name = "tbPLBalance";
             this.tbPLBalance.Size = new System.Drawing.Size(127, 20);
             this.tbPLBalance.TabIndex = 31;
-            this.tbPLBalance.Text = "100";
+            this.tbPLBalance.Text = "0";
             this.tbPLBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label34
@@ -1036,7 +1036,7 @@ namespace Trade_Simulator
             this.tbPrincipal.Name = "tbPrincipal";
             this.tbPrincipal.Size = new System.Drawing.Size(97, 20);
             this.tbPrincipal.TabIndex = 46;
-            this.tbPrincipal.Text = "100";
+            this.tbPrincipal.Text = "0";
             this.tbPrincipal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label41
@@ -1313,7 +1313,7 @@ namespace Trade_Simulator
             this.tbPSTableBalance.Name = "tbPSTableBalance";
             this.tbPSTableBalance.Size = new System.Drawing.Size(127, 20);
             this.tbPSTableBalance.TabIndex = 20;
-            this.tbPSTableBalance.Text = "100";
+            this.tbPSTableBalance.Text = "0";
             this.tbPSTableBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbPSTablePrice
