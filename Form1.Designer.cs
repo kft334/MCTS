@@ -200,9 +200,9 @@ namespace Trade_Simulator
             this.btnProcess.BackColor = System.Drawing.Color.Black;
             this.btnProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcess.ForeColor = System.Drawing.Color.White;
-            this.btnProcess.Location = new System.Drawing.Point(128, 310);
+            this.btnProcess.Location = new System.Drawing.Point(125, 302);
             this.btnProcess.Name = "btnProcess";
-            this.btnProcess.Size = new System.Drawing.Size(177, 23);
+            this.btnProcess.Size = new System.Drawing.Size(180, 23);
             this.btnProcess.TabIndex = 15;
             this.btnProcess.TabStop = false;
             this.btnProcess.Text = "Single";
@@ -330,10 +330,10 @@ namespace Trade_Simulator
             // 
             this.tbWon.BackColor = System.Drawing.Color.Black;
             this.tbWon.ForeColor = System.Drawing.Color.White;
-            this.tbWon.Location = new System.Drawing.Point(132, 468);
+            this.tbWon.Location = new System.Drawing.Point(125, 468);
             this.tbWon.Name = "tbWon";
             this.tbWon.ReadOnly = true;
-            this.tbWon.Size = new System.Drawing.Size(173, 20);
+            this.tbWon.Size = new System.Drawing.Size(181, 20);
             this.tbWon.TabIndex = 0;
             this.tbWon.TabStop = false;
             this.tbWon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -342,10 +342,10 @@ namespace Trade_Simulator
             // 
             this.tbWins.BackColor = System.Drawing.Color.Black;
             this.tbWins.ForeColor = System.Drawing.Color.White;
-            this.tbWins.Location = new System.Drawing.Point(132, 384);
+            this.tbWins.Location = new System.Drawing.Point(125, 384);
             this.tbWins.Name = "tbWins";
             this.tbWins.ReadOnly = true;
-            this.tbWins.Size = new System.Drawing.Size(173, 20);
+            this.tbWins.Size = new System.Drawing.Size(181, 20);
             this.tbWins.TabIndex = 0;
             this.tbWins.TabStop = false;
             this.tbWins.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -354,10 +354,10 @@ namespace Trade_Simulator
             // 
             this.tbLost.BackColor = System.Drawing.Color.Black;
             this.tbLost.ForeColor = System.Drawing.Color.White;
-            this.tbLost.Location = new System.Drawing.Point(132, 489);
+            this.tbLost.Location = new System.Drawing.Point(125, 489);
             this.tbLost.Name = "tbLost";
             this.tbLost.ReadOnly = true;
-            this.tbLost.Size = new System.Drawing.Size(173, 20);
+            this.tbLost.Size = new System.Drawing.Size(181, 20);
             this.tbLost.TabIndex = 0;
             this.tbLost.TabStop = false;
             this.tbLost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -375,10 +375,10 @@ namespace Trade_Simulator
             // 
             this.tbLosses.BackColor = System.Drawing.Color.Black;
             this.tbLosses.ForeColor = System.Drawing.Color.White;
-            this.tbLosses.Location = new System.Drawing.Point(132, 405);
+            this.tbLosses.Location = new System.Drawing.Point(125, 405);
             this.tbLosses.Name = "tbLosses";
             this.tbLosses.ReadOnly = true;
-            this.tbLosses.Size = new System.Drawing.Size(173, 20);
+            this.tbLosses.Size = new System.Drawing.Size(181, 20);
             this.tbLosses.TabIndex = 0;
             this.tbLosses.TabStop = false;
             this.tbLosses.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -396,10 +396,10 @@ namespace Trade_Simulator
             // 
             this.tbFeesPaid.BackColor = System.Drawing.Color.Black;
             this.tbFeesPaid.ForeColor = System.Drawing.Color.White;
-            this.tbFeesPaid.Location = new System.Drawing.Point(132, 510);
+            this.tbFeesPaid.Location = new System.Drawing.Point(125, 510);
             this.tbFeesPaid.Name = "tbFeesPaid";
             this.tbFeesPaid.ReadOnly = true;
-            this.tbFeesPaid.Size = new System.Drawing.Size(173, 20);
+            this.tbFeesPaid.Size = new System.Drawing.Size(181, 20);
             this.tbFeesPaid.TabIndex = 0;
             this.tbFeesPaid.TabStop = false;
             this.tbFeesPaid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -435,10 +435,10 @@ namespace Trade_Simulator
             // 
             this.tbProfitsLosses.BackColor = System.Drawing.Color.Black;
             this.tbProfitsLosses.ForeColor = System.Drawing.Color.White;
-            this.tbProfitsLosses.Location = new System.Drawing.Point(132, 531);
+            this.tbProfitsLosses.Location = new System.Drawing.Point(125, 531);
             this.tbProfitsLosses.Name = "tbProfitsLosses";
             this.tbProfitsLosses.ReadOnly = true;
-            this.tbProfitsLosses.Size = new System.Drawing.Size(173, 20);
+            this.tbProfitsLosses.Size = new System.Drawing.Size(181, 20);
             this.tbProfitsLosses.TabIndex = 0;
             this.tbProfitsLosses.TabStop = false;
             this.tbProfitsLosses.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -447,10 +447,10 @@ namespace Trade_Simulator
             // 
             this.tbBalance.BackColor = System.Drawing.Color.Black;
             this.tbBalance.ForeColor = System.Drawing.Color.White;
-            this.tbBalance.Location = new System.Drawing.Point(132, 552);
+            this.tbBalance.Location = new System.Drawing.Point(125, 552);
             this.tbBalance.Name = "tbBalance";
             this.tbBalance.ReadOnly = true;
-            this.tbBalance.Size = new System.Drawing.Size(173, 20);
+            this.tbBalance.Size = new System.Drawing.Size(181, 20);
             this.tbBalance.TabIndex = 0;
             this.tbBalance.TabStop = false;
             this.tbBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -541,10 +541,10 @@ namespace Trade_Simulator
             // 
             this.tbMaxDrawdown.BackColor = System.Drawing.Color.Black;
             this.tbMaxDrawdown.ForeColor = System.Drawing.Color.White;
-            this.tbMaxDrawdown.Location = new System.Drawing.Point(132, 573);
+            this.tbMaxDrawdown.Location = new System.Drawing.Point(125, 573);
             this.tbMaxDrawdown.Name = "tbMaxDrawdown";
             this.tbMaxDrawdown.ReadOnly = true;
-            this.tbMaxDrawdown.Size = new System.Drawing.Size(173, 20);
+            this.tbMaxDrawdown.Size = new System.Drawing.Size(181, 20);
             this.tbMaxDrawdown.TabIndex = 0;
             this.tbMaxDrawdown.TabStop = false;
             this.tbMaxDrawdown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -563,9 +563,9 @@ namespace Trade_Simulator
             this.btnSuperSim.BackColor = System.Drawing.Color.Black;
             this.btnSuperSim.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuperSim.ForeColor = System.Drawing.Color.White;
-            this.btnSuperSim.Location = new System.Drawing.Point(128, 338);
+            this.btnSuperSim.Location = new System.Drawing.Point(125, 330);
             this.btnSuperSim.Name = "btnSuperSim";
-            this.btnSuperSim.Size = new System.Drawing.Size(115, 22);
+            this.btnSuperSim.Size = new System.Drawing.Size(118, 22);
             this.btnSuperSim.TabIndex = 17;
             this.btnSuperSim.TabStop = false;
             this.btnSuperSim.Text = "Multiple";
@@ -574,7 +574,7 @@ namespace Trade_Simulator
             // 
             // numSimCount
             // 
-            this.numSimCount.Location = new System.Drawing.Point(62, 339);
+            this.numSimCount.Location = new System.Drawing.Point(60, 331);
             this.numSimCount.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -622,7 +622,7 @@ namespace Trade_Simulator
             this.btnSupersimPlus.BackColor = System.Drawing.Color.Black;
             this.btnSupersimPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupersimPlus.ForeColor = System.Drawing.Color.White;
-            this.btnSupersimPlus.Location = new System.Drawing.Point(246, 338);
+            this.btnSupersimPlus.Location = new System.Drawing.Point(246, 330);
             this.btnSupersimPlus.Margin = new System.Windows.Forms.Padding(0);
             this.btnSupersimPlus.Name = "btnSupersimPlus";
             this.btnSupersimPlus.Size = new System.Drawing.Size(59, 22);
@@ -636,10 +636,10 @@ namespace Trade_Simulator
             // 
             this.tbConsWins.BackColor = System.Drawing.Color.Black;
             this.tbConsWins.ForeColor = System.Drawing.Color.White;
-            this.tbConsWins.Location = new System.Drawing.Point(132, 426);
+            this.tbConsWins.Location = new System.Drawing.Point(125, 426);
             this.tbConsWins.Name = "tbConsWins";
             this.tbConsWins.ReadOnly = true;
-            this.tbConsWins.Size = new System.Drawing.Size(173, 20);
+            this.tbConsWins.Size = new System.Drawing.Size(181, 20);
             this.tbConsWins.TabIndex = 0;
             this.tbConsWins.TabStop = false;
             this.tbConsWins.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -648,10 +648,10 @@ namespace Trade_Simulator
             // 
             this.tbConsLosses.BackColor = System.Drawing.Color.Black;
             this.tbConsLosses.ForeColor = System.Drawing.Color.White;
-            this.tbConsLosses.Location = new System.Drawing.Point(132, 447);
+            this.tbConsLosses.Location = new System.Drawing.Point(125, 447);
             this.tbConsLosses.Name = "tbConsLosses";
             this.tbConsLosses.ReadOnly = true;
-            this.tbConsLosses.Size = new System.Drawing.Size(173, 20);
+            this.tbConsLosses.Size = new System.Drawing.Size(181, 20);
             this.tbConsLosses.TabIndex = 0;
             this.tbConsLosses.TabStop = false;
             this.tbConsLosses.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -696,10 +696,10 @@ namespace Trade_Simulator
             // 
             this.tbCapReached.BackColor = System.Drawing.Color.Black;
             this.tbCapReached.ForeColor = System.Drawing.Color.White;
-            this.tbCapReached.Location = new System.Drawing.Point(132, 594);
+            this.tbCapReached.Location = new System.Drawing.Point(125, 594);
             this.tbCapReached.Name = "tbCapReached";
             this.tbCapReached.ReadOnly = true;
-            this.tbCapReached.Size = new System.Drawing.Size(173, 20);
+            this.tbCapReached.Size = new System.Drawing.Size(181, 20);
             this.tbCapReached.TabIndex = 0;
             this.tbCapReached.TabStop = false;
             this.tbCapReached.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -716,7 +716,7 @@ namespace Trade_Simulator
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(7, 342);
+            this.label27.Location = new System.Drawing.Point(7, 334);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(50, 13);
             this.label27.TabIndex = 25;
@@ -762,10 +762,10 @@ namespace Trade_Simulator
             // 
             this.tbDaysToComplete.BackColor = System.Drawing.Color.Black;
             this.tbDaysToComplete.ForeColor = System.Drawing.Color.White;
-            this.tbDaysToComplete.Location = new System.Drawing.Point(132, 363);
+            this.tbDaysToComplete.Location = new System.Drawing.Point(125, 363);
             this.tbDaysToComplete.Name = "tbDaysToComplete";
             this.tbDaysToComplete.ReadOnly = true;
-            this.tbDaysToComplete.Size = new System.Drawing.Size(173, 20);
+            this.tbDaysToComplete.Size = new System.Drawing.Size(181, 20);
             this.tbDaysToComplete.TabIndex = 0;
             this.tbDaysToComplete.TabStop = false;
             this.tbDaysToComplete.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1410,7 +1410,7 @@ namespace Trade_Simulator
             // cbLog
             // 
             this.cbLog.AutoSize = true;
-            this.cbLog.Location = new System.Drawing.Point(9, 313);
+            this.cbLog.Location = new System.Drawing.Point(9, 305);
             this.cbLog.Name = "cbLog";
             this.cbLog.Size = new System.Drawing.Size(80, 17);
             this.cbLog.TabIndex = 14;
