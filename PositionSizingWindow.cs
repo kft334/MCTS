@@ -27,8 +27,7 @@ namespace Trade_Simulator
             SourceGrid.Grid grid = new SourceGrid.Grid();
 
             panel1.Controls.Add(grid);
-
-            grid.Dock = DockStyle.Fill;
+            
             grid.BorderStyle = BorderStyle.FixedSingle;
 
             grid.ColumnsCount = 4;
@@ -132,6 +131,13 @@ namespace Trade_Simulator
 
             grid.AutoSizeCells();
             grid.Columns.AutoSize(false);
+
+            //grid.AutoSize();
+
+            grid.Left = 10;
+            grid.Top = 10;
+            grid.Height = panel1.Height - 40;
+            grid.BorderStyle = BorderStyle.None;
         }
 
         public decimal GetPositionSize(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
