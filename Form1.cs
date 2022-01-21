@@ -38,8 +38,12 @@ namespace Trade_Simulator
                     tbAssetBasePrice.Text = state.SIMAssetPrice;
                     tbRiskPerTrade.Text = state.SIMPercentAccountPerTrade;
                     tbWinRate.Text = state.SIMWinRate;
+                    rbP.Checked = state.SIMPSL;
+                    rbT.Checked = state.SIMTSL;
                     tbStopLoss.Text = state.SIMStoploss;
                     tbStopLoss2.Text = state.SIMStoploss2;
+                    tbStopLossTk.Text = state.SIMStoplossTicks;
+                    tbStopLossTk2.Text = state.SIMStoplossTicks2;
                     tbRR.Text = state.SIMRR;
                     tbNumberOfTrades.Text = state.SIMTrades;
                     tbLeverage.Text = state.SIMLeverage;
@@ -268,6 +272,12 @@ namespace Trade_Simulator
 
                 decimal sLPercentMin = decimal.Parse(tbStopLoss.Text) / 100;
                 decimal sLPercentMax = decimal.Parse(tbStopLoss2.Text) / 100;
+
+                if (rbT.Checked)
+                {
+                    sLPercentMin = decimal.Parse(tbStopLossTk.Text) / assetBasePrice;
+                    sLPercentMax = decimal.Parse(tbStopLossTk2.Text) / assetBasePrice;
+                }
 
                 decimal rR = decimal.Parse(tbRR.Text);
 
@@ -543,6 +553,12 @@ namespace Trade_Simulator
 
                     decimal sLPercentMin = decimal.Parse(tbStopLoss.Text) / 100;
                     decimal sLPercentMax = decimal.Parse(tbStopLoss2.Text) / 100;
+
+                    if (rbT.Checked)
+                    {
+                        sLPercentMin = decimal.Parse(tbStopLossTk.Text) / assetBasePrice;
+                        sLPercentMax = decimal.Parse(tbStopLossTk2.Text) / assetBasePrice;
+                    }
 
                     decimal rR = decimal.Parse(tbRR.Text);
 
@@ -1315,8 +1331,12 @@ namespace Trade_Simulator
             state.SIMAssetPrice = tbAssetBasePrice.Text;
             state.SIMPercentAccountPerTrade = tbRiskPerTrade.Text;
             state.SIMWinRate = tbWinRate.Text;
+            state.SIMPSL = rbP.Checked;
+            state.SIMTSL = rbT.Checked;
             state.SIMStoploss = tbStopLoss.Text;
             state.SIMStoploss2 = tbStopLoss2.Text;
+            state.SIMStoplossTicks = tbStopLossTk.Text;
+            state.SIMStoplossTicks2 = tbStopLossTk2.Text;
             state.SIMRR = tbRR.Text;
             state.SIMTrades = tbNumberOfTrades.Text;
             state.SIMLeverage = tbLeverage.Text;
@@ -1390,8 +1410,12 @@ namespace Trade_Simulator
         public string SIMAssetPrice { get; set; }
         public string SIMPercentAccountPerTrade { get; set; }
         public string SIMWinRate { get; set; }
+        public bool SIMPSL { get; set; }
+        public bool SIMTSL { get; set; }
         public string SIMStoploss { get; set; }
         public string SIMStoploss2 { get; set; }
+        public string SIMStoplossTicks { get; set; }
+        public string SIMStoplossTicks2 { get; set; }
         public string SIMRR { get; set; }
         public string SIMTrades { get; set; }
         public string SIMLeverage { get; set; }
