@@ -728,7 +728,7 @@ namespace Trade_Simulator
             this.tbEntriesPerHour.Name = "tbEntriesPerHour";
             this.tbEntriesPerHour.Size = new System.Drawing.Size(181, 20);
             this.tbEntriesPerHour.TabIndex = 12;
-            this.tbEntriesPerHour.Text = "10";
+            this.tbEntriesPerHour.Text = "3";
             this.tbEntriesPerHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label28
@@ -746,7 +746,7 @@ namespace Trade_Simulator
             this.tbHoursPerDay.Name = "tbHoursPerDay";
             this.tbHoursPerDay.Size = new System.Drawing.Size(181, 20);
             this.tbHoursPerDay.TabIndex = 13;
-            this.tbHoursPerDay.Text = "8";
+            this.tbHoursPerDay.Text = "5";
             this.tbHoursPerDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label29
