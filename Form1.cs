@@ -56,7 +56,6 @@ namespace Trade_Simulator
                     numSimCount.Value = state.SIMIterations;
 
                     tbPSTablePrice.Text = state.PSTPrice;
-                    tbPSTableULev.Text = state.PSTLeverage;
                     tbPSTableLoss.Text = state.PSTRisk;
                     tbPSTableFeeEntry.Text = state.PSTEntryFee;
                     tbPSTableFeeExit.Text = state.PSTExitFee;
@@ -892,7 +891,7 @@ namespace Trade_Simulator
                 string pGain = decimal.Round((won) / balance * 100, 2) + "%";
                 string pLoss = decimal.Round((lost) / balance * 100, 2) + "%";
 
-                rtbProfitLossResults.Text = "\nWon: $" + decimal.Round(won, 2) + " (" + pGain + ")" + "\nLost: $" + decimal.Round(lost, 2) + " (" + pLoss + ")" + "\nBE: " + decimal.Round(beWinPercent, 1) + "%";
+                rtbProfitLossResults.Text = "Won: $" + decimal.Round(won, 2) + " (" + pGain + ")" + "\nLost: $" + decimal.Round(lost, 2) + " (" + pLoss + ")" + "\nBE: " + decimal.Round(beWinPercent, 1) + "%";
             }
             catch (Exception exPL)
             {
@@ -1035,8 +1034,7 @@ namespace Trade_Simulator
         {
             try
             {
-                int ulev = int.Parse(tbPSTableULev.Text);
-                decimal balance = decimal.Parse(tbPSTableBalance.Text) * ulev;
+                decimal balance = decimal.Parse(tbPSTableBalance.Text);
                 decimal price = decimal.Parse(tbPSTablePrice.Text);
                 decimal lossPercent = decimal.Parse(tbPSTableLoss.Text) / 100;
                 decimal entryFee = decimal.Parse(tbPSTableFeeEntry.Text) / 100;
@@ -1048,7 +1046,7 @@ namespace Trade_Simulator
 
                 if (sigX != 0)
                 {
-                    PositionSizingWindow psw = new PositionSizingWindow(balance, price, lossPercent, entryFee, exitFee, sigX, stepSize, rows, ulev, 0);
+                    PositionSizingWindow psw = new PositionSizingWindow(balance, price, lossPercent, entryFee, exitFee, sigX, stepSize, rows);
 
                     psw.Show(this);
                 }
@@ -1067,8 +1065,7 @@ namespace Trade_Simulator
         {
             try
             {
-                int ulev = int.Parse(tbPSTableULev.Text);
-                decimal balance = decimal.Parse(tbPSTableBalance.Text) * ulev;
+                decimal balance = decimal.Parse(tbPSTableBalance.Text);
                 decimal price = decimal.Parse(tbPSTablePrice.Text);
                 decimal lossPercent = decimal.Parse(tbPSTableLoss.Text) / 100;
                 decimal entryFee = decimal.Parse(tbPSTableFeeEntry.Text) / 100;
@@ -1080,7 +1077,7 @@ namespace Trade_Simulator
 
                 if (sigX != 0)
                 {
-                    PositionSizingWindow psw = new PositionSizingWindow(balance, price, lossPercent, entryFee, exitFee, sigX, stepSize, rows, ulev, 1);
+                    PositionSizingWindow psw = new PositionSizingWindow(balance, price, lossPercent, entryFee, exitFee, sigX, stepSize, rows);
 
                     List<Tuple<decimal, decimal>> sizingTuples = psw.SizingTuples;
 
@@ -1096,66 +1093,12 @@ namespace Trade_Simulator
                         plot.AddLine((double)sizingTuples[i].Item1, (double)sizingTuples[i].Item2, (double)sizingTuples[i + 1].Item1, (double)sizingTuples[i + 1].Item2, Color.Black);
                     }
 
-                    plot.Title("[Bal:$" + (balance / ulev) + "] [~Asset$:$" + price + "] [Loss:" + lossPercent * 100 + "%]");
+                    plot.Title("[ Bal: $" + (balance) + " ] [ ~Asset$: $" + price + " ] [ Loss: " + lossPercent * 100 + "% ]");
                     plot.YAxis.TickDensity(3);
                     plot.XAxis.TickDensity(2);
                     plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
                     plot.XLabel("Stoploss");
                     plot.YLabel("Units");
-                    plot.AxisAuto();
-
-                    panelGraph.BackgroundImage = new Bitmap(plot.Render(panelGraph.Width, panelGraph.Height));
-                }
-                else
-                {
-                    MessageBox.Show("Sig. X cannot equal zero.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Please check the inputs.");
-            }
-        }
-
-        private void btnPSTPlotPercent_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int ulev = int.Parse(tbPSTableULev.Text);
-                decimal balance = decimal.Parse(tbPSTableBalance.Text) * ulev;
-                decimal price = decimal.Parse(tbPSTablePrice.Text);
-                decimal lossPercent = decimal.Parse(tbPSTableLoss.Text) / 100;
-                decimal entryFee = decimal.Parse(tbPSTableFeeEntry.Text) / 100;
-                decimal exitFee = decimal.Parse(tbPSTableFeeExit.Text) / 100;
-
-                int sigX = (int)nudPSTableSigX.Value;
-                int stepSize = (int)nudPSTableStepSize.Value;
-                int rows = (int)nudPSTableRows.Value;
-
-                if (sigX != 0)
-                {
-                    PositionSizingWindow psw = new PositionSizingWindow(balance, price, lossPercent, entryFee, exitFee, sigX, stepSize, rows, ulev, 2);
-
-                    List<Tuple<decimal, decimal>> sizingTuples = psw.SizingTuples;
-
-                    psw.Dispose();
-
-                    // plot
-                    panelGraph.BackgroundImage = null;
-
-                    plot = new ScottPlot.Plot();
-
-                    for (int i = 0; i < sizingTuples.Count - 1; i++)
-                    {
-                        plot.AddLine((double)sizingTuples[i].Item1, (double)sizingTuples[i].Item2, (double)sizingTuples[i + 1].Item1, (double)sizingTuples[i + 1].Item2, Color.Black);
-                    }
-
-                    plot.Title("[Bal:$" + (balance / ulev) + "] [Lev:" + ulev + "] [Loss:" + lossPercent * 100 + "%]");
-                    plot.YAxis.TickDensity(3);
-                    plot.XAxis.TickDensity(2);
-                    plot.Grid(true, Color.FromArgb(90, Color.Black), ScottPlot.LineStyle.Dash);
-                    plot.XLabel("Stoploss");
-                    plot.YLabel("Account %");
                     plot.AxisAuto();
 
                     panelGraph.BackgroundImage = new Bitmap(plot.Render(panelGraph.Width, panelGraph.Height));
@@ -1181,11 +1124,11 @@ namespace Trade_Simulator
             {
                 Trade last = trades.Last();
 
-                tew = new TradeEntryWindow(last.Exchange, last.Symbol, last.Timeframe, last.Leverage, last.Risk);
+                tew = new TradeEntryWindow(last.Exchange, last.Symbol, last.Timeframe, last.Leverage);
             }
             else
             {
-                tew = new TradeEntryWindow(String.Empty, String.Empty, String.Empty, 0, 0);
+                tew = new TradeEntryWindow(String.Empty, String.Empty, String.Empty, 0);
             }
 
             if (tew.ShowDialog() == DialogResult.OK)
@@ -1205,9 +1148,6 @@ namespace Trade_Simulator
                 TradeViewerWindow tvw = new TradeViewerWindow(trades);
 
                 tvw.ShowDialog();
-
-                //SaveTrades(tvw.AllTrades);
-                
             }
             else
             {
@@ -1259,21 +1199,21 @@ namespace Trade_Simulator
             }
         }
 
-        public void SaveTrades(List<Trade> trades)
-        {
-            try
-            {
-                using (FileStream fs = new FileStream("Trades.bin", FileMode.Truncate))
-                {
-                    BinaryFormatter bf = new BinaryFormatter();
-                    bf.Serialize(fs, trades);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("There was an error saving the changes.");
-            }
-        }
+        //public void SaveTrades(List<Trade> trades)
+        //{
+        //    try
+        //    {
+        //        using (FileStream fs = new FileStream("Trades.bin", FileMode.Truncate))
+        //        {
+        //            BinaryFormatter bf = new BinaryFormatter();
+        //            bf.Serialize(fs, trades);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("There was an error saving the changes.");
+        //    }
+        //}
 
         public void ChangeBalance(decimal balance)
         {
@@ -1288,25 +1228,25 @@ namespace Trade_Simulator
             tbPSTableBalance.Text = balance.ToString();
         }
 
-        public void RemoveTrade(Trade trade)
-        {
-            try
-            {
-                List<Trade> trades = LoadTrades();
+        //public void RemoveTrade(Trade trade)
+        //{
+        //    try
+        //    {
+        //        List<Trade> trades = LoadTrades();
 
-                trades.Remove(trades.Find(t => t.Date == trade.Date & t.TimeOfEntry == trade.TimeOfEntry & t.Symbol == trade.Symbol & t.Exchange == trade.Exchange));
+        //        trades.Remove(trades.Find(t => t.Date == trade.Date & t.TimeOfEntry == trade.TimeOfEntry & t.Symbol == trade.Symbol & t.Exchange == trade.Exchange));
 
-                using (FileStream fs = new FileStream("Trades.bin", FileMode.Truncate))
-                {
-                    BinaryFormatter bf = new BinaryFormatter();
-                    bf.Serialize(fs, trades);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("There was an error removing the trade.");
-            }
-        }
+        //        using (FileStream fs = new FileStream("Trades.bin", FileMode.Truncate))
+        //        {
+        //            BinaryFormatter bf = new BinaryFormatter();
+        //            bf.Serialize(fs, trades);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("There was an error removing the trade.");
+        //    }
+        //}
 
         private void btnResetTrades_Click(object sender, EventArgs e)
         {
@@ -1349,7 +1289,6 @@ namespace Trade_Simulator
             state.SIMIterations = (int)numSimCount.Value;
 
             state.PSTPrice = tbPSTablePrice.Text;
-            state.PSTLeverage = tbPSTableULev.Text;
             state.PSTRisk = tbPSTableLoss.Text;
             state.PSTEntryFee = tbPSTableFeeEntry.Text;
             state.PSTExitFee = tbPSTableFeeExit.Text;
@@ -1428,7 +1367,6 @@ namespace Trade_Simulator
         public int SIMIterations { get; set; }
 
         public string PSTPrice { get; set; }
-        public string PSTLeverage { get; set; }
         public string PSTRisk { get; set; }
         public string PSTEntryFee { get; set; }
         public string PSTExitFee { get; set; }

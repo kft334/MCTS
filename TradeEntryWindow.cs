@@ -14,18 +14,18 @@ namespace Trade_Simulator
     {
         public Trade TradeResult { get; set; }
 
-        public TradeEntryWindow(string exchange, string symbol, string timeframe, int leverage, decimal risk)
+        public TradeEntryWindow(string exchange, string symbol, string timeframe, int leverage)
         {
             InitializeComponent();
 
             tbExchange.Text = exchange;
             tbSymbol.Text = symbol;
-            tbTimeframe.Text = timeframe;
+            cbTimeframe.Text = timeframe;
+            tbTimeOfEntry.Time = DateTime.Now.Hour + ":" + DateTime.Now.Minute;
+            tbTimeOfExit.Time = DateTime.Now.Hour + ":" + DateTime.Now.Minute;
             
             if (leverage != 0)
                 tbLeverage.Text = leverage.ToString();
-            if (risk != 0)
-                tbRisk.Text = risk.ToString();
 
             tbDate.Value = DateTime.Now;
         }
@@ -38,17 +38,16 @@ namespace Trade_Simulator
             {
                 TradeResult.Exchange = tbExchange.Text;
                 TradeResult.Symbol = tbSymbol.Text;
-                TradeResult.Timeframe = tbTimeframe.Text;
+                TradeResult.Timeframe = cbTimeframe.Text;
                 TradeResult.Date = tbDate.Text;
-                TradeResult.TimeOfEntry = tbTimeOfEntry.Text;
+                TradeResult.TimeOfEntry = tbTimeOfEntry.Time;
                 TradeResult.Direction = cbDirection.Text;
                 TradeResult.EntryPrice = decimal.Parse(tbEntryPrice.Text);
                 TradeResult.Units = decimal.Parse(tbUnits.Text);
                 TradeResult.Leverage = int.Parse(tbLeverage.Text);
-                TradeResult.Risk = decimal.Parse(tbRisk.Text);
                 TradeResult.Stoploss = decimal.Parse(tbStoploss.Text);
                 TradeResult.TakeProfit = decimal.Parse(tbTakeProfit.Text);
-                TradeResult.TimeOfExit = tbTimeOfExit.Text;
+                TradeResult.TimeOfExit = tbTimeOfExit.Time;
                 if (cbResult.Text != String.Empty)
                     TradeResult.Result = cbResult.Text;
                 else

@@ -14,7 +14,7 @@ namespace Trade_Simulator
     {
         public List<Tuple<decimal, decimal>> SizingTuples = new List<Tuple<decimal, decimal>>();
 
-        public PositionSizingWindow(decimal balance, decimal price, decimal lossPercent, decimal entryFee, decimal exitFee, int sigX, int stepSz, int rows, int ulev, int sizingType)
+        public PositionSizingWindow(decimal balance, decimal price, decimal lossPercent, decimal entryFee, decimal exitFee, int sigX, int stepSz, int rows)
         {
             InitializeComponent();
 
@@ -22,7 +22,7 @@ namespace Trade_Simulator
 
             string formattedOutput = String.Empty;
 
-            this.Text = "[Bal:$" + (balance / ulev) + "] [~Asset$:$" + price + "] [Lev:" + ulev + "] [Loss:" + lossPercent * 100 + "%]" + Environment.NewLine + Environment.NewLine;
+            this.Text = "[ Balance: $" + (balance) + " ] [ ~Asset$: $" + price + " ] [ Loss: " + lossPercent * 100 + "% ]" + Environment.NewLine + Environment.NewLine;
 
             SourceGrid.Grid grid = new SourceGrid.Grid();
 
@@ -30,7 +30,7 @@ namespace Trade_Simulator
             
             grid.BorderStyle = BorderStyle.FixedSingle;
 
-            grid.ColumnsCount = 4;
+            grid.ColumnsCount = 3;
             grid.FixedRows = 1;
             grid.Rows.Insert(0);
 
@@ -45,7 +45,6 @@ namespace Trade_Simulator
             grid[0, 0] = new SourceGrid.Cells.ColumnHeader("#") { View = header };
             grid[0, 1] = new SourceGrid.Cells.ColumnHeader("Stop") { View = header };
             grid[0, 2] = new SourceGrid.Cells.ColumnHeader("Units") { View = header };
-            grid[0, 3] = new SourceGrid.Cells.ColumnHeader("Acc%") { View = header };
 
             for (int i = 1; i <= rows; i++)
             {
@@ -105,10 +104,7 @@ namespace Trade_Simulator
 
                 decimal diff = tick * stepSz * i;
 
-                if (sizingType == 1)
-                    SizingTuples.Add(new Tuple<decimal, decimal>(diff, GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev)));
-                if (sizingType == 2)
-                    SizingTuples.Add(new Tuple<decimal, decimal>(diff, GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev)));
+                SizingTuples.Add(new Tuple<decimal, decimal>(diff, GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff)));
 
                 grid.Rows.Insert(i);
 
@@ -118,11 +114,8 @@ namespace Trade_Simulator
                 grid[i, 1] = new SourceGrid.Cells.Cell(diff);
                 grid[i, 1].View = centered;
 
-                grid[i, 2] = new SourceGrid.Cells.Cell(GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff, ulev));
+                grid[i, 2] = new SourceGrid.Cells.Cell(GetPositionSize(balance, price, lossPercent, entryFee, exitFee, diff));
                 grid[i, 2].View = centered;
-
-                grid[i, 3] = new SourceGrid.Cells.Cell(GetPositionSizeAccountPercentage(balance, price, lossPercent, entryFee, exitFee, diff, ulev));
-                grid[i, 3].View = centered;
             }
 
             grid.AutoSizeCells();
@@ -134,18 +127,13 @@ namespace Trade_Simulator
             grid.BorderStyle = BorderStyle.None;
         }
 
-        public decimal GetPositionSize(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
+        public decimal GetPositionSize(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference)
         {
-            decimal tradeAmount = (accountBalance * lossPercent - exitFeePercent * priceDifference * ulev) / (ulev * (entryFeePercent + exitFeePercent + priceDifference));
+            decimal units = (accountBalance * lossPercent - exitFeePercent * priceDifference) / ((entryFeePercent + exitFeePercent + priceDifference)) / assetPrice;
 
-            return decimal.Round(tradeAmount / assetPrice, 2);
-        }
+            // decimal units = (lossPercent * accountBalance) / priceDifference / assetPrice;
 
-        public decimal GetPositionSizeAccountPercentage(decimal accountBalance, decimal assetPrice, decimal lossPercent, decimal entryFeePercent, decimal exitFeePercent, decimal priceDifference, int ulev)
-        {
-            decimal tradeAmount = (accountBalance * lossPercent - exitFeePercent * priceDifference * ulev) / (ulev * (entryFeePercent + exitFeePercent + priceDifference));
-
-            return decimal.Round((tradeAmount / accountBalance * 100), 2);
+            return decimal.Round(units, 2);
         }
     }
 }

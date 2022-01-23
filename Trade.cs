@@ -18,7 +18,6 @@ namespace Trade_Simulator
         public decimal EntryPrice { get; set; }
         public decimal Units { get; set; }
         public int Leverage { get; set; }
-        public decimal Risk { get; set; }
         public decimal Stoploss { get; set; }
         public decimal TakeProfit { get; set; }
         public string TimeOfExit { get; set; }

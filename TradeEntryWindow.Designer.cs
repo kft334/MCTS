@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            gTimePickerControl.TimeColors timeColors1 = new gTimePickerControl.TimeColors();
+            gTimePickerControl.TimeColors timeColors2 = new gTimePickerControl.TimeColors();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TradeEntryWindow));
             this.panel8 = new System.Windows.Forms.Panel();
+            this.tbTimeOfExit = new gTimePickerControl.gTimePicker();
+            this.tbTimeOfEntry = new gTimePickerControl.gTimePicker();
+            this.tbDate = new System.Windows.Forms.DateTimePicker();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
+            this.cbTimeframe = new System.Windows.Forms.ComboBox();
             this.cbDirection = new System.Windows.Forms.ComboBox();
             this.cbResult = new System.Windows.Forms.ComboBox();
             this.tbExitPrice = new System.Windows.Forms.TextBox();
@@ -45,17 +52,13 @@
             this.tbSymbol = new System.Windows.Forms.TextBox();
             this.tbExchange = new System.Windows.Forms.TextBox();
             this.tbUnits = new System.Windows.Forms.TextBox();
-            this.tbTimeOfEntry = new System.Windows.Forms.TextBox();
             this.tbEntryPrice = new System.Windows.Forms.TextBox();
-            this.tbTimeframe = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbLeverage = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbTimeOfExit = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.tbRisk = new System.Windows.Forms.TextBox();
             this.tbTakeProfit = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,8 +67,6 @@
             this.tbStoploss = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbDate = new System.Windows.Forms.DateTimePicker();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,9 +74,12 @@
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.tbTimeOfExit);
+            this.panel8.Controls.Add(this.tbTimeOfEntry);
             this.panel8.Controls.Add(this.tbDate);
             this.panel8.Controls.Add(this.btnCancel);
             this.panel8.Controls.Add(this.btnOK);
+            this.panel8.Controls.Add(this.cbTimeframe);
             this.panel8.Controls.Add(this.cbDirection);
             this.panel8.Controls.Add(this.cbResult);
             this.panel8.Controls.Add(this.tbExitPrice);
@@ -89,17 +93,13 @@
             this.panel8.Controls.Add(this.tbSymbol);
             this.panel8.Controls.Add(this.tbExchange);
             this.panel8.Controls.Add(this.tbUnits);
-            this.panel8.Controls.Add(this.tbTimeOfEntry);
             this.panel8.Controls.Add(this.tbEntryPrice);
-            this.panel8.Controls.Add(this.tbTimeframe);
             this.panel8.Controls.Add(this.label1);
             this.panel8.Controls.Add(this.tbLeverage);
             this.panel8.Controls.Add(this.label7);
             this.panel8.Controls.Add(this.label29);
             this.panel8.Controls.Add(this.label5);
-            this.panel8.Controls.Add(this.tbTimeOfExit);
             this.panel8.Controls.Add(this.label28);
-            this.panel8.Controls.Add(this.tbRisk);
             this.panel8.Controls.Add(this.tbTakeProfit);
             this.panel8.Controls.Add(this.label25);
             this.panel8.Controls.Add(this.label2);
@@ -108,15 +108,95 @@
             this.panel8.Controls.Add(this.tbStoploss);
             this.panel8.Controls.Add(this.label8);
             this.panel8.Controls.Add(this.label3);
-            this.panel8.Controls.Add(this.label9);
             this.panel8.Location = new System.Drawing.Point(12, 12);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(532, 582);
             this.panel8.TabIndex = 29;
             // 
+            // tbTimeOfExit
+            // 
+            this.tbTimeOfExit.ButtonForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.tbTimeOfExit.Hr24 = true;
+            this.tbTimeOfExit.Location = new System.Drawing.Point(110, 221);
+            this.tbTimeOfExit.Name = "tbTimeOfExit";
+            this.tbTimeOfExit.NullColorA = System.Drawing.Color.LightSteelBlue;
+            this.tbTimeOfExit.NullColorB = System.Drawing.Color.White;
+            this.tbTimeOfExit.NullHatchStyle = System.Drawing.Drawing2D.HatchStyle.WideDownwardDiagonal;
+            this.tbTimeOfExit.NullTextColor = System.Drawing.Color.Black;
+            this.tbTimeOfExit.NullTextInFront = false;
+            this.tbTimeOfExit.ShowMidMins = true;
+            this.tbTimeOfExit.Size = new System.Drawing.Size(388, 23);
+            this.tbTimeOfExit.TabIndex = 36;
+            this.tbTimeOfExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbTimeOfExit.TextBackColor = System.Drawing.Color.White;
+            this.tbTimeOfExit.TextFont = new System.Drawing.Font("Arial", 10F);
+            this.tbTimeOfExit.TextForeColor = System.Drawing.Color.Black;
+            this.tbTimeOfExit.Time = "07:00";
+            this.tbTimeOfExit.TimeAMPM = gTimePickerControl.gTimePickerCntrl.eTimeAMPM.AM;
+            timeColors1.BackGround = System.Drawing.Color.White;
+            timeColors1.Box = System.Drawing.Color.White;
+            timeColors1.DisplayTime = System.Drawing.Color.Red;
+            timeColors1.FaceInner = System.Drawing.Color.White;
+            timeColors1.FaceOuter = System.Drawing.Color.LightGoldenrodYellow;
+            timeColors1.FrameInner = System.Drawing.Color.AliceBlue;
+            timeColors1.FrameOuter = System.Drawing.Color.CornflowerBlue;
+            timeColors1.Hour = System.Drawing.Color.DarkBlue;
+            timeColors1.HourHand = System.Drawing.Color.DarkBlue;
+            timeColors1.Minute = System.Drawing.Color.Blue;
+            timeColors1.MinuteHand = System.Drawing.Color.OrangeRed;
+            timeColors1.MinutePlus = System.Drawing.Color.LightSlateGray;
+            timeColors1.TimeAMPM_OFF = System.Drawing.Color.LightSteelBlue;
+            timeColors1.TimeAMPM_ON = System.Drawing.Color.MediumBlue;
+            this.tbTimeOfExit.TimeColors = timeColors1;
+            this.tbTimeOfExit.TrueHour = true;
+            // 
+            // tbTimeOfEntry
+            // 
+            this.tbTimeOfEntry.ButtonForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.tbTimeOfEntry.Hr24 = true;
+            this.tbTimeOfEntry.Location = new System.Drawing.Point(110, 85);
+            this.tbTimeOfEntry.Name = "tbTimeOfEntry";
+            this.tbTimeOfEntry.NullColorA = System.Drawing.Color.LightSteelBlue;
+            this.tbTimeOfEntry.NullColorB = System.Drawing.Color.White;
+            this.tbTimeOfEntry.NullHatchStyle = System.Drawing.Drawing2D.HatchStyle.WideDownwardDiagonal;
+            this.tbTimeOfEntry.NullTextColor = System.Drawing.Color.Black;
+            this.tbTimeOfEntry.NullTextInFront = false;
+            this.tbTimeOfEntry.ShowMidMins = true;
+            this.tbTimeOfEntry.Size = new System.Drawing.Size(388, 23);
+            this.tbTimeOfEntry.TabIndex = 36;
+            this.tbTimeOfEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbTimeOfEntry.TextBackColor = System.Drawing.Color.White;
+            this.tbTimeOfEntry.TextFont = new System.Drawing.Font("Arial", 10F);
+            this.tbTimeOfEntry.TextForeColor = System.Drawing.Color.Black;
+            this.tbTimeOfEntry.Time = "09:00";
+            this.tbTimeOfEntry.TimeAMPM = gTimePickerControl.gTimePickerCntrl.eTimeAMPM.AM;
+            timeColors2.BackGround = System.Drawing.Color.White;
+            timeColors2.Box = System.Drawing.Color.White;
+            timeColors2.DisplayTime = System.Drawing.Color.Red;
+            timeColors2.FaceInner = System.Drawing.Color.White;
+            timeColors2.FaceOuter = System.Drawing.Color.LightGoldenrodYellow;
+            timeColors2.FrameInner = System.Drawing.Color.AliceBlue;
+            timeColors2.FrameOuter = System.Drawing.Color.CornflowerBlue;
+            timeColors2.Hour = System.Drawing.Color.DarkBlue;
+            timeColors2.HourHand = System.Drawing.Color.DarkBlue;
+            timeColors2.Minute = System.Drawing.Color.Blue;
+            timeColors2.MinuteHand = System.Drawing.Color.OrangeRed;
+            timeColors2.MinutePlus = System.Drawing.Color.LightSlateGray;
+            timeColors2.TimeAMPM_OFF = System.Drawing.Color.LightSteelBlue;
+            timeColors2.TimeAMPM_ON = System.Drawing.Color.MediumBlue;
+            this.tbTimeOfEntry.TimeColors = timeColors2;
+            this.tbTimeOfEntry.TrueHour = true;
+            // 
+            // tbDate
+            // 
+            this.tbDate.Location = new System.Drawing.Point(110, 66);
+            this.tbDate.Name = "tbDate";
+            this.tbDate.Size = new System.Drawing.Size(388, 20);
+            this.tbDate.TabIndex = 3;
+            // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(342, 543);
+            this.btnCancel.Location = new System.Drawing.Point(342, 518);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 18;
@@ -126,13 +206,39 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(423, 543);
+            this.btnOK.Location = new System.Drawing.Point(423, 518);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 17;
             this.btnOK.Text = "Add";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // cbTimeframe
+            // 
+            this.cbTimeframe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTimeframe.FormattingEnabled = true;
+            this.cbTimeframe.Items.AddRange(new object[] {
+            "1 Min",
+            "2 Mins",
+            "3 Mins",
+            "5 Mins",
+            "10 Mins",
+            "15 Mins",
+            "30 Mins",
+            "1 Hour",
+            "2 Hours",
+            "4 Hours",
+            "8 Hours",
+            "12 Hours",
+            "1 Day",
+            "3 Days",
+            "1 Week",
+            "1 Month"});
+            this.cbTimeframe.Location = new System.Drawing.Point(110, 47);
+            this.cbTimeframe.Name = "cbTimeframe";
+            this.cbTimeframe.Size = new System.Drawing.Size(388, 21);
+            this.cbTimeframe.TabIndex = 5;
             // 
             // cbDirection
             // 
@@ -141,7 +247,7 @@
             this.cbDirection.Items.AddRange(new object[] {
             "Long",
             "Short"});
-            this.cbDirection.Location = new System.Drawing.Point(110, 107);
+            this.cbDirection.Location = new System.Drawing.Point(110, 106);
             this.cbDirection.Name = "cbDirection";
             this.cbDirection.Size = new System.Drawing.Size(388, 21);
             this.cbDirection.TabIndex = 5;
@@ -155,14 +261,14 @@
             "Partial Win",
             "Partial Loss",
             "Loss"});
-            this.cbResult.Location = new System.Drawing.Point(110, 288);
+            this.cbResult.Location = new System.Drawing.Point(110, 263);
             this.cbResult.Name = "cbResult";
             this.cbResult.Size = new System.Drawing.Size(388, 21);
             this.cbResult.TabIndex = 14;
             // 
             // tbExitPrice
             // 
-            this.tbExitPrice.Location = new System.Drawing.Point(110, 268);
+            this.tbExitPrice.Location = new System.Drawing.Point(110, 243);
             this.tbExitPrice.Name = "tbExitPrice";
             this.tbExitPrice.Size = new System.Drawing.Size(388, 20);
             this.tbExitPrice.TabIndex = 13;
@@ -171,7 +277,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 331);
+            this.label6.Location = new System.Drawing.Point(5, 307);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 33;
@@ -179,7 +285,7 @@
             // 
             // tbReasoning
             // 
-            this.tbReasoning.Location = new System.Drawing.Point(110, 329);
+            this.tbReasoning.Location = new System.Drawing.Point(110, 303);
             this.tbReasoning.Multiline = true;
             this.tbReasoning.Name = "tbReasoning";
             this.tbReasoning.Size = new System.Drawing.Size(388, 202);
@@ -189,7 +295,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 311);
+            this.label10.Location = new System.Drawing.Point(5, 288);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 13);
             this.label10.TabIndex = 34;
@@ -197,7 +303,7 @@
             // 
             // tbBalance
             // 
-            this.tbBalance.Location = new System.Drawing.Point(110, 309);
+            this.tbBalance.Location = new System.Drawing.Point(110, 284);
             this.tbBalance.Name = "tbBalance";
             this.tbBalance.Size = new System.Drawing.Size(388, 20);
             this.tbBalance.TabIndex = 15;
@@ -206,7 +312,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 271);
+            this.label11.Location = new System.Drawing.Point(5, 247);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(51, 13);
             this.label11.TabIndex = 25;
@@ -215,7 +321,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 291);
+            this.label12.Location = new System.Drawing.Point(5, 267);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(37, 13);
             this.label12.TabIndex = 26;
@@ -224,7 +330,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(5, 10);
+            this.label17.Location = new System.Drawing.Point(5, 12);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(55, 13);
             this.label17.TabIndex = 2;
@@ -232,7 +338,7 @@
             // 
             // tbSymbol
             // 
-            this.tbSymbol.Location = new System.Drawing.Point(110, 27);
+            this.tbSymbol.Location = new System.Drawing.Point(110, 28);
             this.tbSymbol.Name = "tbSymbol";
             this.tbSymbol.Size = new System.Drawing.Size(388, 20);
             this.tbSymbol.TabIndex = 1;
@@ -240,7 +346,7 @@
             // 
             // tbExchange
             // 
-            this.tbExchange.Location = new System.Drawing.Point(110, 7);
+            this.tbExchange.Location = new System.Drawing.Point(110, 9);
             this.tbExchange.Name = "tbExchange";
             this.tbExchange.Size = new System.Drawing.Size(388, 20);
             this.tbExchange.TabIndex = 0;
@@ -248,40 +354,24 @@
             // 
             // tbUnits
             // 
-            this.tbUnits.Location = new System.Drawing.Point(110, 148);
+            this.tbUnits.Location = new System.Drawing.Point(110, 145);
             this.tbUnits.Name = "tbUnits";
             this.tbUnits.Size = new System.Drawing.Size(388, 20);
             this.tbUnits.TabIndex = 7;
             this.tbUnits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbTimeOfEntry
-            // 
-            this.tbTimeOfEntry.Location = new System.Drawing.Point(110, 87);
-            this.tbTimeOfEntry.Name = "tbTimeOfEntry";
-            this.tbTimeOfEntry.Size = new System.Drawing.Size(388, 20);
-            this.tbTimeOfEntry.TabIndex = 4;
-            this.tbTimeOfEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // tbEntryPrice
             // 
-            this.tbEntryPrice.Location = new System.Drawing.Point(110, 128);
+            this.tbEntryPrice.Location = new System.Drawing.Point(110, 126);
             this.tbEntryPrice.Name = "tbEntryPrice";
             this.tbEntryPrice.Size = new System.Drawing.Size(388, 20);
             this.tbEntryPrice.TabIndex = 6;
             this.tbEntryPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbTimeframe
-            // 
-            this.tbTimeframe.Location = new System.Drawing.Point(110, 47);
-            this.tbTimeframe.Name = "tbTimeframe";
-            this.tbTimeframe.Size = new System.Drawing.Size(388, 20);
-            this.tbTimeframe.TabIndex = 2;
-            this.tbTimeframe.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 30);
+            this.label1.Location = new System.Drawing.Point(5, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 2;
@@ -289,7 +379,7 @@
             // 
             // tbLeverage
             // 
-            this.tbLeverage.Location = new System.Drawing.Point(110, 168);
+            this.tbLeverage.Location = new System.Drawing.Point(110, 164);
             this.tbLeverage.Name = "tbLeverage";
             this.tbLeverage.Size = new System.Drawing.Size(388, 20);
             this.tbLeverage.TabIndex = 8;
@@ -298,7 +388,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 151);
+            this.label7.Location = new System.Drawing.Point(5, 148);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 13);
             this.label7.TabIndex = 2;
@@ -307,7 +397,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(5, 251);
+            this.label29.Location = new System.Drawing.Point(5, 226);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(64, 13);
             this.label29.TabIndex = 24;
@@ -316,40 +406,24 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 90);
+            this.label5.Location = new System.Drawing.Point(5, 89);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 2;
             this.label5.Text = "Time Of Entry";
             // 
-            // tbTimeOfExit
-            // 
-            this.tbTimeOfExit.Location = new System.Drawing.Point(110, 248);
-            this.tbTimeOfExit.Name = "tbTimeOfExit";
-            this.tbTimeOfExit.Size = new System.Drawing.Size(388, 20);
-            this.tbTimeOfExit.TabIndex = 12;
-            this.tbTimeOfExit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(5, 232);
+            this.label28.Location = new System.Drawing.Point(5, 206);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(91, 13);
             this.label28.TabIndex = 24;
             this.label28.Text = "Take Profit, Ticks";
             // 
-            // tbRisk
-            // 
-            this.tbRisk.Location = new System.Drawing.Point(110, 188);
-            this.tbRisk.Name = "tbRisk";
-            this.tbRisk.Size = new System.Drawing.Size(388, 20);
-            this.tbRisk.TabIndex = 9;
-            this.tbRisk.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // tbTakeProfit
             // 
-            this.tbTakeProfit.Location = new System.Drawing.Point(110, 228);
+            this.tbTakeProfit.Location = new System.Drawing.Point(110, 202);
             this.tbTakeProfit.Name = "tbTakeProfit";
             this.tbTakeProfit.Size = new System.Drawing.Size(388, 20);
             this.tbTakeProfit.TabIndex = 11;
@@ -358,7 +432,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(5, 211);
+            this.label25.Location = new System.Drawing.Point(5, 187);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(86, 13);
             this.label25.TabIndex = 24;
@@ -376,7 +450,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 110);
+            this.label4.Location = new System.Drawing.Point(5, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 2;
@@ -385,7 +459,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(5, 131);
+            this.label19.Location = new System.Drawing.Point(5, 129);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(58, 13);
             this.label19.TabIndex = 2;
@@ -393,7 +467,7 @@
             // 
             // tbStoploss
             // 
-            this.tbStoploss.Location = new System.Drawing.Point(110, 208);
+            this.tbStoploss.Location = new System.Drawing.Point(110, 183);
             this.tbStoploss.Name = "tbStoploss";
             this.tbStoploss.Size = new System.Drawing.Size(388, 20);
             this.tbStoploss.TabIndex = 10;
@@ -402,7 +476,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 171);
+            this.label8.Location = new System.Drawing.Point(5, 167);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
             this.label8.TabIndex = 2;
@@ -416,22 +490,6 @@
             this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Date";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(5, 191);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Risk %";
-            // 
-            // tbDate
-            // 
-            this.tbDate.Location = new System.Drawing.Point(110, 67);
-            this.tbDate.Name = "tbDate";
-            this.tbDate.Size = new System.Drawing.Size(388, 20);
-            this.tbDate.TabIndex = 3;
             // 
             // TradeEntryWindow
             // 
@@ -466,17 +524,13 @@
         private System.Windows.Forms.TextBox tbSymbol;
         private System.Windows.Forms.TextBox tbExchange;
         private System.Windows.Forms.TextBox tbUnits;
-        private System.Windows.Forms.TextBox tbTimeOfEntry;
         private System.Windows.Forms.TextBox tbEntryPrice;
-        private System.Windows.Forms.TextBox tbTimeframe;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbLeverage;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbTimeOfExit;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox tbRisk;
         private System.Windows.Forms.TextBox tbTakeProfit;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label2;
@@ -484,12 +538,14 @@
         private System.Windows.Forms.TextBox tbStoploss;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbResult;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ComboBox cbDirection;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker tbDate;
+        private gTimePickerControl.gTimePicker tbTimeOfEntry;
+        private gTimePickerControl.gTimePicker tbTimeOfExit;
+        private System.Windows.Forms.ComboBox cbTimeframe;
     }
 }

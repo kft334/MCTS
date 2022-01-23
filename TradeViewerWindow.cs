@@ -27,7 +27,7 @@ namespace Trade_Simulator
             grid.Dock = DockStyle.Fill;
             grid.BorderStyle = BorderStyle.FixedSingle;
 
-            grid.ColumnsCount = 18;
+            grid.ColumnsCount = 17;
             grid.FixedRows = 1;
             grid.Rows.Insert(0);
 
@@ -65,15 +65,14 @@ namespace Trade_Simulator
             grid[0, 7] = new SourceGrid.Cells.ColumnHeader("EntryPrice") { View = header };
             grid[0, 8] = new SourceGrid.Cells.ColumnHeader("Units") { View = header };
             grid[0, 9] = new SourceGrid.Cells.ColumnHeader("Leverage") { View = header };
-            grid[0, 10] = new SourceGrid.Cells.ColumnHeader("Risk%") { View = header };
-            grid[0, 11] = new SourceGrid.Cells.ColumnHeader("SL") { View = header };
-            grid[0, 12] = new SourceGrid.Cells.ColumnHeader("TP") { View = header };
-            grid[0, 13] = new SourceGrid.Cells.ColumnHeader("TimeOfExit") { View = header };
-            grid[0, 14] = new SourceGrid.Cells.ColumnHeader("ExitPrice") { View = header };
-            grid[0, 15] = new SourceGrid.Cells.ColumnHeader("Result") { View = header };
-            grid[0, 16] = new SourceGrid.Cells.ColumnHeader("Balance") { View = header };
-            grid[0, 17] = new SourceGrid.Cells.ColumnHeader("Reasoning") { View = header };
-
+            grid[0, 10] = new SourceGrid.Cells.ColumnHeader("SL") { View = header };
+            grid[0, 11] = new SourceGrid.Cells.ColumnHeader("TP") { View = header };
+            grid[0, 12] = new SourceGrid.Cells.ColumnHeader("TimeOfExit") { View = header };
+            grid[0, 13] = new SourceGrid.Cells.ColumnHeader("ExitPrice") { View = header };
+            grid[0, 14] = new SourceGrid.Cells.ColumnHeader("Result") { View = header };
+            grid[0, 15] = new SourceGrid.Cells.ColumnHeader("Balance") { View = header };
+            grid[0, 16] = new SourceGrid.Cells.ColumnHeader("Reasoning") { View = header };
+            
             for (int i = 0; i < trades.Count; i++)
             {
                 grid.Rows.Insert(i + 1);
@@ -109,38 +108,35 @@ namespace Trade_Simulator
                 
                 grid[i + 1, 9] = new SourceGrid.Cells.Cell(trade.Leverage);
                 grid[i + 1, 9].View = centered;
-                
-                grid[i + 1, 10] = new SourceGrid.Cells.Cell(trade.Risk + "%");
+
+                grid[i + 1, 10] = new SourceGrid.Cells.Cell(trade.Stoploss);
                 grid[i + 1, 10].View = centered;
                 
-                grid[i + 1, 11] = new SourceGrid.Cells.Cell(trade.Stoploss);
+                grid[i + 1, 11] = new SourceGrid.Cells.Cell(trade.TakeProfit);
                 grid[i + 1, 11].View = centered;
                 
-                grid[i + 1, 12] = new SourceGrid.Cells.Cell(trade.TakeProfit);
+                grid[i + 1, 12] = new SourceGrid.Cells.Cell(trade.TimeOfExit);
                 grid[i + 1, 12].View = centered;
                 
-                grid[i + 1, 13] = new SourceGrid.Cells.Cell(trade.TimeOfExit);
+                grid[i + 1, 13] = new SourceGrid.Cells.Cell(trade.ExitPrice);
                 grid[i + 1, 13].View = centered;
-                
-                grid[i + 1, 14] = new SourceGrid.Cells.Cell(trade.ExitPrice);
-                grid[i + 1, 14].View = centered;
 
-                grid[i + 1, 15] = new SourceGrid.Cells.Cell(trade.Result);
+                grid[i + 1, 14] = new SourceGrid.Cells.Cell(trade.Result);
 
                 if (trade.Result == "Win")
-                    grid[i + 1, 15].View = winCell;
+                    grid[i + 1, 14].View = winCell;
                 else if (trade.Result == "Partial Win")
-                    grid[i + 1, 15].View = winPartialCell;
+                    grid[i + 1, 14].View = winPartialCell;
                 else if (trade.Result == "Partial Loss")
-                    grid[i + 1, 15].View = lossPartialCell;
+                    grid[i + 1, 14].View = lossPartialCell;
                 else if (trade.Result == "Loss")
-                    grid[i + 1, 15].View =lossCell;
+                    grid[i + 1, 14].View =lossCell;
 
-                grid[i + 1, 16] = new SourceGrid.Cells.Cell(trade.Balance);
-                grid[i + 1, 16].View = centered;
+                grid[i + 1, 15] = new SourceGrid.Cells.Cell(trade.Balance);
+                grid[i + 1, 15].View = centered;
 
-                grid[i + 1, 17] = new SourceGrid.Cells.Cell(trade.Reasoning);
-                grid[i + 1, 17].View = left;
+                grid[i + 1, 16] = new SourceGrid.Cells.Cell(trade.Reasoning);
+                grid[i + 1, 16].View = left;
             }
 
             grid.AutoSizeCells();
